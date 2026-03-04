@@ -45,25 +45,30 @@ import "../styles/home.css";
       const revealPoint = 300;
 
       if (scroll > revealPoint) {
+        // NAVBAR REVEAL
         nav.style.opacity = "1";
         nav.style.visibility = "visible";
         nav.style.transform = "translateY(0)";
-        nav.style.pointerEvents = "auto"; // Re-enable clicking the menu
+        nav.style.pointerEvents = "auto"; // Nav becomes clickable
 
+        // CONTENT REVEAL
         content.style.opacity = "1";
         content.style.visibility = "visible";
+        content.style.pointerEvents = "auto"; // Footer links become clickable
       } else {
+        // NAVBAR HIDE
         nav.style.opacity = "0";
         nav.style.visibility = "hidden";
         nav.style.transform = "translateY(-20px)";
-        nav.style.pointerEvents = "none"; // Let touches pass through to the rocket
+        nav.style.pointerEvents = "none"; // Clicks pass through to the rocket
 
+        // CONTENT HIDE
         content.style.opacity = "0";
         content.style.visibility = "hidden";
+        content.style.pointerEvents = "none"; // Blocks accidental footer clicks while rocket is center
       }
     };
 
-    // Passive listener improves mobile scroll performance
     window.addEventListener("scroll", handleReveal, { passive: true });
     handleReveal();
   </script>

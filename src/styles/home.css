@@ -120,3 +120,23 @@
     width: 95% !important;
   }
 }
+
+/* Ensure the content container doesn't block itself */
+#mission-content {
+  position: relative;
+  z-index: 50; /* Higher than background but lower than navbar */
+  pointer-events: none; /* Controlled by script */
+}
+
+/* Force the footer to the very top of the content stack */
+.mission-footer {
+  position: relative;
+  z-index: 100 !important;
+  pointer-events: auto !important; /* Force clicks to work */
+}
+
+/* This prevents the invisible Navbar box from covering the footer links */
+#mission-ui {
+  height: 0; /* Shrink the container so it doesn't hang over the bottom of the screen */
+  overflow: visible;
+}
