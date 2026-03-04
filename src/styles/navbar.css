@@ -95,26 +95,29 @@
 
 /* --- Mobile Overlay (The Cinematic Glass Fix) --- */
 .mobile-overlay {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  /* Deep dark base to block text bleed-through */
-  background: rgba(5, 5, 5, 0.95);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 100000;
+
+  /* Use touch-action to prevent background movement without 'overflow:hidden' */
+  touch-action: none;
+  overscroll-behavior: contain;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 100000;
+  background: rgba(5, 5, 5, 0.98);
+  backdrop-filter: blur(20px);
 
   opacity: 0;
   visibility: hidden;
   clip-path: circle(0% at 90% 5%);
   transition:
-    clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1),
-    opacity 0.5s ease;
+    clip-path 0.6s ease-in-out,
+    opacity 0.4s ease;
   pointer-events: none;
 }
 

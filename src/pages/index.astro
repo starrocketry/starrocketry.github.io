@@ -2,14 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import RocketScroll from "../components/RocketScroll.astro";
-import SponsorMarquee from "../components/SponsorMarquee.astro"; // The new dual-layer marquee
+import SponsorMarquee from "../components/SponsorMarquee.astro";
 import Sponsors from "../components/Sponsors.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/home.css";
 ---
 
-<Layout title="Ground Control">
-  <div id="mission-ui" class="initial-hide">
+<Layout title="REVA STAR Team">
+  <div
+    id="mission-ui"
+    class="initial-hide"
+    style="position: fixed; width: 100%; z-index: 99999; top: 0; left: 0;"
+  >
     <Navbar />
   </div>
 
@@ -41,27 +45,26 @@ import "../styles/home.css";
       const revealPoint = 300;
 
       if (scroll > revealPoint) {
-        // Show Navigation with slide-down
         nav.style.opacity = "1";
         nav.style.visibility = "visible";
         nav.style.transform = "translateY(0)";
+        nav.style.pointerEvents = "auto"; // Re-enable clicking the menu
 
-        // Reveal the space-centered content
         content.style.opacity = "1";
         content.style.visibility = "visible";
       } else {
-        // Hide UI to focus on the Rocket
         nav.style.opacity = "0";
         nav.style.visibility = "hidden";
         nav.style.transform = "translateY(-20px)";
+        nav.style.pointerEvents = "none"; // Let touches pass through to the rocket
 
         content.style.opacity = "0";
         content.style.visibility = "hidden";
       }
     };
 
-    window.addEventListener("scroll", handleReveal);
-    // Execute on load to check position
+    // Passive listener improves mobile scroll performance
+    window.addEventListener("scroll", handleReveal, { passive: true });
     handleReveal();
   </script>
 </Layout>

@@ -49,52 +49,31 @@ import "../styles/navbar.css";
         <a href="/publications" style="--i:4">PUBLICATIONS</a>
         <a href="/personnel" style="--i:5">PERSONNEL</a>
       </div>
-
-      <div class="menu-footer">
-        <span class="status-indicator">
-          <span class="pulse"></span> UPLINK_ACTIVE
-        </span>
-      </div>
     </div>
   </div>
 </nav>
 
 <script>
-  /**
-   * Cinematic Navigation Logic
-   * Focuses on absolute isolation of the background when active.
-   */
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
-  const html = document.documentElement;
-  const body = document.body;
 
-  toggle?.addEventListener("click", () => {
-    const isOpening = !menu?.classList.contains("is-visible");
+  const toggleMenu = (forceClose = false) => {
+    const isOpening = forceClose
+      ? false
+      : !menu?.classList.contains("is-visible");
 
-    toggle.classList.toggle("is-active");
-    menu?.classList.toggle("is-visible");
+    toggle?.classList.toggle("is-active", isOpening);
+    menu?.classList.toggle("is-visible", isOpening);
 
-    if (isOpening) {
-      // Force lock on both containers to prevent background scrolling/ghosting
-      html.style.overflow = "hidden";
-      body.style.overflow = "hidden";
-      body.style.height = "100vh";
-    } else {
-      html.style.overflow = "";
-      body.style.overflow = "";
-      body.style.height = "";
+    // Manage touch layers without freezing the browser scroll
+    if (menu) {
+      menu.style.pointerEvents = isOpening ? "auto" : "none";
     }
-  });
+  };
 
-  // Automatically clean up state and restore scroll if a link is clicked
-  const navLinks = document.querySelectorAll(".overlay-links a");
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      toggle?.classList.remove("is-active");
-      menu?.classList.remove("is-visible");
-      html.style.overflow = "";
-      body.style.overflow = "";
-    });
+  toggle?.addEventListener("click", () => toggleMenu());
+
+  document.querySelectorAll(".overlay-links a").forEach((link) => {
+    link.addEventListener("click", () => toggleMenu(true));
   });
 </script>
