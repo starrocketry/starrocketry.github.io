@@ -170,4 +170,13 @@
   .tactical-sidebar {
     order: 2;
   }
+
+  /* Releases the footer from grid horizontal constraints */
+  .mission-footer {
+    width: 100% !important;
+    margin: 60px 0 0 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 !important;
+  }
 }

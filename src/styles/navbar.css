@@ -208,31 +208,13 @@
 .overlay-links a:hover {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(0, 255, 119, 0.3);
-  color: #00ff77 !important;
+  color: #00ff77;
   box-shadow: 0 0 20px rgba(0, 255, 119, 0.1);
   transform: scale(1.02);
 }
 
 .menu-footer {
   margin-top: 50px;
-}
-
-.status-indicator {
-  font-family: monospace;
-  font-size: 0.6rem;
-  color: #00ff77;
-  letter-spacing: 3px;
-}
-
-.pulse {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: #00ff77;
-  border-radius: 50%;
-  margin-right: 8px;
-  box-shadow: 0 0 8px #00ff77;
-  animation: navPulse 2s infinite;
 }
 
 @keyframes navPulse {
