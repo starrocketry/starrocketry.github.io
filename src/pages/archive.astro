@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/archive.css";
+
+// 1. Fetch all learning resources
+const learningPosts = await Astro.glob("../content/learning/*.md");
+
+// 2. Define our high-level categories for the top "Sorting Cards"
+const mainCategories = [
+  "PROPULSION",
+  "AVIONICS",
+  "MANUFACTURING",
+  "CAD",
+  "3D PRINTING",
+];
+---
+
+<Layout title="Archive">
+  <Navbar />
+  <main class="archive-container">
+    <header class="archive-header">
+      <div class="status-tag"><span class="dot"></span>MARKDOWN</div>
+      <h1>PROJECT FILES</h1>
+      <p class="subtitle">Filter by topic or browse the entire database</p>
+    </header>
+
+    <section class="sorting-grid">
+      {
+        mainCategories.map((cat) => (
+          <button class="sort-card" data-filter={cat}>
+            <span class="sort-number">
+              // 0{mainCategories.indexOf(cat) + 1}
+            </span>
+            <span class="sort-label">{cat}</span>
+          </button>
+        ))
+      }
+      <button class="sort-card active" data-filter="all">
+        <span class="sort-number">// 00</span>
+        <span class="sort-label">SHOW ALL</span>
+      </button>
+    </section>
+
+    <section class="learning-docs">
+      <div class="list-header">
+        <span class="col">CATEGORY</span>
+        <span class="col">DOCUMENT</span>
+        <span class="col">TIMESTAMP</span>
+      </div>
+
+      <div class="doc-list" id="document-database">
+        {
+          learningPosts.map((post) => (
+            <a
+              href={`/learning/${post.file.split("/").pop()?.split(".")[0]}`}
+              class="doc-item"
+              data-tags={post.frontmatter.tags?.join(",")}
+            >
+              <span class="doc-cat">
+                {post.frontmatter.tags?.[0] || "GENERAL"}
+              </span>
+              <span class="doc-title">{post.frontmatter.title}</span>
+              <span class="doc-date">{post.frontmatter.date}</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  <script>
+    const filterButtons = document.querySelectorAll(".sort-card");
+    const docItems = document.querySelectorAll(".doc-item");
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+
+        // Update active state
+        filterButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Filter List
+        docItems.forEach((item) => {
+          const tags = item.getAttribute("data-tags") || "";
+          if (filter === "all" || tags.includes(filter)) {
+            (item as HTMLElement).style.display = "grid";
+          } else {
+            (item as HTMLElement).style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+</Layout>

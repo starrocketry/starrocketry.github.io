@@ -1,0 +1,70 @@
+---
+import "../styles/rocket.css";
+---
+
+<div class="launch-sequence">
+  <section class="deep-space">
+    <div id="star-field-back" class="star-layer"></div>
+    <div id="star-field-front" class="star-layer"></div>
+
+    <div class="rocket-core" id="rocket">
+      <div class="rocket-wrapper">
+        <img src="/star-rocket.svg" alt="Rocket" class="rocket-svg" />
+        <div class="plasma-trail"></div>
+      </div>
+    </div>
+
+    <div class="titles-container" id="titles">
+      <div class="main-logo">
+        <img src="/star-text.svg" alt="STAR Logo" />
+      </div>
+      <p class="subtitle">INTO THE VOID</p>
+    </div>
+  </section>
+
+  <div class="scroll-spacer"></div>
+</div>
+
+<script>
+  // STAR GENERATOR logic (Keep your existing createStars function here)
+  function createStars(containerId, count, size) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    let shadows = [];
+    for (let i = 0; i < count; i++) {
+      const x = Math.floor(Math.random() * 2000);
+      const y = Math.floor(Math.random() * 2000);
+      shadows.push(`${x}px ${y}px #fff`);
+    }
+    container.style.boxShadow = shadows.join(", ");
+    container.style.width = size + "px";
+    container.style.height = size + "px";
+  }
+
+  createStars("star-field-back", 1000, 1);
+  createStars("star-field-front", 200, 2);
+
+  // SCROLL ANIMATION
+  window.addEventListener("scroll", () => {
+    const s = window.scrollY;
+    const rocket = document.getElementById("rocket");
+    const titles = document.getElementById("titles");
+    const back = document.getElementById("star-field-back");
+    const front = document.getElementById("star-field-front");
+
+    // Launch Rocket upwards
+    if (rocket) {
+      rocket.style.transform = `translate(-50%, calc(-60% - ${s * 3}px))`;
+    }
+
+    // Fade and slightly sink the logo/text
+    if (titles) {
+      titles.style.opacity = `${1 - s / 500}`;
+      titles.style.transform = `translate(-50%, ${s * 0.1}px)`;
+    }
+
+    // Parallax background stars
+    if (back) back.style.transform = `translateY(${s * 0.1}px)`;
+    if (front) front.style.transform = `translateY(${s * 0.3}px)`;
+  });
+</script>

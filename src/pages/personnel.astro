@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/personnel.css";
+
+const team = [
+  {
+    name: "Abhay Nandan",
+    role: "President",
+    photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=1", // Placeholder
+    github: "https://github.com",
+    linkedin: "https://linkedin.com",
+    orcid: "0000000001",
+    discord: "alpha_mail69420",
+  },
+  {
+    name: "Akshay M",
+    role: "Vide President",
+    photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=1",
+    github: "https://github.com",
+    linkedin: "https://linkedin.com",
+    orcid: "0000000002",
+    discord: "beta_mail69420",
+  },
+  {
+    name: "Dhruv K",
+    role: "Technical Head",
+    photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=1",
+    github: "https://github.com",
+    linkedin: "https://linkedin.com",
+    orcid: "00000000005",
+    discord: "delta_mail42069",
+  },
+];
+---
+
+<Layout title="Personnel">
+  <Navbar />
+  <main class="team-container">
+    <header class="team-header">
+      <div class="badge">DIRECTORY</div>
+      <h1>MISSION CONTROL</h1>
+    </header>
+
+    <div class="team-grid">
+      {
+        team.map((member) => (
+          <div class="member-card glass">
+            <div class="photo-wrapper">
+              <img src={member.photo} alt={member.name} />
+            </div>
+
+            <div class="info">
+              <h3>{member.name}</h3>
+              <p class="role">{member.role}</p>
+            </div>
+
+            <div class="divider" />
+
+            <div class="socials">
+              <a href={member.github} target="_blank" class="social-link">
+                GITHUB
+              </a>
+              <a href={member.linkedin} target="_blank" class="social-link">
+                LINKEDIN
+              </a>
+              <a href={member.orcid} target="_blank" class="social-link">
+                ORCiD
+              </a>
+              <div class="discord-tag">
+                <span class="label">DISCORD:</span>
+                <span class="id">{member.discord}</span>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+  <Footer />
+</Layout>

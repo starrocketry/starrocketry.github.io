@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/publications.css";
+
+const papers = [
+  {
+    title: "Nothing Published Yet",
+    journal: "Journal of Nothing",
+    authors: "None, et.al.",
+    year: "2025",
+    doi: "https://doi.org/10.2514/1.XXXXXX",
+    status: "Nothing",
+    tags: ["PROPULSION", "AERODYNAMICS"],
+  },
+  {
+    title: "Nothing Published Yet",
+    journal: "Hahahaha",
+    authors: "Human",
+    year: "2026",
+    doi: "#",
+    status: "UNDER_REVIEW",
+    tags: ["RECOVERY", "AVIONICS"],
+  },
+];
+---
+
+<Layout title="Publications | STAR Rocketry">
+  <Navbar />
+
+  <main class="pub-container">
+    <header class="pub-header">
+      <div class="header-meta">
+        <span class="index-num">// VOL_01</span>
+        <span class="status-indicator"
+          ><span class="pulse"></span> LIVE_DATABASE</span
+        >
+      </div>
+      <h1>RESEARCH_PUBLICATIONS</h1>
+      <p class="description">
+        Documented scientific advancements and peer-reviewed contributions to
+        aerospace engineering.
+      </p>
+    </header>
+
+    <section class="pub-list">
+      {
+        papers.map((paper) => (
+          <article class="paper-entry">
+            <div class="entry-sidebar">
+              <span class="paper-year">{paper.year}</span>
+              <span class={`status-badge ${paper.status.toLowerCase()}`}>
+                {paper.status}
+              </span>
+            </div>
+
+            <div class="entry-main">
+              <div class="tag-row">
+                {paper.tags.map((tag) => (
+                  <span class="tag">[{tag}]</span>
+                ))}
+              </div>
+              <h2 class="paper-title">{paper.title}</h2>
+              <p class="paper-authors">{paper.authors}</p>
+              <p class="paper-journal">
+                Published in: <em>{paper.journal}</em>
+              </p>
+
+              <div class="action-row">
+                <a href={paper.doi} target="_blank" class="doi-link">
+                  ACCESS_DOI{" "}
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                </a>
+                <button
+                  class="cite-btn"
+                  onclick="alert('Citation copied to clipboard (Simulated)')"
+                >
+                  COPY_CITATION
+                </button>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

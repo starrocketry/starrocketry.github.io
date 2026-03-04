@@ -1,0 +1,73 @@
+.deep-space {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ROCKET POSITIONING (Top Half) */
+.rocket-core {
+  position: absolute;
+  top: 40%; /* Anchors rocket above the logo center */
+  left: 50%;
+  transform: translate(-50%, -60%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.rocket-svg {
+  width: 130px; /* Adjust to match your desired rocket scale */
+  height: auto;
+  filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.8));
+}
+
+.plasma-trail {
+  width: 20px;
+  height: 100px;
+  background: linear-gradient(to bottom, #fff, transparent);
+  margin: -10px auto 0;
+  filter: blur(15px);
+  opacity: 0.5;
+}
+
+/* LOGO & SUBTITLE POSITIONING (Bottom Half) */
+.titles-container {
+  position: absolute;
+  bottom: 15%; /* Anchored to bottom, below the rocket */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85vw;
+  max-width: 1000px;
+  text-align: center;
+  z-index: 5;
+}
+
+.main-logo img {
+  width: 50%;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+}
+
+.subtitle {
+  margin-top: 20px;
+  color: #fff;
+  font-family: monospace; /* Matches the 'Into the Void' look */
+  letter-spacing: 1rem;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.star-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+}
+
+.scroll-spacer {
+  height: 250vh;
+}

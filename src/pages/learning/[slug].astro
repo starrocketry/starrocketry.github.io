@@ -1,0 +1,130 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+// 1. Generate paths for all .md files in src/content/learning/
+export async function getStaticPaths() {
+  const posts = await Astro.glob("../../content/learning/*.md");
+
+  return posts.map((post) => ({
+    params: {
+      // Extract filename from path (e.g., "basics.md" becomes "basics")
+      slug: post.file.split("/").pop()?.split(".")[0],
+    },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = post;
+const { title, date, category, author } = post.frontmatter;
+---
+
+<Layout title={title}>
+  <Navbar />
+
+  <main class="reading-container">
+    <article class="prose-mission">
+      <header class="doc-meta">
+        <div class="breadcrumb">
+          <a href="/archive">ARCHIVE</a> / <span class="current"
+            >{category}</span
+          >
+        </div>
+        <h1 class="glitch-text">{title}</h1>
+        <div class="author-bar">
+          <span>OPERATOR: {author}</span>
+          <span class="spacer">|</span>
+          <span>TIMESTAMP: {date}</span>
+        </div>
+      </header>
+
+      <div class="markdown-content">
+        <Content />
+      </div>
+
+      <div class="doc-footer">
+        <a href="/archive" class="back-btn">← RETURN TO FILES</a>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .reading-container {
+    background: #000;
+    min-height: 100vh;
+    padding: 160px 20px 100px;
+    color: #ccc;
+  }
+
+  .prose-mission {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .breadcrumb {
+    font-family: monospace;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .breadcrumb a {
+    color: #666;
+    text-decoration: none;
+  }
+  .current {
+    color: #00ff77;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: #fff;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .author-bar {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: #444;
+    border-bottom: 1px solid #111;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+  }
+
+  /* Styling the Markdown Content */
+  .markdown-content :global(h2) {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 40px;
+    border-left: 3px solid #00ff77;
+    padding-left: 15px;
+  }
+
+  .markdown-content :global(p) {
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .back-btn {
+    display: inline-block;
+    margin-top: 60px;
+    color: #00ff77;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.8rem;
+    border: 1px solid #00ff7733;
+    padding: 10px 20px;
+    transition: 0.3s;
+  }
+
+  .back-btn:hover {
+    background: #00ff77;
+    color: #000;
+  }
+</style>

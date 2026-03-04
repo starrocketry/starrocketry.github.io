@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/about.css";
+---
+
+<Layout title="Mission Control | About">
+  <Navbar />
+
+  <main class="about-container">
+    <header class="about-header">
+      <span class="serial-number">MISSION_ORIGIN_v2.0</span>
+      <h1 class="glitch">ABOUT THE NODE</h1>
+      <p class="subtitle">
+        Establishing a permanent digital presence in the deep void.
+      </p>
+    </header>
+
+    <section class="dossier-row">
+      <div class="dossier-image glass">
+        <img src="/images/origin.jpg" alt="Origin Story" />
+        <div class="image-overlay"></div>
+      </div>
+      <div class="dossier-text">
+        <label>01 // THE VISION</label>
+        <h2>THE VOID ARCHITECTS</h2>
+        <p>
+          Founded in the silence of deep space, Astro Node was built to solve
+          the most complex orbital challenges. We don't just build systems; we
+          build infrastructures for the next century of exploration.
+        </p>
+        <ul class="spec-list">
+          <li><span>ESTABLISHED:</span> 2024</li>
+          <li><span>SECTOR:</span> DEEP_SPACE_OPS</li>
+          <li><span>STATUS:</span> ACTIVE</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="dossier-row reverse">
+      <div class="dossier-image glass">
+        <img src="/images/tech.jpg" alt="Technology" />
+        <div class="image-overlay"></div>
+      </div>
+      <div class="dossier-text">
+        <label>02 // TECHNOLOGY</label>
+        <h2>NEURAL ARCHITECTURE</h2>
+        <p>
+          Utilizing sub-atomic processing and glass-morphism data visualization,
+          our interface allows for seamless communication between ground control
+          and distant orbital nodes.
+        </p>
+        <button class="glass-btn">VIEW_SCHEMATICS</button>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,132 @@
+/* --- Base Navbar Container --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px; /* Slightly tighter padding for the 5-tab layout */
+  width: 90%;
+  max-width: 1050px; /* Increased max-width slightly to accommodate extra tab */
+  margin: 20px auto;
+  z-index: 10000;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* --- Desktop Link Styling --- */
+.desktop-only {
+  display: flex;
+  gap: 5px; /* Reduced gap to allow all 5 tabs to sit comfortably */
+}
+
+/* Targets all links to fix the purple/blue issue */
+.desktop-only a,
+.overlay-links a {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 0.65rem; /* Shaved off a tiny bit for better fit */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 15px; /* Tighter padding for horizontal flow */
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- The "Fully Glassy" Hover State --- */
+.desktop-only a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+/* --- Hamburger Button --- */
+#menu-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 10001;
+  padding: 10px;
+}
+
+#menu-toggle .line {
+  width: 22px;
+  height: 1.5px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+/* --- Mobile Overlay Styles --- */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.98);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s;
+  z-index: 10000;
+}
+
+.mobile-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Reduced gap for mobile height clearance */
+  text-align: center;
+  max-height: 90vh; /* Ensures 5 links don't cut off on short phones */
+  overflow-y: auto;
+}
+
+/* Large links in mobile menu */
+.overlay-links a {
+  font-size: 1.3rem; /* Slightly smaller for better mobile fit */
+  letter-spacing: 6px;
+  font-weight: 200;
+  padding: 12px;
+}
+
+.overlay-links a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  letter-spacing: 10px;
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+  }
+
+  .navbar {
+    width: 95%;
+    padding: 12px 20px;
+  }
+
+  /* Hamburger Animation to 'X' */
+  #menu-toggle.is-active .line:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  #menu-toggle.is-active .line:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+}

@@ -1,0 +1,59 @@
+---
+import "../styles/marquee.css";
+
+const commanders = [
+  { name: "NEBULA CORP", rank: "COMMANDER", logo: "/logos/nebula.svg" },
+  { name: "NOVA TECH", rank: "CHIEF OFFICER", logo: "/logos/nova.svg" },
+  { name: "VOID SYSTEMS", rank: "FLIGHT DIRECTOR", logo: "/logos/void.svg" },
+  { name: "ZENITH OPS", rank: "COMMANDER", logo: "/logos/zenith.svg" },
+];
+
+const crew = [
+  { name: "STELLAR LABS", rank: "PILOT", logo: "/logos/stellar.svg" },
+  { name: "ORBITAL IX", rank: "ASTRONAUT", logo: "/logos/orbital.svg" },
+  { name: "STARLINK OPS", rank: "ENGINEER", logo: "/logos/starlink.svg" },
+  {
+    name: "VECTOR ZERO",
+    rank: "MISSION SPECIALIST",
+    logo: "/logos/vector.svg",
+  },
+];
+---
+
+<div class="marquee-wrapper">
+  <div class="marquee-container">
+    <div class="marquee-content left">
+      {
+        [...commanders, ...commanders].map((s) => (
+          <div class="sponsor-tag glass rank-high">
+            <div class="sponsor-brand">
+              <img src={s.logo} alt={s.name} class="sponsor-logo" />
+              <div class="sponsor-info">
+                <span class="rank-label">{s.rank}</span>
+                <span class="sponsor-name">{s.name}</span>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="marquee-container">
+    <div class="marquee-content right">
+      {
+        [...crew, ...crew].map((s) => (
+          <div class="sponsor-tag glass">
+            <div class="sponsor-brand">
+              <img src={s.logo} alt={s.name} class="sponsor-logo" />
+              <div class="sponsor-info">
+                <span class="rank-label">{s.rank}</span>
+                <span class="sponsor-name">{s.name}</span>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

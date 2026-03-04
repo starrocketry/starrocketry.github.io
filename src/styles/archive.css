@@ -1,0 +1,156 @@
+/* --- Global Settings --- */
+.archive-container {
+  padding: 160px 5% 100px;
+  background: #000;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- Top Sorting Cards --- */
+.sorting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 80px;
+}
+
+.sort-card {
+  background: transparent;
+  border: 1px solid #222;
+  padding: 30px 20px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.sort-number {
+  font-family: monospace;
+  font-size: 0.6rem;
+  color: #444;
+}
+
+.sort-label {
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #888;
+}
+
+/* --- Sorting Active/Hover --- */
+.sort-card:hover {
+  border-color: #666;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.sort-card.active {
+  border-color: #fff;
+  background: #fff;
+}
+
+.sort-card.active .sort-label,
+.sort-card.active .sort-number {
+  color: #000;
+}
+
+/* --- Document List --- */
+.list-header {
+  display: grid;
+  grid-template-columns: 200px 1fr 150px;
+  padding: 0 30px 15px;
+  border-bottom: 1px solid #111;
+  font-family: monospace;
+  font-size: 0.6rem;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+.doc-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-item {
+  display: grid;
+  /* MUST be identical to .list-header */
+  grid-template-columns: 200px 1fr 150px;
+  padding: 25px 30px; /* Side padding MUST match .list-header */
+  border-bottom: 1px solid #111;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: transparent;
+  align-items: center; /* Vertically centers text if lines wrap */
+}
+
+.doc-cat {
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+.doc-title {
+  color: #aaa;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.doc-date {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: #333;
+  text-align: right;
+}
+
+/* --- List Hover --- */
+.doc-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.doc-item:hover .doc-title {
+  color: #fff;
+}
+
+.doc-item:hover .doc-cat {
+  color: #00ff77; /* Subtle green accent on hover */
+}
+
+/* Header Adjustments */
+h1 {
+  font-size: 3.5rem;
+  letter-spacing: -2px;
+  color: #fff;
+  margin: 10px 0;
+}
+
+.subtitle {
+  color: #444;
+  margin-bottom: 50px;
+  font-size: 0.85rem;
+}
+
+.list-header {
+  display: grid;
+  /* Columns: 200px for System, Remaining space for Title, 150px for Date */
+  grid-template-columns: 200px 1fr 150px;
+  padding: 0 30px 15px; /* Side padding MUST match .doc-item */
+  border-bottom: 1px solid #111;
+  font-family: monospace;
+  font-size: 0.6rem;
+  color: #333;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.col:last-child,
+.doc-date {
+  text-align: right; /* Aligns both the 'TIMESTAMP' text and the date numbers to the right */
+}
+
+.col:nth-child(2),
+.doc-title {
+  text-align: left;
+  padding-left: 20px; /* Gives the title some breathing room from the System tag */
+}

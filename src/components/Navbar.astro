@@ -1,0 +1,50 @@
+---
+import "../styles/navbar.css";
+---
+
+<nav class="navbar glass">
+  <div class="logo">
+    <img
+      src="/public/star-text.svg"
+      alt="star text logo"
+      style="width: 75px;"
+    />
+  </div>
+
+  <div class="links desktop-only">
+    <a href="/">HOME</a>
+    <a href="/about">ABOUT</a>
+    <a href="/projects">PROJECTS</a>
+    <a href="/publications">PUBLICATIONS</a>
+    <a href="/personnel">PERSONNEL</a>
+  </div>
+
+  <button id="menu-toggle" class="mobile-only" aria-label="Toggle Menu">
+    <span class="line"></span>
+    <span class="line"></span>
+  </button>
+
+  <div id="mobile-menu" class="mobile-overlay">
+    <div class="overlay-links">
+      <a href="/">HOME</a>
+      <a href="/about">ABOUT</a>
+      <a href="/projects">PROJECTS</a>
+      <a href="/publications">PUBLICATIONS</a>
+      <a href="/team">TEAM</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+
+  toggle?.addEventListener("click", () => {
+    toggle.classList.toggle("is-active");
+    menu?.classList.toggle("is-visible");
+    // Prevent background scrolling when menu is open
+    document.body.style.overflow = menu?.classList.contains("is-visible")
+      ? "hidden"
+      : "";
+  });
+</script>
