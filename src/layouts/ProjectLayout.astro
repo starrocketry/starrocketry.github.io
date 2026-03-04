@@ -34,7 +34,9 @@ const { frontmatter } = Astro.props;
           </div>
           <div class="meta-item">
             <span class="label">STATUS</span>
-            <span class="value status-active">OPERATIONAL</span>
+            <span class={`value status-${frontmatter.status?.toLowerCase()}`}>
+              {frontmatter.status || "OPERATIONAL"}
+            </span>
           </div>
         </div>
       </div>
@@ -45,18 +47,30 @@ const { frontmatter } = Astro.props;
         <div class="sidebar-box glass">
           <h3>ARCHIVE_INFO</h3>
           <ul>
-            <li><span>ORIGIN:</span> GROUND_CONTROL</li>
-            <li><span>CLEARANCE:</span> LEVEL_04</li>
-            <li><span>ENCRYPTION:</span> AES_256</li>
+            <li>
+              <span>ORIGIN:</span>
+              {frontmatter.origin || "GROUND_CONTROL"}
+            </li>
+            <li>
+              <span>CLEARANCE:</span>
+              {frontmatter.clearance || "LEVEL_01"}
+            </li>
+            <li><span>ENCRYPTION:</span> {frontmatter.encryption || "NONE"}</li>
           </ul>
         </div>
         <div class="sidebar-box glass">
           <h3>TELEMETRY</h3>
           <div class="stat-row">
             <div class="stat-bar">
-              <div class="fill" style="width: 85%;"></div>
+              <div
+                class="fill"
+                style={`width: ${frontmatter.integrity || 0}%;`}
+              >
+              </div>
             </div>
-            <span class="stat-label">DATA_INTEGRITY 85%</span>
+            <span class="stat-label"
+              >DATA_INTEGRITY {frontmatter.integrity || 0}%</span
+            >
           </div>
         </div>
       </aside>

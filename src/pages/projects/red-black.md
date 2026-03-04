@@ -1,9 +1,14 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
-title: "NEBULA_CORE"
+title: "M2689"
 id: "PRJ-772"
 category: "ENERGY"
-image: "/images/nebula.jpg"
+image: "/star-text.svg"
+status: "NON - OPERATIONAL"
+origin: "qrqrqwrqrqr"
+clearance: "qrrqrqw"
+encryption: "joqiuerqw"
+integrity: 420
 ---
 
 ## MISSION OVERVIEW

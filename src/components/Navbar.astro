@@ -2,9 +2,16 @@
 import "../styles/navbar.css";
 ---
 
-<nav class="navbar glass">
+<nav class="navbar">
   <div class="logo">
-    <img src="/star-text.svg" alt="star text logo" style="width: 70px;" />
+    <a href="/">
+      <img
+        src="/star-text.svg"
+        alt="STAR Logo"
+        class="nav-logo"
+        style="width: 75px;"
+      />
+    </a>
   </div>
 
   <div class="links desktop-only">
@@ -15,32 +22,79 @@ import "../styles/navbar.css";
     <a href="/personnel">PERSONNEL</a>
   </div>
 
-  <button id="menu-toggle" class="mobile-only" aria-label="Toggle Menu">
-    <span class="line"></span>
-    <span class="line"></span>
+  <button
+    id="menu-toggle"
+    class="mobile-only"
+    aria-label="Toggle Menu"
+    style="z-index: 100001;"
+  >
+    <div class="hamburger-box">
+      <span class="line top"></span>
+      <span class="line bottom"></span>
+    </div>
   </button>
 
   <div id="mobile-menu" class="mobile-overlay">
-    <div class="overlay-links">
-      <a href="/">HOME</a>
-      <a href="/about">ABOUT</a>
-      <a href="/projects">PROJECTS</a>
-      <a href="/publications">PUBLICATIONS</a>
-      <a href="/team">TEAM</a>
+    <div class="scan-line"></div>
+
+    <div class="overlay-content">
+      <div class="menu-header">
+        <span class="system-text">SYSTEM_MENU_v3.0</span>
+      </div>
+
+      <div class="overlay-links">
+        <a href="/" style="--i:1">HOME</a>
+        <a href="/about" style="--i:2">ABOUT</a>
+        <a href="/projects" style="--i:3">PROJECTS</a>
+        <a href="/publications" style="--i:4">PUBLICATIONS</a>
+        <a href="/personnel" style="--i:5">PERSONNEL</a>
+      </div>
+
+      <div class="menu-footer">
+        <span class="status-indicator">
+          <span class="pulse"></span> UPLINK_ACTIVE
+        </span>
+      </div>
     </div>
   </div>
 </nav>
 
 <script>
+  /**
+   * Cinematic Navigation Logic
+   * Focuses on absolute isolation of the background when active.
+   */
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
+  const html = document.documentElement;
+  const body = document.body;
 
   toggle?.addEventListener("click", () => {
+    const isOpening = !menu?.classList.contains("is-visible");
+
     toggle.classList.toggle("is-active");
     menu?.classList.toggle("is-visible");
-    // Prevent background scrolling when menu is open
-    document.body.style.overflow = menu?.classList.contains("is-visible")
-      ? "hidden"
-      : "";
+
+    if (isOpening) {
+      // Force lock on both containers to prevent background scrolling/ghosting
+      html.style.overflow = "hidden";
+      body.style.overflow = "hidden";
+      body.style.height = "100vh";
+    } else {
+      html.style.overflow = "";
+      body.style.overflow = "";
+      body.style.height = "";
+    }
+  });
+
+  // Automatically clean up state and restore scroll if a link is clicked
+  const navLinks = document.querySelectorAll(".overlay-links a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      toggle?.classList.remove("is-active");
+      menu?.classList.remove("is-visible");
+      html.style.overflow = "";
+      body.style.overflow = "";
+    });
   });
 </script>

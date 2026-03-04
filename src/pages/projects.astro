@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/projects.css";
 
-// This pulls all markdown files from the projects folder
 const allProjects = await Astro.glob("./projects/*.md");
 ---
 
@@ -43,9 +42,14 @@ const allProjects = await Astro.glob("./projects/*.md");
               </div>
               <h2 class="project-title">{project.frontmatter.title}</h2>
               <p class="project-excerpt">{project.frontmatter.description}</p>
+
               <div class="card-footer">
-                <span class="status-indicator" />
-                <span class="action-text">ACCESS_FILE</span>
+                <span
+                  class={`status-indicator ${project.frontmatter.status?.toLowerCase()}`}
+                />
+                <span class="action-text">
+                  {project.frontmatter.status || "ACCESS_FILE"}
+                </span>
               </div>
             </div>
           </a>
