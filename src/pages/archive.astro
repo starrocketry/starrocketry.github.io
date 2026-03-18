@@ -5,7 +5,10 @@ import Footer from "../components/Footer.astro";
 import "../styles/archive.css";
 
 // 1. Fetch all learning resources
-const learningPosts = await Astro.glob("../content/learning/*.md");
+const learningPosts = import.meta.glob("../content/learning/*.md", {
+  eager: true,
+});
+const postsArray = Object.values(learningPosts);
 
 // 2. Define our high-level categories for the top "Sorting Cards"
 const mainCategories = [
@@ -52,17 +55,17 @@ const mainCategories = [
 
       <div class="doc-list" id="document-database">
         {
-          learningPosts.map((post) => (
+          postsArray.map((post: any) => (
             <a
-              href={`/learning/${post.file.split("/").pop()?.split(".")[0]}`}
+              href={`/learning/${post.file?.split("/").pop()?.split(".")[0]}`}
               class="doc-item"
-              data-tags={post.frontmatter.tags?.join(",")}
+              data-tags={post.frontmatter?.tags?.join(",")}
             >
               <span class="doc-cat">
-                {post.frontmatter.tags?.[0] || "GENERAL"}
+                {post.frontmatter?.tags?.[0] || "GENERAL"}
               </span>
-              <span class="doc-title">{post.frontmatter.title}</span>
-              <span class="doc-date">{post.frontmatter.date}</span>
+              <span class="doc-title">{post.frontmatter?.title}</span>
+              <span class="doc-date">{post.frontmatter?.date}</span>
             </a>
           ))
         }
@@ -77,7 +80,7 @@ const mainCategories = [
 
     filterButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        const filter = btn.getAttribute("data-filter");
+        const filter = btn.getAttribute("data-filter") ?? "all"; // fallback to "all"
 
         // Update active state
         filterButtons.forEach((b) => b.classList.remove("active"));
@@ -85,7 +88,7 @@ const mainCategories = [
 
         // Filter List
         docItems.forEach((item) => {
-          const tags = item.getAttribute("data-tags") || "";
+          const tags = item.getAttribute("data-tags") ?? "";
           if (filter === "all" || tags.includes(filter)) {
             (item as HTMLElement).style.display = "grid";
           } else {
