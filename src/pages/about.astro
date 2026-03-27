@@ -3,58 +3,151 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/about.css";
+
+const missionData = {
+  currentPhase: 2.5,
+  phases: [
+    { label: "01 DESIGN", status: "COMPLETE" },
+    { label: "02 FABRICATION", status: "COMPLETE" },
+    { label: "03 STATIC TESTS", status: "PARTIAL" },
+    { label: "04 LAUNCH", status: "LOCKED" },
+  ],
+};
+
+const progressWidth =
+  (missionData.currentPhase / missionData.phases.length) * 100;
 ---
 
-<Layout title="Mission Control | About">
+<Layout title="About STAR">
   <Navbar />
 
-  <main class="about-container">
-    <header class="about-header">
-      <span class="serial-number">MISSION_ORIGIN_v2.0</span>
-      <h1 class="glitch">ABOUT THE NODE</h1>
-      <p class="subtitle">
-        Establishing a permanent digital presence in the deep void.
-      </p>
-    </header>
-
-    <section class="dossier-row">
-      <div class="dossier-image glass">
-        <img src="/images/origin.jpg" alt="Origin Story" />
-        <div class="image-overlay"></div>
-      </div>
-      <div class="dossier-text">
-        <label>01 // THE VISION</label>
-        <h2>THE VOID ARCHITECTS</h2>
-        <p>
-          Founded in the silence of deep space, Astro Node was built to solve
-          the most complex orbital challenges. We don't just build systems; we
-          build infrastructures for the next century of exploration.
-        </p>
-        <ul class="spec-list">
-          <li><span>ESTABLISHED:</span> 2024</li>
-          <li><span>SECTOR:</span> DEEP_SPACE_OPS</li>
-          <li><span>STATUS:</span> ACTIVE</li>
-        </ul>
+  <main class="about-page">
+    <section class="mission-tracker-wrapper">
+      <div class="tracker-container">
+        <div class="tracker-header">
+          <span class="live-indicator">● LIVE STATUS</span>
+          <span class="percentage">{progressWidth}%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" style={`width: ${progressWidth}%`}></div>
+        </div>
+        <div class="phase-steps">
+          {
+            missionData.phases.map((phase, index) => (
+              <div
+                class={`step ${index <= missionData.currentPhase ? "active" : ""}`}
+              >
+                <span class="step-label">{phase.label.split(" ")[1]}</span>
+                <span class="step-status hidden-mobile">{phase.status}</span>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </section>
 
-    <section class="dossier-row reverse">
-      <div class="dossier-image glass">
-        <img src="/images/tech.jpg" alt="Technology" />
-        <div class="image-overlay"></div>
-      </div>
-      <div class="dossier-text">
-        <label>02 // TECHNOLOGY</label>
-        <h2>NEURAL ARCHITECTURE</h2>
-        <p>
-          Utilizing sub-atomic processing and glass-morphism data visualization,
-          our interface allows for seamless communication between ground control
-          and distant orbital nodes.
+    <section class="about-hero">
+      <div class="hero-content">
+        <span class="eyebrow">ESTABLISHED 2024 // BLR</span>
+        <h1 class="hero-title">
+          REACHING THE <br /><span class="gradient-text"
+            >BORDER OF PHYSICS.</span
+          >
+        </h1>
+        <p class="hero-subtitle">
+          STAR is a rocketry collective dedicated to innovation and precision
+          engineering. A non-profit, open-research student team.
         </p>
-        <button class="glass-btn">VIEW_SCHEMATICS</button>
       </div>
     </section>
+
+    <section class="origin-section">
+      <div class="container">
+        <div class="content-grid">
+          <div class="text-block">
+            <label class="section-label">THE GENESIS</label>
+            <h2 class="section-title">A SINGLE SPARK.</h2>
+            <p>
+              STAR began with a group of students who wanted to build rockets
+              not just for participation in competitions but as well as for
+              innovating creating and setting a new age of standards in rocketry
+              which could match industrial rigour.
+            </p>
+            <p class="accent-p">We cook our own fuel.</p>
+          </div>
+          <div class="stat-block glass">
+            <div class="stat-row">
+              <div class="stat-item">
+                <span class="stat-num">08</span>
+                <span class="stat-desc">Engineers</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">1.2+</span>
+                <span class="stat-desc">Target Mach (October 2026)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dossier-full-bg">
+      <div class="bg-image-container">
+        <img src="/about/schematic.png" alt="Schematic" class="parallax-bg" />
+        <div class="bg-overlay"></div>
+      </div>
+      <div class="container flex-start mobile-stack">
+        <div class="text-box glass">
+          <label class="section-label">SYSTEMS // AVIONICS</label>
+          <h2 class="section-title">ELECTRONICS</h2>
+          <p>
+            Redundant telemetry and dual-deployment recovery logic capturing
+            every telemetry and flight data in real time.
+          </p>
+          <div class="tech-tags">
+            <span>CONTROL THEORY</span><span>COMMUNICATION</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dossier-full-bg">
+      <div class="bg-image-container">
+        <img src="/about/code.png" alt="Code" class="parallax-bg" />
+        <div class="bg-overlay"></div>
+      </div>
+      <div class="container flex-end mobile-stack">
+        <div class="text-box glass">
+          <label class="section-label">CODE // SOFTWARE</label>
+          <h2 class="section-title">FLIGHT <br />ALGORITHMS</h2>
+          <p>
+            We develop robust control systems for safe stable flights and
+            recovery, open-source flight and testing algorithms ensuring safe
+            flights and tests.
+          </p>
+          <code class="code-snippet"> >>> launch_to_space() </code>
+        </div>
+      </div>
+    </section>
+
+    <section class="dossier-full-bg">
+      <div class="bg-image-container">
+        <img src="/about/motor.jpg" alt="Motor" class="parallax-bg" />
+        <div class="bg-overlay"></div>
+      </div>
+      <div class="container flex-start mobile-stack">
+        <div class="text-box glass">
+          <label class="section-label">HARDWARE // PROPULSION</label>
+          <h2 class="section-title">BUILT FOR <br />PERFORMANCE.</h2>
+          <p>
+            Validation though simulation and an on going neural networks
+            optimization technique being developed by the team for nozzle
+            contour optimization.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
   </main>
-
-  <Footer />
 </Layout>

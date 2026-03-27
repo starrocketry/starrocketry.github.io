@@ -1,7 +1,7 @@
 /* --- Main Content Container --- */
 #mission-content {
   position: relative;
-  z-index: 20;
+  z-index: 50; /* Higher than background but lower than navbar */
   background: #000000;
   min-height: 100vh;
   width: 100%;
@@ -10,57 +10,97 @@
   justify-content: flex-start;
   align-items: stretch;
   padding: 140px 0 0 0;
-  /* Prevent horizontal scroll on mobile if elements bleed */
   overflow-x: hidden;
+  pointer-events: none; /* Controlled by script */
 }
 
 /* --- Reveal Logic --- */
 .initial-hide {
   opacity: 0;
   visibility: hidden;
-  /* Added pointer-events: none to ensure clicks pass through to rocket when hidden */
   pointer-events: none;
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Force interaction when visible via the script's inline opacity */
+#mission-ui[style*="opacity: 1"],
+#mission-content[style*="opacity: 1"] {
+  pointer-events: auto !important;
+}
+
 /* --- UI Container (The Layer Fix) --- */
 #mission-ui {
-  #mission-ui {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* Make sure this is 100000 so it's above the rocket, 
-     but pointer-events is key! */
-    z-index: 100000;
-    pointer-events: none; /* VERY IMPORTANT: Starts as none */
-    transition:
-      transform 0.8s ease,
-      opacity 0.8s ease;
-  }
-
-  /* When the script adds opacity, the navbar.astro component 
-   is already internally handled, but ensure the UI wrapper 
-   allows clicks when it is visible. */
-  #mission-ui[style*="opacity: 1"] {
-    pointer-events: auto;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0; /* Shrink container so it doesn't block the rocket */
+  z-index: 100000;
+  overflow: visible;
+  pointer-events: none;
+  transition:
+    transform 0.8s ease,
+    opacity 0.8s ease;
 }
 
 /* --- Section Branding --- */
+/* --- Section Branding (Big & Gradient) --- */
+/* --- Section Branding (Refined & Flowing) --- */
 .section-tag {
   align-self: center;
-  font-family: monospace;
-  font-size: 0.65rem;
-  letter-spacing: 6px;
-  color: #333;
-  margin-bottom: 40px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem); /* Professional, technical size */
+  font-weight: 500;
+  letter-spacing: 10px; /* Wide tracking for a premium feel */
   text-transform: uppercase;
+  text-align: center;
   padding: 0 20px;
-  text-align: center; /* Better for multi-line on mobile */
+
+  /* Metallic Flowing Gradient */
+  background: linear-gradient(
+    90deg,
+    #333333 0%,
+    #888888 25%,
+    #ffffff 50%,
+    #888888 75%,
+    #333333 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Smooth Motion Animation */
+  animation: metallic-flow 6s linear infinite;
+
+  /* Space to clear the RocketScroll stars */
+  margin-top: 180px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 60;
+  opacity: 0.9;
+}
+
+@keyframes metallic-flow {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+
+/* --- Mobile Fix --- */
+@media (max-width: 768px) {
+  .section-tag {
+    font-size: 0.9rem;
+    letter-spacing: 6px;
+    margin-top: 120px;
+    margin-bottom: 30px;
+  }
 }
 
 /* --- Hierarchy Marquee Container --- */
+/* This ensures the Marquee component hits the screen edges */
 #mission-content > :global(.marquee-wrapper) {
   width: 100vw;
   margin: 40px 0 80px 0;
@@ -69,13 +109,14 @@
   gap: 30px;
 }
 
-/* --- Form Modules Grid --- */
+/* --- Grid Modules (Mission Logs / Fuel / Sponsors) --- */
 .command-center {
   align-self: center;
   width: 100%;
   max-width: 1100px;
   margin-bottom: 80px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 0 20px;
 }
@@ -88,6 +129,8 @@
   display: flex;
   justify-content: center;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 100;
 }
 
 .footer-reveal-wrapper > :global(footer),
@@ -103,9 +146,6 @@
     padding-top: 100px;
   }
 
-  /* Ensure the navbar trigger (hamburger) doesn't get 
-     shrunk or overlapped by content padding.
-  */
   #mission-ui {
     padding: 0;
   }
@@ -121,22 +161,9 @@
   }
 }
 
-/* Ensure the content container doesn't block itself */
-#mission-content {
-  position: relative;
-  z-index: 50; /* Higher than background but lower than navbar */
-  pointer-events: none; /* Controlled by script */
-}
-
-/* Force the footer to the very top of the content stack */
+/* Force specific interactivity for footers if they overlap */
 .mission-footer {
   position: relative;
-  z-index: 100 !important;
-  pointer-events: auto !important; /* Force clicks to work */
-}
-
-/* This prevents the invisible Navbar box from covering the footer links */
-#mission-ui {
-  height: 0; /* Shrink the container so it doesn't hang over the bottom of the screen */
-  overflow: visible;
+  z-index: 101 !important;
+  pointer-events: auto !important;
 }

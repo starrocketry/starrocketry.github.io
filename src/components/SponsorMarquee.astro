@@ -1,57 +1,65 @@
 ---
 import "../styles/marquee.css";
+import sponsorData from "../pages/data/sponsors.json";
 
-const commanders = [
-  {
-    name: "REVA UNIVERSITY",
-    rank: "STATIC FIRE",
-    logo: "./sponsor-logo/logo.png",
-  },
-];
+const TIER_MAP = {
+  escape_velocity: { label: "ESCAPE VELOCITY", row: "top" },
+  apogee: { label: "APOGEE", row: "top" },
+  max_q: { label: "MAX-Q", row: "top" },
+  static_fire: { label: "STATIC FIRE", row: "top" },
+  // mission_backer: { label: "MISSION BACKER", row: "bottom" },
+};
 
-const crew = [
-  {
-    name: "REVA UNIVERSITY",
-    rank: "STATIC FIRE",
-    logo: "./sponsor-logo/logo.png",
-  },
-];
+const topRow = sponsorData.filter((s) => TIER_MAP[s.tier]?.row === "top");
+const bottomRow = sponsorData.filter((s) => TIER_MAP[s.tier]?.row === "bottom");
+
+const marqueeArray = (arr) => [...arr, ...arr];
 ---
 
 <div class="marquee-wrapper">
-  <div class="marquee-container">
-    <div class="marquee-content left">
-      {
-        [...commanders, ...commanders].map((s) => (
-          <div class="sponsor-tag glass rank-high">
-            <div class="sponsor-brand">
-              <img src={s.logo} alt={s.name} class="sponsor-logo" />
-              <div class="sponsor-info">
-                <span class="rank-label">{s.rank}</span>
-                <span class="sponsor-name">{s.name}</span>
+  {
+    topRow.length > 0 && (
+      <div class="marquee-container">
+        <div class="marquee-content left">
+          {marqueeArray(topRow).map((s) => (
+            <a href={s.website} target="_blank" class="sponsor-link">
+              <div
+                class={`sponsor-tag glass ${s.tier === "escape_velocity" ? "rank-high" : ""}`}
+              >
+                <div class="sponsor-brand">
+                  <img src={s.logo} alt={s.name} class="sponsor-logo" />
+                  <div class="sponsor-info">
+                    <span class="rank-label">{TIER_MAP[s.tier].label}</span>
+                    <span class="sponsor-name">{s.name}</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
 
-  <div class="marquee-container">
-    <div class="marquee-content right">
-      {
-        [...crew, ...crew].map((s) => (
-          <div class="sponsor-tag glass">
-            <div class="sponsor-brand">
-              <img src={s.logo} alt={s.name} class="sponsor-logo" />
-              <div class="sponsor-info">
-                <span class="rank-label">{s.rank}</span>
-                <span class="sponsor-name">{s.name}</span>
+  {
+    bottomRow.length > 0 && (
+      <div class="marquee-container">
+        <div class="marquee-content right">
+          {marqueeArray(bottomRow).map((s) => (
+            <a href={s.website} target="_blank" class="sponsor-link">
+              <div class="sponsor-tag glass">
+                <div class="sponsor-brand">
+                  <img src={s.logo} alt={s.name} class="sponsor-logo" />
+                  <div class="sponsor-info">
+                    <span class="rank-label">{TIER_MAP[s.tier].label}</span>
+                    <span class="sponsor-name">{s.name}</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
 </div>

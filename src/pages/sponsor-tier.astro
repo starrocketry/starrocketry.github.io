@@ -2,40 +2,42 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import sponsorsData from "./data/sponsors.json";
 import "../styles/sponsor-tier.css";
 
 const tiers = [
   {
     id: "static_fire",
     name: "STATIC FIRE",
-    price: "50k-1L",
     currency: "INR",
-    desc: "Perfect to get us started with L2 HPR and Payloads",
+    price: "50k - 1L",
+    impact: "Cansat.",
     color: "#ffffff",
   },
   {
     id: "max_q",
     name: "MAX-Q",
-    price: "1L+",
     currency: "INR",
-    desc: "Helps us to achieve innovation in HPR.",
+    price: "1L+",
+    impact: "Enables development of L2 HPR and CanSat",
     color: "#ffffff",
-    // featured: true,
   },
   {
     id: "apogee",
     name: "APOGEE",
-    price: "5L+",
     currency: "INR",
-    desc: "Helps us research and participate in IN-SPACe & IREC.",
+    price: "10L+",
+    impact:
+      "Helps us participate in Rocketry competitions such as IN-SPACe and IREC",
     color: "#ffffff",
   },
   {
     id: "escape_velocity",
     name: "ESCAPE VELOCITY",
-    price: "CUSTOM",
     currency: "",
-    desc: "High impact and highly customizable to your needs.",
+    price: "CUSTOM",
+    impact:
+      "Exclusive naming rights for primary launch vehicles and long-term R&D.",
     color: "#C594F0",
   },
 ];
@@ -49,6 +51,13 @@ const benefits = [
     escape_velocity: "✦",
   },
   {
+    label: "Logo on CanSat",
+    static_fire: "✦",
+    max_q: "✦",
+    apogee: "✦",
+    escape_velocity: "✦",
+  },
+  {
     label: "Logo on Rocket Airframe",
     static_fire: "Small",
     max_q: "Medium",
@@ -56,28 +65,49 @@ const benefits = [
     escape_velocity: "Large",
   },
   {
-    label: "Logo on Shirt",
+    label: "Logo on Team Apparel",
     static_fire: "Small",
     max_q: "Medium",
     apogee: "Large",
     escape_velocity: "Large",
   },
   {
-    label: "Logo on Competition Poster / Banner",
-    static_fire: "Small",
-    max_q: "Medium",
-    apogee: "Large",
-    escape_velocity: "Large",
+    label: "Name on Papers",
+    static_fire: "",
+    max_q: "✦",
+    apogee: "✦",
+    escape_velocity: "✦",
+  },
+  {
+    label: "Name on Papers and Uploaded Reports",
+    static_fire: "",
+    max_q: "",
+    apogee: "",
+    escape_velocity: "✦",
   },
   {
     label: "Social Media Shout-outs",
+    static_fire: "✦",
+    max_q: "✦",
+    apogee: "✦",
+    escape_velocity: "✦",
+  },
+  {
+    label: "Linkedin or other socials post mention",
+    static_fire: "",
+    max_q: "",
+    apogee: "✦",
+    escape_velocity: "✦",
+  },
+  {
+    label: "Individual Social Media Thank Yous",
     static_fire: "Quarterly",
     max_q: "Monthly",
     apogee: "Bi-Weekly",
     escape_velocity: "Personalized",
   },
   {
-    label: "Use Company Products/Components",
+    label: "Use Company Components",
     static_fire: "",
     max_q: "✦",
     apogee: "✦",
@@ -91,18 +121,17 @@ const benefits = [
     escape_velocity: "✦",
   },
 ];
+
+const getSponsorsByTier = (tierId) =>
+  sponsorsData.filter((s) => s.tier === tierId);
 ---
 
 <Layout title="Support STAR Team">
-  <div class="subpage-nav">
-    <Navbar />
-  </div>
+  <Navbar />
 
   <main class="support-page">
     <section class="support-hero">
-      <div class="section-tag" style="text-align: center;">
-        FUEL THE MISSION
-      </div>
+      <div class="section-tag">FUEL THE MISSION</div>
       <h1 class="glow-title">PARTNER WITH US</h1>
       <p class="subtitle">
         Empower the next generation of aerospace engineers. Help us push the
@@ -114,23 +143,28 @@ const benefits = [
       {
         tiers.map((tier) => (
           <div
-            class={`tier-card ${tier.featured ? "featured" : ""} ${tier.id === "escape_velocity" ? "unique" : ""}`}
+            class={`tier-card ${tier.id === "escape_velocity" ? "unique" : ""}`}
           >
-            {tier.featured && <div class="popular-tag">MOST POPULAR</div>}
             <div class="tier-header">
               <span class="tier-rank" style={`color: ${tier.color}`}>
                 {tier.name}
               </span>
-              <h2 class="tier-price">
-                {tier.price}
-                {tier.currency && <span>{tier.currency}/yr</span>}
-              </h2>
+              <div class="price-container">
+                <h2 class="tier-price">{tier.price}</h2>
+                {tier.currency && (
+                  <span class="tier-currency">{tier.currency}</span>
+                )}
+
+                <span class="tier-interval">
+                  {tier.id === "escape_velocity" ? "" : "/ yr"}
+                </span>
+              </div>
+              <p class="tier-impact">{tier.impact}</p>
             </div>
-            <p class="tier-desc">{tier.desc}</p>
             <hr class="divider" />
             <button
               onclick="document.getElementById('enlist-section').scrollIntoView({behavior: 'smooth'})"
-              class={`tier-btn ${tier.featured ? "primary" : ""} ${tier.id === "escape_velocity" ? "purple-btn" : ""}`}
+              class="tier-btn"
             >
               Enlist Now
             </button>
@@ -140,36 +174,24 @@ const benefits = [
     </section>
 
     <section class="table-section">
-      <div class="benefits">BENEFITS COMPARISON</div>
-      <div class="table-scroll-wrapper">
+      <h2 class="benefits">BENEFITS COMPARISON</h2>
+      <div class="table-scroll-wrapper glass">
         <table class="benefits-table">
           <thead>
             <tr>
-              <th>Benefit</th>
-              {
-                tiers.map((t) => (
-                  <th
-                    class={t.id === "escape_velocity" ? "purple-text" : ""}
-                    style={`color: ${t.color}`}
-                  >
-                    {t.name}
-                  </th>
-                ))
-              }
+              <th class="benefit-label">Tier Benefit</th>
+              {tiers.map((t) => <th style={`color: ${t.color}`}>{t.name}</th>)}
             </tr>
           </thead>
           <tbody>
             {
               benefits.map((b) => (
                 <tr>
-                  <td>{b.label}</td>
-                  {tiers.map((t) => (
-                    <td
-                      class={`${!b[t.id] ? "dash" : "check"} ${t.id === "escape_velocity" ? "purple-text" : ""}`}
-                    >
-                      {b[t.id] || "—"}
-                    </td>
-                  ))}
+                  <td class="benefit-label">{b.label}</td>
+                  <td>{b.static_fire}</td>
+                  <td>{b.max_q}</td>
+                  <td>{b.apogee}</td>
+                  <td style="color: #c594f0">{b.escape_velocity}</td>
                 </tr>
               ))
             }
@@ -178,17 +200,57 @@ const benefits = [
       </div>
     </section>
 
+    <section class="fleet-section">
+      <h2 class="form-title">CURRENT SPONSORS</h2>
+      {
+        tiers
+          .slice()
+          .reverse()
+          .map((tier) => {
+            const tierSponsors = getSponsorsByTier(tier.id);
+            return tierSponsors.length > 0 ? (
+              <div class={`tier-group ${tier.id}`}>
+                <h3 class="tier-group-title" style={`color: ${tier.color}`}>
+                  {tier.name}{" "}
+                  <span>
+                    // {tierSponsors.length.toString().padStart(2, "0")}
+                  </span>
+                </h3>
+                <div class="sponsor-grid">
+                  {tierSponsors.map((s) => (
+                    <a
+                      href={s.website}
+                      target="_blank"
+                      class="sponsor-hex-card glass"
+                    >
+                      <div class="logo-wrapper">
+                        <img src={s.logo} alt={s.name} />
+                      </div>
+                      <div class="sponsor-meta">
+                        <span class="hex-name">{s.name}</span>
+                        <p class="hex-about">{s.about}</p>
+                      </div>
+                      <div class="card-status">
+                        <span class="status-dot" /> ACTIVE PARTNER
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : null;
+          })
+      }
+    </section>
+
     <section id="enlist-section" class="form-section">
       <h2 class="form-title">INITIALIZE ENLISTMENT</h2>
-
       <div class="notion-form-container">
         <iframe
           src="https://roan-kick-7a9.notion.site/ebd//f1e3cd49ef82823088ac81f90c33e52b"
           width="100%"
           height="800"
           frameborder="0"
-          class="notion-iframe"
-          allowfullscreen></iframe>
+          class="notion-iframe"></iframe>
       </div>
     </section>
 
