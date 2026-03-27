@@ -21,6 +21,16 @@
   -webkit-text-fill-color: transparent;
 }
 
+.benefits {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  text-align: left;
+  margin-bottom: 20px;
+  background: linear-gradient(to bottom, #ffffff, #888888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .subtitle {
   font-size: 1.1rem;
   color: #888;
