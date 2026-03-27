@@ -1,0 +1,182 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/sponsor-tier.css";
+
+const tiers = [
+  {
+    id: "static_fire",
+    name: "STATIC FIRE",
+    price: "50k-1L",
+    currency: "INR",
+    desc: "Perfect to get us started with L2 HPR.",
+    color: "#ffffff",
+  },
+  {
+    id: "max_q",
+    name: "MAX-Q",
+    price: "1L+",
+    currency: "INR",
+    desc: "Helps us to achieve innovation in HPR.",
+    color: "#ffffff",
+    // featured: true,
+  },
+  {
+    id: "apogee",
+    name: "APOGEE",
+    price: "5L+",
+    currency: "INR",
+    desc: "Helps us research and participate in IN-SPACe & IREC.",
+    color: "#ffffff",
+  },
+  {
+    id: "escape_velocity",
+    name: "ESCAPE VELOCITY",
+    price: "CUSTOM",
+    currency: "",
+    desc: "High impact and highly customizable to your needs.",
+    color: "#C594F0",
+  },
+];
+
+const benefits = [
+  {
+    label: "Logo on Website & Newsletters",
+    static_fire: "✦",
+    max_q: "✦",
+    apogee: "✦",
+    escape_velocity: "✦",
+  },
+  {
+    label: "Social Media Shout-outs",
+    static_fire: "Quarterly",
+    max_q: "Monthly",
+    apogee: "Bi-Weekly",
+    escape_velocity: "Personalized",
+  },
+  {
+    label: "Logo on Rocket Airframe",
+    static_fire: "",
+    max_q: "Small",
+    apogee: "Prime",
+    escape_velocity: "Vessel Naming",
+  },
+  {
+    label: "Recruitment Access",
+    static_fire: "",
+    max_q: "",
+    apogee: "✦",
+    escape_velocity: "Direct Access",
+  },
+  {
+    label: "Launch Day Access",
+    static_fire: "",
+    max_q: "",
+    apogee: "",
+    escape_velocity: "✦",
+  },
+];
+---
+
+<Layout title="Support REVA STAR Team">
+  <div class="subpage-nav">
+    <Navbar />
+  </div>
+
+  <main class="support-page">
+    <section class="support-hero">
+      <div class="section-tag">FUEL THE MISSION</div>
+      <h1 class="glow-title">PARTNER WITH US</h1>
+      <p class="subtitle">
+        Empower the next generation of aerospace engineers. Help us push the
+        boundaries of student rocketry.
+      </p>
+    </section>
+
+    <section class="tiers-container">
+      {
+        tiers.map((tier) => (
+          <div
+            class={`tier-card ${tier.featured ? "featured" : ""} ${tier.id === "escape_velocity" ? "unique" : ""}`}
+          >
+            {tier.featured && <div class="popular-tag">MOST POPULAR</div>}
+            <div class="tier-header">
+              <span class="tier-rank" style={`color: ${tier.color}`}>
+                {tier.name}
+              </span>
+              <h2 class="tier-price">
+                {tier.price}
+                {tier.currency && <span>{tier.currency}/yr</span>}
+              </h2>
+            </div>
+            <p class="tier-desc">{tier.desc}</p>
+            <hr class="divider" />
+            <button
+              onclick="document.getElementById('enlist-section').scrollIntoView({behavior: 'smooth'})"
+              class={`tier-btn ${tier.featured ? "primary" : ""} ${tier.id === "escape_velocity" ? "purple-btn" : ""}`}
+            >
+              Enlist Now
+            </button>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="table-section">
+      <div class="section-tag">BENEFITS COMPARISON</div>
+      <div class="table-scroll-wrapper">
+        <table class="benefits-table">
+          <thead>
+            <tr>
+              <th>Benefit</th>
+              {
+                tiers.map((t) => (
+                  <th
+                    class={t.id === "escape_velocity" ? "purple-text" : ""}
+                    style={`color: ${t.color}`}
+                  >
+                    {t.name}
+                  </th>
+                ))
+              }
+            </tr>
+          </thead>
+          <tbody>
+            {
+              benefits.map((b) => (
+                <tr>
+                  <td>{b.label}</td>
+                  {tiers.map((t) => (
+                    <td
+                      class={`${!b[t.id] ? "dash" : "check"} ${t.id === "escape_velocity" ? "purple-text" : ""}`}
+                    >
+                      {b[t.id] || "—"}
+                    </td>
+                  ))}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="enlist-section" class="form-section">
+      <div class="section-tag">TRANSMISSION</div>
+      <h2 class="form-title">INITIALIZE ENLISTMENT</h2>
+
+      <div class="notion-form-container">
+        <iframe
+          src="https://roan-kick-7a9.notion.site/ebd//f1e3cd49ef82823088ac81f90c33e52b"
+          width="100%"
+          height="800"
+          frameborder="0"
+          class="notion-iframe"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>

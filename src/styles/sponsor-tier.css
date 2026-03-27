@@ -1,0 +1,210 @@
+/* --- Base Reset & Page Container --- */
+.support-page {
+  background: #000000;
+  min-height: 100vh;
+  color: #ffffff;
+  padding-top: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* --- Typographies --- */
+.glow-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  text-align: center;
+  margin-bottom: 20px;
+  background: linear-gradient(to bottom, #ffffff, #888888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #888;
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* --- Tiers Cards --- */
+.tiers-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1250px;
+  width: 100%;
+  padding: 0 20px 100px 20px;
+}
+
+.tier-card {
+  background: rgba(12, 12, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 40px 25px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Full Purple Theme for Escape Velocity */
+.tier-card.unique {
+  border-color: #c594f0;
+  background: rgba(197, 148, 240, 0.03);
+}
+
+.tier-card.unique .tier-rank,
+.tier-card.unique .tier-price,
+.tier-card.unique .tier-desc {
+  color: #c594f0 !important;
+}
+
+.tier-btn.purple-btn {
+  border-color: #c594f0 !important;
+  color: #c594f0 !important;
+}
+
+.tier-btn.purple-btn:hover {
+  background: #c594f0 !important;
+  color: #000 !important;
+}
+
+.tier-header {
+  margin-bottom: 25px;
+}
+.tier-rank {
+  font-family: monospace;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  font-weight: 900;
+}
+.tier-price {
+  font-size: 2.2rem;
+  font-weight: 300;
+  margin-top: 10px;
+}
+.tier-price span {
+  font-size: 0.9rem;
+  color: #444;
+  margin-left: 5px;
+}
+.tier-desc {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+.divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: auto;
+  margin-bottom: 25px;
+}
+
+.tier-btn {
+  text-align: center;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tier-btn:hover {
+  background: #ffffff;
+  color: #000;
+}
+.tier-btn.primary {
+  background: #ffffff;
+  color: #000;
+}
+
+/* --- Table Styles --- */
+.table-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px 120px 20px;
+}
+.table-scroll-wrapper {
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+.benefits-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+.benefits-table th,
+.benefits-table td {
+  padding: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+.benefits-table td:first-child {
+  text-align: left;
+  color: #666;
+  font-family: monospace;
+}
+
+.purple-text {
+  color: #c594f0 !important;
+}
+.check {
+  color: #fff;
+  font-weight: bold;
+}
+.dash {
+  color: #333;
+}
+
+/* --- Clean Form Styles (No blue, no scanner) --- */
+.form-section {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px 120px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  font-size: 2rem;
+  margin: 20px 0 40px;
+  letter-spacing: 2px;
+}
+
+.notion-form-container {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.notion-iframe {
+  display: block;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1100px) {
+  .tiers-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .tiers-container {
+    grid-template-columns: 1fr;
+  }
+}
