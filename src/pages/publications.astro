@@ -2,40 +2,30 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+
 import "../styles/publications.css";
 
 const papers = [
   {
-    title: "Nothing Published Yet",
-    journal: "Journal of Nothing",
-    authors: "None, et.al.",
-    year: "2025",
-    doi: "https://doi.org/10.2514/1.XXXXXX",
-    status: "Nothing",
-    tags: ["PROPULSION", "AERODYNAMICS"],
-  },
-  {
-    title: "Nothing Published Yet",
-    journal: "Hahahaha",
-    authors: "Human",
+    title: "Performance Analysis of a J Class Solid Rocket Motor",
+    journal: "TBA",
+    authors: "Abhay Nandan U, Dhruv Kakade, Akshay M, Shanawaz Patil",
     year: "2026",
-    doi: "#",
-    status: "UNDER_REVIEW",
-    tags: ["RECOVERY", "AVIONICS"],
+    doi: "https://doi.org/10.2514/1.XXXXXX",
+    status: "Accepted for DMMES 2k26 International Conference",
+    tags: ["PROPULSION", "TESTING"],
   },
 ];
 ---
 
-<Layout title="Publications | STAR Rocketry">
+<Layout title="Publications">
   <Navbar />
 
   <main class="pub-container">
     <header class="pub-header">
       <div class="header-meta">
-        <span class="index-num">// VOL_01</span>
-        <span class="status-indicator"
-          ><span class="pulse"></span> LIVE_DATABASE</span
-        >
+        <span class="index-num">// RESEARCH</span>
+        <span class="status-indicator"><span class="pulse"></span> ACTIVE</span>
       </div>
       <h1>PUBLICATIONS</h1>
       <p class="description">
@@ -81,11 +71,8 @@ const papers = [
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
                   </svg>
                 </a>
-                <button
-                  class="cite-btn"
-                  onclick="alert('Citation copied to clipboard (Simulated)')"
-                >
-                  COPY_CITATION
+                <button class="cite-btn" onclick="alert('Copied!')">
+                  Cite
                 </button>
               </div>
             </div>

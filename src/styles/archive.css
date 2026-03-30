@@ -4,6 +4,7 @@
   background: #000;
   max-width: 1400px;
   margin: 0 auto;
+  text
 }
 
 /* --- Top Sorting Cards --- */
@@ -114,7 +115,7 @@
 }
 
 .doc-item:hover .doc-cat {
-  color: #00ff77; /* Subtle green accent on hover */
+  color: #c594f0; /* Subtle green accent on hover */
 }
 
 /* Header Adjustments */

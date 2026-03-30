@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/project-page.css";
+
+export async function getStaticPaths() {
+  const projectFiles = import.meta.glob("./markdown/*.md", { eager: true });
+  return Object.values(projectFiles).map((project: any) => {
+    const slug = project.file.split("/").pop()?.replace(".md", "");
+    return { params: { slug }, props: { project } };
+  });
+}
+
+const { project } = Astro.props;
+const { Content } = project;
+const {
+  title,
+  id,
+  category,
+  status,
+  image,
+  origin,
+  clearance,
+  encryption,
+  integrity,
+} = project.frontmatter;
+---
+
+<Layout title={`${title} | Technical Report`}>
+  <article class="project-page">
+    <header class="project-hero">
+      <div class="hero-bg">
+        <img src={image} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <nav class="breadcrumb">
+          <a href="/projects">/ MISSION_MANIFEST</a>
+        </nav>
+        <div class="meta-badge">SYSTEM_DATA_REPORT</div>
+        <h1 class="project-title">{title}</h1>
+        <div class="project-meta-strip">
+          <div class="meta-item">
+            <span class="label">FILE_ID</span>
+            <span class="value">{id || "PRJ-UNK"}</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">CATEGORY</span>
+            <span class="value">{category}</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">STATUS</span>
+            <span class={`value status-${status?.toLowerCase()}`}>
+              {status || "OPERATIONAL"}
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="project-body-wrapper">
+      <aside class="tactical-sidebar">
+        <div class="sidebar-box glass">
+          <h3>ARCHIVE_INFO</h3>
+          <ul>
+            <li><span>ORIGIN:</span> {origin || "GROUND_CONTROL"}</li>
+            <li><span>CLEARANCE:</span> {clearance || "LEVEL_01"}</li>
+            <li><span>ENCRYPTION:</span> {encryption || "NONE"}</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-box glass">
+          <h3>TELEMETRY</h3>
+          <div class="stat-row">
+            <div class="stat-bar">
+              <div class="fill" style={`width: ${integrity || 0}%;`}></div>
+            </div>
+            <span class="stat-label">DATA_INTEGRITY {integrity || 0}%</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="markdown-content">
+        <Content />
+      </section>
+    </div>
+  </article>
+</Layout>

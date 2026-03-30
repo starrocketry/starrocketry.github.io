@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+
 import sponsorsData from "./data/sponsors.json";
 import "../styles/sponsor-tier.css";
 
@@ -128,7 +129,6 @@ const getSponsorsByTier = (tierId) =>
 
 <Layout title="Support STAR Team">
   <Navbar />
-
   <main class="support-page">
     <section class="support-hero">
       <div class="section-tag">FUEL THE MISSION</div>
@@ -253,7 +253,6 @@ const getSponsorsByTier = (tierId) =>
           class="notion-iframe"></iframe>
       </div>
     </section>
-
-    <Footer />
   </main>
+  <Footer />
 </Layout>

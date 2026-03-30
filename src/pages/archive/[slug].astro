@@ -3,17 +3,20 @@ import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 
-// 1. Generate paths for all .md files in src/content/learning/
 export async function getStaticPaths() {
-  const posts = await Astro.glob("../../content/learning/*.md");
+  // Use Vite's native glob import instead of Astro.glob
+  // 'eager: true' loads the content immediately so we can access frontmatter
+  const posts = import.meta.glob("./markdown/*.md", { eager: true });
 
-  return posts.map((post) => ({
-    params: {
-      // Extract filename from path (e.g., "basics.md" becomes "basics")
-      slug: post.file.split("/").pop()?.split(".")[0],
-    },
-    props: { post },
-  }));
+  return Object.values(posts).map((post: any) => {
+    // Extract filename for the slug: ./markdown/j-class.md -> j-class
+    const slug = post.file.split("/").pop()?.replace(".md", "");
+
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
 }
 
 const { post } = Astro.props;
@@ -21,7 +24,7 @@ const { Content } = post;
 const { title, date, category, author } = post.frontmatter;
 ---
 
-<Layout title={title}>
+<Layout title={`${title} | STAR Archive`}>
   <Navbar />
 
   <main class="reading-container">
@@ -29,14 +32,14 @@ const { title, date, category, author } = post.frontmatter;
       <header class="doc-meta">
         <div class="breadcrumb">
           <a href="/archive">ARCHIVE</a> / <span class="current"
-            >{category}</span
+            >{category || "LOGS"}</span
           >
         </div>
         <h1 class="glitch-text">{title}</h1>
         <div class="author-bar">
-          <span>OPERATOR: {author}</span>
+          <span>OPERATOR: {author || "UNKNOWN"}</span>
           <span class="spacer">|</span>
-          <span>TIMESTAMP: {date}</span>
+          <span>TIMESTAMP: {date || "N/A"}</span>
         </div>
       </header>
 
@@ -77,15 +80,17 @@ const { title, date, category, author } = post.frontmatter;
     color: #666;
     text-decoration: none;
   }
+
   .current {
-    color: #00ff77;
+    color: #c594f0;
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     color: #fff;
     letter-spacing: -1px;
     margin-bottom: 20px;
+    font-family: "Space Grotesk", sans-serif;
   }
 
   .author-bar {
@@ -95,14 +100,15 @@ const { title, date, category, author } = post.frontmatter;
     border-bottom: 1px solid #111;
     padding-bottom: 30px;
     margin-bottom: 50px;
+    display: flex;
+    gap: 10px;
   }
 
-  /* Styling the Markdown Content */
   .markdown-content :global(h2) {
     color: #fff;
     font-size: 1.5rem;
     margin-top: 40px;
-    border-left: 3px solid #00ff77;
+    border-left: 3px solid #c594f0;
     padding-left: 15px;
   }
 
@@ -114,17 +120,18 @@ const { title, date, category, author } = post.frontmatter;
   .back-btn {
     display: inline-block;
     margin-top: 60px;
-    color: #00ff77;
+    color: #fff;
     text-decoration: none;
     font-family: monospace;
     font-size: 0.8rem;
-    border: 1px solid #00ff7733;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 10px 20px;
     transition: 0.3s;
   }
 
   .back-btn:hover {
-    background: #00ff77;
+    background: #c594f0;
     color: #000;
+    border-color: #c594f0;
   }
 </style>

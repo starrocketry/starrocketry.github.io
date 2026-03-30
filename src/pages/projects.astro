@@ -2,14 +2,22 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+
 import "../styles/projects.css";
 
-const allProjects = await Astro.glob("./projects/*.md");
+const projectFiles = import.meta.glob("./projects/markdown/*.md", {
+  eager: true,
+});
+const projectsArray = Object.values(projectFiles);
+
+// Optional: Sort projects by their ID (e.g., PRJ-01, PRJ-02)
+const sortedProjects = projectsArray.sort((a: any, b: any) =>
+  (a.frontmatter.id || "").localeCompare(b.frontmatter.id || ""),
+);
 ---
 
-<Layout title="Mission Manifest | Projects">
+<Layout title="Projects">
   <Navbar />
-
   <main class="projects-container">
     <header class="projects-header">
       <h1>PROJECTS</h1>
@@ -17,42 +25,46 @@ const allProjects = await Astro.glob("./projects/*.md");
 
     <div class="projects-grid">
       {
-        allProjects.map((project) => (
-          <a href={project.url} class="project-card glass">
-            <div class="card-image">
-              <img
-                src={project.frontmatter.image}
-                alt={project.frontmatter.title}
-              />
-              <div class="scanline" />
-            </div>
+        sortedProjects.map((project: any) => {
+          // Extract the filename to use as the slug (matches [slug].astro)
+          const slug = project.file.split("/").pop()?.replace(".md", "");
 
-            <div class="card-content">
-              <div class="card-meta">
-                <span class="project-id">
-                  {project.frontmatter.id || "PRJ-UNK"}
-                </span>
-                <span class="project-category">
-                  {project.frontmatter.category}
-                </span>
-              </div>
-              <h2 class="project-title">{project.frontmatter.title}</h2>
-              <p class="project-excerpt">{project.frontmatter.description}</p>
-
-              <div class="card-footer">
-                <span
-                  class={`status-indicator ${project.frontmatter.status?.toLowerCase()}`}
+          return (
+            <a href={`/projects/${slug}`} class="project-card glass">
+              <div class="card-image">
+                <img
+                  src={project.frontmatter.image}
+                  alt={project.frontmatter.title}
                 />
-                <span class="action-text">
-                  {project.frontmatter.status || "ACCESS_FILE"}
-                </span>
+                <div class="scanline" />
               </div>
-            </div>
-          </a>
-        ))
+
+              <div class="card-content">
+                <div class="card-meta">
+                  <span class="project-id">
+                    {project.frontmatter.id || "PRJ-UNK"}
+                  </span>
+                  <span class="project-category">
+                    {project.frontmatter.category}
+                  </span>
+                </div>
+                <h2 class="project-title">{project.frontmatter.title}</h2>
+                <p class="project-excerpt">{project.frontmatter.description}</p>
+
+                <div class="card-footer">
+                  <span
+                    class={`status-indicator ${project.frontmatter.status?.toLowerCase() || "pending"}`}
+                  />
+                  <span class="action-text">
+                    {project.frontmatter.status || "ACCESS_FILE"}
+                  </span>
+                </div>
+              </div>
+            </a>
+          );
+        })
       }
     </div>
   </main>
-
   <Footer />
 </Layout>

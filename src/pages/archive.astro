@@ -4,13 +4,13 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/archive.css";
 
-// 1. Fetch all learning resources
-const learningPosts = import.meta.glob("../content/learning/*.md", {
+// 1. Correct the path to look into your markdown folder
+// We use './archive/markdown/*.md' because this file is in src/pages/archive.astro
+const learningPosts = import.meta.glob("./archive/markdown/*.md", {
   eager: true,
 });
 const postsArray = Object.values(learningPosts);
 
-// 2. Define our high-level categories for the top "Sorting Cards"
 const mainCategories = [
   "PROPULSION",
   "AVIONICS",
@@ -20,54 +20,61 @@ const mainCategories = [
 ];
 ---
 
-<Layout title="Archive">
+<Layout title="Archive | STAR Mission Files">
   <Navbar />
   <main class="archive-container">
     <header class="archive-header">
-      <div class="status-tag"><span class="dot"></span>MARKDOWN</div>
-      <h1>PROJECT FILES</h1>
-      <p class="subtitle">Filter by topic or browse the entire database</p>
+      <div class="status-tag"><span class="dot"></span> DATABASE_ACTIVE</div>
+      <h1>MISSION ARCHIVE</h1>
+      <p class="subtitle">
+        Filter technical logs by subsystem or browse the full manifest
+      </p>
     </header>
 
     <section class="sorting-grid">
+      <button class="sort-card active" data-filter="all">
+        <span class="sort-number">// 00</span>
+        <span class="sort-label">ALL_FILES</span>
+      </button>
       {
-        mainCategories.map((cat) => (
+        mainCategories.map((cat, index) => (
           <button class="sort-card" data-filter={cat}>
-            <span class="sort-number">
-              // 0{mainCategories.indexOf(cat) + 1}
-            </span>
+            <span class="sort-number">// 0{index + 1}</span>
             <span class="sort-label">{cat}</span>
           </button>
         ))
       }
-      <button class="sort-card active" data-filter="all">
-        <span class="sort-number">// 00</span>
-        <span class="sort-label">SHOW ALL</span>
-      </button>
     </section>
 
     <section class="learning-docs">
       <div class="list-header">
         <span class="col">CATEGORY</span>
-        <span class="col">DOCUMENT</span>
+        <span class="col">DOCUMENT_NAME</span>
         <span class="col">TIMESTAMP</span>
       </div>
 
       <div class="doc-list" id="document-database">
         {
-          postsArray.map((post: any) => (
-            <a
-              href={`/learning/${post.file?.split("/").pop()?.split(".")[0]}`}
-              class="doc-item"
-              data-tags={post.frontmatter?.tags?.join(",")}
-            >
-              <span class="doc-cat">
-                {post.frontmatter?.tags?.[0] || "GENERAL"}
-              </span>
-              <span class="doc-title">{post.frontmatter?.title}</span>
-              <span class="doc-date">{post.frontmatter?.date}</span>
-            </a>
-          ))
+          postsArray.map((post: any) => {
+            // Generate the slug to match your [slug].astro logic
+            const slug = post.file.split("/").pop()?.replace(".md", "");
+            // Use 'category' or 'tags' from frontmatter for filtering
+            const category = post.frontmatter?.category || "GENERAL";
+
+            return (
+              <a
+                href={`/archive/${slug}`}
+                class="doc-item"
+                data-category={category}
+              >
+                <span class="doc-cat">{category}</span>
+                <span class="doc-title">
+                  {post.frontmatter?.title || "Untitled Document"}
+                </span>
+                <span class="doc-date">{post.frontmatter?.date || "---"}</span>
+              </a>
+            );
+          })
         }
       </div>
     </section>
@@ -80,16 +87,15 @@ const mainCategories = [
 
     filterButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        const filter = btn.getAttribute("data-filter") ?? "all"; // fallback to "all"
+        const filter = btn.getAttribute("data-filter")?.toUpperCase() ?? "ALL";
 
-        // Update active state
         filterButtons.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
 
-        // Filter List
         docItems.forEach((item) => {
-          const tags = item.getAttribute("data-tags") ?? "";
-          if (filter === "all" || tags.includes(filter)) {
+          const itemCat =
+            item.getAttribute("data-category")?.toUpperCase() ?? "";
+          if (filter === "ALL" || itemCat === filter) {
             (item as HTMLElement).style.display = "grid";
           } else {
             (item as HTMLElement).style.display = "none";
