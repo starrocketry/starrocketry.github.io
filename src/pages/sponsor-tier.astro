@@ -125,6 +125,33 @@ const benefits = [
 
 const getSponsorsByTier = (tierId) =>
   sponsorsData.filter((s) => s.tier === tierId);
+
+// --- DYNAMIC TELEMETRY LOGIC ---
+const rawInput = "20k";
+const goalInput = "5L";
+
+const toLakhs = (val) => {
+  if (typeof val === "number") return val;
+  const num = parseFloat(val);
+  if (val.toLowerCase().includes("k")) return num / 100;
+  return num;
+};
+
+const formatDisplay = (val) => {
+  return val < 1 ? `${(val * 100).toFixed(0)}k` : `${val.toFixed(1)}L`;
+};
+
+const currentFunding = toLakhs(rawInput);
+const goalFunding = toLakhs(goalInput);
+const remaining = Math.max(goalFunding - currentFunding, 0);
+const progressPercentage = Math.min(
+  (currentFunding / goalFunding) * 100,
+  100,
+).toFixed(1);
+
+const displayCurrent = formatDisplay(currentFunding);
+const displayGoal = formatDisplay(goalFunding);
+const displayRemaining = formatDisplay(remaining);
 ---
 
 <Layout title="Support STAR Team">
@@ -137,6 +164,42 @@ const getSponsorsByTier = (tierId) =>
         Empower the next generation of aerospace engineers. Help us push the
         boundaries of student rocketry.
       </p>
+    </section>
+
+    <section class="funding-status small-variant">
+      <div class="progress-box glass">
+        <div class="telemetry-header">
+          <div class="telemetry-title">
+            <div class="pulse-dot"></div>
+            <span class="mission-label">STATUS: IN-SPACe 2026</span>
+          </div>
+          <div class="telemetry-procured">
+            <span class="amount">{displayCurrent}</span>
+            <span class="unit">INR PROCURED</span>
+          </div>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar-bg">
+            <div class="progress-fill" style={`width: ${progressPercentage}%`}>
+              <div class="fill-glow"></div>
+            </div>
+          </div>
+          <div class="progress-meta">
+            <span class="meta-percent">{progressPercentage}% LOADED</span>
+            <span class="meta-goal">TARGET: {displayGoal}</span>
+          </div>
+        </div>
+
+        <div class="telemetry-footer">
+          <p class="impact-statement">
+            Supporting <strong>Hardware</strong>, <strong>Logistics</strong> and <strong
+              >Travel</strong
+            >.
+          </p>
+          <div class="remaining-badge">NEED: {displayRemaining}</div>
+        </div>
+      </div>
     </section>
 
     <section class="tiers-container">
@@ -154,7 +217,6 @@ const getSponsorsByTier = (tierId) =>
                 {tier.currency && (
                   <span class="tier-currency">{tier.currency}</span>
                 )}
-
                 <span class="tier-interval">
                   {tier.id === "escape_velocity" ? "" : "/ yr"}
                 </span>
@@ -213,7 +275,8 @@ const getSponsorsByTier = (tierId) =>
                 <h3 class="tier-group-title" style={`color: ${tier.color}`}>
                   {tier.name}{" "}
                   <span>
-                    // {tierSponsors.length.toString().padStart(2, "0")}
+                    {" "}
+                    // {tierSponsors.length.toString().padStart(2, "0")}{" "}
                   </span>
                 </h3>
                 <div class="sponsor-grid">

@@ -29,22 +29,156 @@
   -webkit-text-fill-color: transparent;
 }
 
-.benefits {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2rem); /* Fixed clamp values */
-  text-align: left;
-  margin-bottom: 20px;
-  background: linear-gradient(to bottom, #ffffff, #888888);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .subtitle {
   font-size: 1.1rem;
   color: #888;
   max-width: 600px;
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+}
+
+/* --- Funding Telemetry Section (New) --- */
+.funding-status {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto 80px auto;
+  padding: 0 20px;
+}
+
+.progress-box {
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(197, 148, 240, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.telemetry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 25px;
+}
+
+.telemetry-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #c594f0;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #c594f0;
+  animation: telemetryPulse 2s infinite;
+}
+
+@keyframes telemetryPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+}
+
+.mission-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #888;
+}
+
+.telemetry-procured {
+  text-align: right;
+}
+
+.telemetry-procured .amount {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.telemetry-procured .unit {
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: #c594f0;
+  letter-spacing: 1px;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4a00e0, #c594f0);
+  border-radius: 20px;
+  position: relative;
+  transition: width 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fill-glow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 30px;
+  background: white;
+  filter: blur(15px);
+  opacity: 0.3;
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+.telemetry-footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.impact-statement {
+  font-size: 0.85rem;
+  color: #777;
+  max-width: 60%;
+  margin: 0;
+}
+
+.remaining-badge {
+  background: rgba(197, 148, 240, 0.1);
+  color: #c594f0;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  border: 1px solid rgba(197, 148, 240, 0.2);
 }
 
 /* --- Pricing Tiers --- */
@@ -73,10 +207,6 @@
   background: rgba(197, 148, 240, 0.03);
 }
 
-.tier-header {
-  margin-bottom: 25px;
-}
-
 .tier-rank {
   font-family: monospace;
   font-size: 0.8rem;
@@ -84,7 +214,6 @@
   font-weight: 900;
 }
 
-/* New Price & Interval Layout */
 .price-container {
   display: flex;
   align-items: baseline;
@@ -112,13 +241,12 @@
   letter-spacing: 1px;
 }
 
-/* New Impact Text */
 .tier-impact {
   font-size: 0.85rem;
   color: #888;
   line-height: 1.6;
   margin-top: 15px;
-  min-height: 4.5em; /* Ensures buttons align across cards */
+  min-height: 4.5em;
 }
 
 .divider {
@@ -154,10 +282,6 @@
   color: #c594f0 !important;
 }
 
-.tier-card.unique .tier-interval {
-  color: rgba(197, 148, 240, 0.6);
-}
-
 .tier-card.unique .tier-btn {
   border-color: #c594f0;
   color: #c594f0;
@@ -174,9 +298,16 @@
   width: 100%;
   max-width: 1200px;
   padding: 0 20px 100px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+.benefits {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  text-align: left;
+  margin-bottom: 20px;
+  background: linear-gradient(to bottom, #ffffff, #888888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .table-scroll-wrapper {
@@ -216,12 +347,7 @@
 .benefit-label {
   text-align: left !important;
   color: #888 !important;
-  font-weight: 400;
   width: 30%;
-}
-
-.benefits-table tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
 }
 
 /* --- Current Fleet (Sponsor Grid) --- */
@@ -229,10 +355,6 @@
   width: 100%;
   max-width: 1200px;
   padding: 80px 20px;
-}
-
-.tier-group {
-  margin-bottom: 80px;
 }
 
 .tier-group-title {
@@ -247,10 +369,6 @@
   text-transform: uppercase;
 }
 
-.tier-group-title span {
-  opacity: 0.3;
-}
-
 .sponsor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -262,8 +380,6 @@
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 30px;
-  display: flex;
-  flex-direction: column;
   border-radius: 8px;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   backdrop-filter: blur(10px);
@@ -294,17 +410,11 @@
   filter: grayscale(0) brightness(1);
 }
 
-.sponsor-meta {
-  margin-bottom: 25px;
-}
-
 .hex-name {
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.1rem;
   color: #fff;
-  letter-spacing: 1px;
   text-transform: uppercase;
-  display: block;
   margin-bottom: 8px;
 }
 
@@ -312,7 +422,6 @@
   font-size: 0.85rem;
   color: #777;
   line-height: 1.6;
-  margin: 0;
 }
 
 .card-status {
@@ -325,7 +434,7 @@
   gap: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding-top: 20px;
-  margin-top: auto;
+  margin-top: 20px;
 }
 
 .status-dot {
@@ -336,19 +445,11 @@
   box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
 }
 
-.escape_velocity .status-dot {
-  background: #c594f0;
-  box-shadow: 0 0 10px rgba(197, 148, 240, 0.4);
-}
-
 /* --- Notion Form Section --- */
 .form-section {
   width: 100%;
   max-width: 1000px;
   padding: 100px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .form-title {
@@ -378,29 +479,31 @@
   .support-page {
     padding-top: 100px;
   }
-
-  .tiers-container,
-  .sponsor-grid,
-  .table-section {
+  .tiers-container {
     grid-template-columns: 1fr;
   }
-
+  .telemetry-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .telemetry-footer {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .impact-statement {
+    max-width: 100%;
+  }
   .glow-title {
     font-size: 2.5rem;
   }
-
-  .sponsor-hex-card {
-    padding: 25px;
-  }
-
   .table-scroll-wrapper {
     margin: 0 -20px;
     width: calc(100% + 40px);
     border-radius: 0;
   }
-
   .tier-impact {
     min-height: auto;
-    margin-bottom: 10px;
   }
 }
