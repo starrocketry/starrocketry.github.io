@@ -1,65 +1,62 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 import RocketScroll from "../components/RocketScroll.astro";
 import SponsorMarquee from "../components/SponsorMarquee.astro";
 import Sponsors from "../components/Sponsors.astro";
-import Footer from "../components/Footer.astro";
+// Footer removed from imports because it belongs in Layout.astro
 import "../styles/home.css";
 ---
 
 <Layout title="STAR Rocketry Team">
   <div
     id="mission-ui"
-    class="initial-hide"
-    style="position: fixed; width: 100%; z-index: 99999; top: 0; left: 0;"
+    style="position: fixed; width: 100%; z-index: 99999; top: 0; left: 0; opacity: 0; visibility: hidden; transition: all 0.4s ease-in-out; transform: translateY(-20px);"
   >
     <Navbar />
   </div>
 
-  <main>
+  <main id="mission-main">
     <RocketScroll />
 
-    <div class="section-tag">SPONSORS</div>
-    <SponsorMarquee />
+    <section class="marquee-section" style="min-height: 200px; width: 100%;">
+      <div class="section-tag">SPONSORS</div>
+      <SponsorMarquee />
+    </section>
 
     <div class="command-center">
       <Sponsors />
     </div>
-
-    <Footer />
   </main>
+  <Footer />
 </Layout>
 
 <script is:inline>
-  const nav = document.getElementById("mission-ui");
-  const content = document.getElementById("mission-content");
+  // Use 'DOMContentLoaded' to ensure the Marquee and CSS are ready before script logic runs
+  document.addEventListener("DOMContentLoaded", () => {
+    const nav = document.getElementById("mission-ui");
 
-  const handleReveal = () => {
-    const scroll = window.scrollY;
-    const revealPoint = 300;
+    const handleReveal = () => {
+      const scroll = window.scrollY;
+      const revealPoint = 300;
 
-    if (scroll > revealPoint) {
-      nav.style.opacity = "1";
-      nav.style.visibility = "visible";
-      nav.style.transform = "translateY(0)";
-      nav.style.pointerEvents = "auto";
+      if (nav) {
+        if (scroll > revealPoint) {
+          nav.style.opacity = "1";
+          nav.style.visibility = "visible";
+          nav.style.transform = "translateY(0)";
+          nav.style.pointerEvents = "auto";
+        } else {
+          nav.style.opacity = "0";
+          nav.style.visibility = "hidden";
+          nav.style.transform = "translateY(-20px)";
+          nav.style.pointerEvents = "none";
+        }
+      }
+    };
 
-      content.style.opacity = "1";
-      content.style.visibility = "visible";
-      content.style.pointerEvents = "auto";
-    } else {
-      nav.style.opacity = "0";
-      nav.style.visibility = "hidden";
-      nav.style.transform = "translateY(-20px)";
-      nav.style.pointerEvents = "none";
-
-      content.style.opacity = "0";
-      content.style.visibility = "hidden";
-      content.style.pointerEvents = "none";
-    }
-  };
-
-  window.addEventListener("scroll", handleReveal, { passive: true });
-  handleReveal();
+    window.addEventListener("scroll", handleReveal, { passive: true });
+    handleReveal();
+  });
 </script>

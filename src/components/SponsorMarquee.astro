@@ -1,6 +1,5 @@
 ---
 import "../styles/marquee.css";
-// Move your json to src/data/sponsors.json for safer bundling
 import sponsorData from "../pages/data/sponsors.json";
 
 const TIER_MAP = {
@@ -8,38 +7,51 @@ const TIER_MAP = {
   apogee: { label: "APOGEE", row: "top" },
   max_q: { label: "MAX-Q", row: "top" },
   static_fire: { label: "STATIC FIRE", row: "top" },
-  mission_backer: { label: "MISSION BACKER", row: "bottom" },
+  // mission_backer: { label: "MISSION BACKER", row: "bottom" },
 };
 
-const topRow = sponsorData.filter(
-  (s) => (TIER_MAP[s.tier]?.row || "top") === "top",
-);
+const topRow = sponsorData.filter((s) => TIER_MAP[s.tier]?.row === "top");
+const bottomRow = sponsorData.filter((s) => TIER_MAP[s.tier]?.row === "bottom");
 
-// Tripling the array ensures the -50% translation never shows a gap
-const marqueeArray = [...topRow, ...topRow, ...topRow];
+const marqueeArray = (arr) => [...arr, ...arr];
 ---
 
 <div class="marquee-wrapper">
   {
     topRow.length > 0 && (
       <div class="marquee-container">
-        <div class="marquee-content animate-left">
-          {marqueeArray.map((s) => (
+        <div class="marquee-content left">
+          {marqueeArray(topRow).map((s) => (
             <a href={s.website} target="_blank" class="sponsor-link">
               <div
                 class={`sponsor-tag glass ${s.tier === "escape_velocity" ? "rank-high" : ""}`}
               >
                 <div class="sponsor-brand">
-                  <img
-                    src={s.logo}
-                    alt={s.name}
-                    class="sponsor-logo"
-                    loading="eager"
-                  />
+                  <img src={s.logo} alt={s.name} class="sponsor-logo" />
                   <div class="sponsor-info">
-                    <span class="rank-label">
-                      {TIER_MAP[s.tier]?.label || "PARTNER"}
-                    </span>
+                    <span class="rank-label">{TIER_MAP[s.tier].label}</span>
+                    <span class="sponsor-name">{s.name}</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  {
+    bottomRow.length > 0 && (
+      <div class="marquee-container">
+        <div class="marquee-content right">
+          {marqueeArray(bottomRow).map((s) => (
+            <a href={s.website} target="_blank" class="sponsor-link">
+              <div class="sponsor-tag glass">
+                <div class="sponsor-brand">
+                  <img src={s.logo} alt={s.name} class="sponsor-logo" />
+                  <div class="sponsor-info">
+                    <span class="rank-label">{TIER_MAP[s.tier].label}</span>
                     <span class="sponsor-name">{s.name}</span>
                   </div>
                 </div>
@@ -51,50 +63,3 @@ const marqueeArray = [...topRow, ...topRow, ...topRow];
     )
   }
 </div>
-
-<style>
-  /* Hard-coded layout to prevent production build collapse */
-  .marquee-wrapper {
-    width: 100%;
-    overflow: hidden;
-    padding: 30px 0;
-    display: block !important;
-  }
-
-  .marquee-container {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-    /* Temporarily removing mask-image to verify visibility */
-    mask-image: none !important;
-    -webkit-mask-image: none !important;
-  }
-
-  .marquee-content {
-    display: flex;
-    flex-shrink: 0;
-    gap: 30px;
-    padding: 10px 0;
-    width: max-content;
-    will-change: transform;
-  }
-
-  .sponsor-tag {
-    flex-shrink: 0;
-    min-width: 300px;
-    display: flex !important;
-  }
-
-  @keyframes scroll-left {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  .animate-left {
-    animation: scroll-left 40s linear infinite !important;
-  }
-</style>
