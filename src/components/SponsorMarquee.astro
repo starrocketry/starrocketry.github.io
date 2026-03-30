@@ -1,5 +1,6 @@
 ---
 import "../styles/marquee.css";
+// Update this path to your new data location
 import sponsorData from "../pages/data/sponsors.json";
 
 const TIER_MAP = {
@@ -7,13 +8,24 @@ const TIER_MAP = {
   apogee: { label: "APOGEE", row: "top" },
   max_q: { label: "MAX-Q", row: "top" },
   static_fire: { label: "STATIC FIRE", row: "top" },
-  // mission_backer: { label: "MISSION BACKER", row: "bottom" },
+  mission_backer: { label: "MISSION BACKER", row: "bottom" },
 };
 
-const topRow = sponsorData.filter((s) => TIER_MAP[s.tier]?.row === "top");
+// Fail-safe: if tier is missing, default to 'top' row so it doesn't disappear
+const topRow = sponsorData.filter(
+  (s) => (TIER_MAP[s.tier]?.row || "top") === "top",
+);
 const bottomRow = sponsorData.filter((s) => TIER_MAP[s.tier]?.row === "bottom");
 
-const marqueeArray = (arr) => [...arr, ...arr];
+// Force at least 10 items for a smooth infinite loop
+const marqueeArray = (arr) => {
+  if (arr.length === 0) return [];
+  let multi = [...arr];
+  while (multi.length < 12) {
+    multi = [...multi, ...arr];
+  }
+  return multi;
+};
 ---
 
 <div class="marquee-wrapper">
@@ -27,31 +39,16 @@ const marqueeArray = (arr) => [...arr, ...arr];
                 class={`sponsor-tag glass ${s.tier === "escape_velocity" ? "rank-high" : ""}`}
               >
                 <div class="sponsor-brand">
-                  <img src={s.logo} alt={s.name} class="sponsor-logo" />
+                  <img
+                    src={s.logo}
+                    alt={s.name}
+                    class="sponsor-logo"
+                    loading="eager"
+                  />
                   <div class="sponsor-info">
-                    <span class="rank-label">{TIER_MAP[s.tier].label}</span>
-                    <span class="sponsor-name">{s.name}</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    )
-  }
-
-  {
-    bottomRow.length > 0 && (
-      <div class="marquee-container">
-        <div class="marquee-content right">
-          {marqueeArray(bottomRow).map((s) => (
-            <a href={s.website} target="_blank" class="sponsor-link">
-              <div class="sponsor-tag glass">
-                <div class="sponsor-brand">
-                  <img src={s.logo} alt={s.name} class="sponsor-logo" />
-                  <div class="sponsor-info">
-                    <span class="rank-label">{TIER_MAP[s.tier].label}</span>
+                    <span class="rank-label">
+                      {TIER_MAP[s.tier]?.label || "PARTNER"}
+                    </span>
                     <span class="sponsor-name">{s.name}</span>
                   </div>
                 </div>
@@ -63,3 +60,18 @@ const marqueeArray = (arr) => [...arr, ...arr];
     )
   }
 </div>
+
+<style>
+  /* Forced keyframes for Production Build */
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .left {
+    animation: scroll-left 40s linear infinite !important;
+  }
+</style>
