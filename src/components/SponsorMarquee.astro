@@ -1,57 +1,52 @@
 ---
 import "../styles/marquee.css";
-import sponsorData from "../pages/data/sponsors.json";
+
+// Internal Data for production stability
+const sponsorData = [
+  {
+    name: "REVA University",
+    logo: "/sponsor-logo/logo.png",
+    website: "https://reva.edu.in/",
+    tier: "static_fire",
+  },
+  // Add your other sponsors here
+];
 
 const TIER_MAP = {
-  escape_velocity: { label: "ESCAPE VELOCITY", row: "top" },
-  apogee: { label: "APOGEE", row: "top" },
-  max_q: { label: "MAX-Q", row: "top" },
-  static_fire: { label: "STATIC FIRE", row: "top" },
-  // mission_backer: { label: "MISSION BACKER", row: "bottom" },
+  escape_velocity: { label: "ESCAPE VELOCITY", color: "#c594f0" },
+  apogee: { label: "APOGEE", color: "#888" },
+  max_q: { label: "MAX-Q", color: "#888" },
+  static_fire: { label: "STATIC FIRE", color: "#888" },
 };
 
-const topRow = sponsorData.filter((s) => TIER_MAP[s.tier]?.row === "top");
-const bottomRow = sponsorData.filter((s) => TIER_MAP[s.tier]?.row === "bottom");
-
-const marqueeArray = (arr) => [...arr, ...arr];
+// TRIPLE BUFFER: We repeat the list 3 times to ensure no gaps on any screen size.
+const marqueeArray = [...sponsorData, ...sponsorData, ...sponsorData];
 ---
 
 <div class="marquee-wrapper">
   {
-    topRow.length > 0 && (
+    sponsorData.length > 0 && (
       <div class="marquee-container">
-        <div class="marquee-content left">
-          {marqueeArray(topRow).map((s) => (
+        <div class="marquee-content infinite-scroll">
+          {marqueeArray.map((s) => (
             <a href={s.website} target="_blank" class="sponsor-link">
               <div
-                class={`sponsor-tag glass ${s.tier === "escape_velocity" ? "rank-high" : ""}`}
+                class={`sponsor-tag glass ${s.tier === "escape_velocity" ? "rank-escape" : ""}`}
               >
                 <div class="sponsor-brand">
-                  <img src={s.logo} alt={s.name} class="sponsor-logo" />
+                  <img
+                    src={s.logo}
+                    alt={s.name}
+                    class="sponsor-logo"
+                    loading="eager"
+                  />
                   <div class="sponsor-info">
-                    <span class="rank-label">{TIER_MAP[s.tier].label}</span>
-                    <span class="sponsor-name">{s.name}</span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    )
-  }
-
-  {
-    bottomRow.length > 0 && (
-      <div class="marquee-container">
-        <div class="marquee-content right">
-          {marqueeArray(bottomRow).map((s) => (
-            <a href={s.website} target="_blank" class="sponsor-link">
-              <div class="sponsor-tag glass">
-                <div class="sponsor-brand">
-                  <img src={s.logo} alt={s.name} class="sponsor-logo" />
-                  <div class="sponsor-info">
-                    <span class="rank-label">{TIER_MAP[s.tier].label}</span>
+                    <span
+                      class="rank-label"
+                      style={`color: ${TIER_MAP[s.tier]?.color || "#888"}`}
+                    >
+                      {TIER_MAP[s.tier]?.label || "PARTNER"}
+                    </span>
                     <span class="sponsor-name">{s.name}</span>
                   </div>
                 </div>
@@ -63,3 +58,100 @@ const marqueeArray = (arr) => [...arr, ...arr];
     )
   }
 </div>
+
+<style is:global>
+  /* --- Infinite Animation Logic --- */
+  @keyframes scroll-infinite {
+    from {
+      transform: translateX(0);
+    }
+    /* Since we tripled the array, moving 1/3 (33.33%) resets the loop perfectly */
+    to {
+      transform: translateX(-33.3333%);
+    }
+  }
+
+  .infinite-scroll {
+    display: flex !important;
+    width: max-content !important;
+    gap: 30px;
+    will-change: transform;
+    animation: scroll-infinite 50s linear infinite !important;
+  }
+
+  /* --- Purple "Escape Velocity" Accent --- */
+  .rank-escape {
+    border: 1px solid rgba(197, 148, 240, 0.4) !important;
+    background: rgba(197, 148, 240, 0.04) !important;
+    box-shadow: inset 0 0 15px rgba(197, 148, 240, 0.05);
+  }
+
+  .rank-escape .sponsor-name {
+    color: #fff !important;
+    text-shadow: 0 0 8px rgba(197, 148, 240, 0.4);
+  }
+
+  /* --- Global Link Overrides (Fixing 'display: block') --- */
+  a.sponsor-link {
+    display: block !important;
+    text-decoration: none !important;
+    flex-shrink: 0 !important;
+    min-width: 320px !important;
+    transition: transform 0.3s ease;
+  }
+
+  .sponsor-link:hover {
+    transform: translateY(-5px);
+  }
+
+  /* --- Structure --- */
+  .marquee-wrapper {
+    width: 100% !important;
+    overflow: hidden !important;
+    padding: 50px 0;
+  }
+
+  .marquee-container {
+    display: flex !important;
+    width: 100%;
+    overflow: hidden;
+    /* Edge Fades */
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+  }
+
+  .sponsor-tag {
+    display: flex !important;
+    align-items: center;
+    padding: 24px 35px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+
+  .sponsor-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    filter: grayscale(1) brightness(2);
+    opacity: 0.8;
+  }
+
+  /* Pause on hover for better UX */
+  .marquee-container:hover .infinite-scroll {
+    animation-play-state: paused !important;
+  }
+</style>
