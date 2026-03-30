@@ -1,65 +1,18 @@
-/* --- Marquee Wrapper --- */
-.marquee-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin: 60px 0;
-  overflow: hidden;
-}
-
-/* --- Infinite Scroll Container --- */
-.marquee-container {
-  width: 100%;
-  overflow: hidden;
-  padding: 15px 0;
-  cursor: pointer;
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 15%,
-    black 85%,
-    transparent
-  );
-}
-
-.marquee-content {
-  display: flex;
-  gap: 30px;
-  width: max-content;
-  will-change: transform;
-}
-
-/* Directions */
-.left {
-  animation: scroll-left 40s linear infinite;
-}
-.right {
-  animation: scroll-right 40s linear infinite;
-}
-
-.marquee-container:hover .marquee-content {
-  animation-play-state: paused;
-}
-
-/* --- The Simplified Tag --- */
+/* --- Visual Styling Only --- */
 .sponsor-link {
   text-decoration: none;
   color: inherit;
-  display: block;
 }
 
 .sponsor-tag {
   position: relative;
-  display: flex;
   align-items: center;
   padding: 20px 35px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px; /* Clean, modern rounded corners */
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  min-width: 300px;
+  border-radius: 8px;
   backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .sponsor-link:hover .sponsor-tag {
@@ -68,22 +21,11 @@
   transform: translateY(-3px);
 }
 
-/* --- High Rank (Escape Velocity) Styling --- */
 .rank-high {
   border: 1px solid rgba(197, 148, 240, 0.2);
   background: rgba(197, 148, 240, 0.02);
 }
 
-.rank-high .rank-label {
-  color: #c594f0;
-}
-
-.sponsor-link:hover .rank-high {
-  border-color: #c594f0;
-  box-shadow: 0 0 20px rgba(197, 148, 240, 0.1);
-}
-
-/* --- Brand & Typography --- */
 .sponsor-brand {
   display: flex;
   align-items: center;
@@ -96,7 +38,6 @@
   object-fit: contain;
   filter: grayscale(1) brightness(2);
   opacity: 0.7;
-  transition: 0.3s ease;
 }
 
 .sponsor-link:hover .sponsor-logo {
@@ -115,7 +56,6 @@
   color: #555;
   letter-spacing: 3px;
   text-transform: uppercase;
-  margin-bottom: 2px;
 }
 
 .sponsor-name {
@@ -123,32 +63,4 @@
   font-size: 1rem;
   letter-spacing: 2px;
   color: #fff;
-  text-transform: uppercase;
-}
-
-/* --- Animations --- */
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes scroll-right {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .sponsor-tag {
-    min-width: 260px;
-    padding: 15px 25px;
-  }
 }

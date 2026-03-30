@@ -1,6 +1,6 @@
 ---
 import "../styles/marquee.css";
-// Update this path to your new data location
+// Move your json to src/data/sponsors.json for safer bundling
 import sponsorData from "../pages/data/sponsors.json";
 
 const TIER_MAP = {
@@ -11,29 +11,20 @@ const TIER_MAP = {
   mission_backer: { label: "MISSION BACKER", row: "bottom" },
 };
 
-// Fail-safe: if tier is missing, default to 'top' row so it doesn't disappear
 const topRow = sponsorData.filter(
   (s) => (TIER_MAP[s.tier]?.row || "top") === "top",
 );
-const bottomRow = sponsorData.filter((s) => TIER_MAP[s.tier]?.row === "bottom");
 
-// Force at least 10 items for a smooth infinite loop
-const marqueeArray = (arr) => {
-  if (arr.length === 0) return [];
-  let multi = [...arr];
-  while (multi.length < 12) {
-    multi = [...multi, ...arr];
-  }
-  return multi;
-};
+// Tripling the array ensures the -50% translation never shows a gap
+const marqueeArray = [...topRow, ...topRow, ...topRow];
 ---
 
 <div class="marquee-wrapper">
   {
     topRow.length > 0 && (
       <div class="marquee-container">
-        <div class="marquee-content left">
-          {marqueeArray(topRow).map((s) => (
+        <div class="marquee-content animate-left">
+          {marqueeArray.map((s) => (
             <a href={s.website} target="_blank" class="sponsor-link">
               <div
                 class={`sponsor-tag glass ${s.tier === "escape_velocity" ? "rank-high" : ""}`}
@@ -62,7 +53,38 @@ const marqueeArray = (arr) => {
 </div>
 
 <style>
-  /* Forced keyframes for Production Build */
+  /* Hard-coded layout to prevent production build collapse */
+  .marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 30px 0;
+    display: block !important;
+  }
+
+  .marquee-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    /* Temporarily removing mask-image to verify visibility */
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+
+  .marquee-content {
+    display: flex;
+    flex-shrink: 0;
+    gap: 30px;
+    padding: 10px 0;
+    width: max-content;
+    will-change: transform;
+  }
+
+  .sponsor-tag {
+    flex-shrink: 0;
+    min-width: 300px;
+    display: flex !important;
+  }
+
   @keyframes scroll-left {
     from {
       transform: translateX(0);
@@ -71,7 +93,8 @@ const marqueeArray = (arr) => {
       transform: translateX(-50%);
     }
   }
-  .left {
+
+  .animate-left {
     animation: scroll-left 40s linear infinite !important;
   }
 </style>
