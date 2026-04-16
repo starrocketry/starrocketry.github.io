@@ -4,6 +4,10 @@
   min-height: 100vh;
 }
 
+a {
+  color: #c594f0;
+}
+
 /* --- Hero Section --- */
 .project-hero {
   position: relative;

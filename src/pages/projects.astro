@@ -2,15 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-
 import "../styles/projects.css";
 
-const projectFiles = import.meta.glob("./projects/markdown/*.md", {
+const projectFiles = import.meta.glob("/src/pages/projects/markdown/*.md", {
   eager: true,
 });
 const projectsArray = Object.values(projectFiles);
 
-// Optional: Sort projects by their ID (e.g., PRJ-01, PRJ-02)
 const sortedProjects = projectsArray.sort((a: any, b: any) =>
   (a.frontmatter.id || "").localeCompare(b.frontmatter.id || ""),
 );
@@ -26,7 +24,6 @@ const sortedProjects = projectsArray.sort((a: any, b: any) =>
     <div class="projects-grid">
       {
         sortedProjects.map((project: any) => {
-          // Extract the filename to use as the slug (matches [slug].astro)
           const slug = project.file.split("/").pop()?.replace(".md", "");
 
           return (
@@ -45,11 +42,14 @@ const sortedProjects = projectsArray.sort((a: any, b: any) =>
                     {project.frontmatter.id || "PRJ-UNK"}
                   </span>
                   <span class="project-category">
-                    {project.frontmatter.category}
+                    {Array.isArray(project.frontmatter.category)
+                      ? project.frontmatter.category.join(", ")
+                      : project.frontmatter.category}
                   </span>
                 </div>
                 <h2 class="project-title">{project.frontmatter.title}</h2>
-                <p class="project-excerpt">{project.frontmatter.description}</p>
+
+                {/* Description removed from here */}
 
                 <div class="card-footer">
                   <span

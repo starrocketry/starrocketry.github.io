@@ -18,14 +18,20 @@ const {
   category,
   status,
   image,
-  origin,
+  trl,
+  testing_type,
   clearance,
   encryption,
-  integrity,
 } = project.frontmatter;
 ---
 
 <Layout title={`${title} | Technical Report`}>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+    crossorigin="anonymous"
+  />
+
   <article class="project-page">
     <header class="project-hero">
       <div class="hero-bg">
@@ -35,9 +41,9 @@ const {
 
       <div class="hero-content">
         <nav class="breadcrumb">
-          <a href="/projects">/ MISSION_MANIFEST</a>
+          <a href="/projects">/PROJECTS</a>
         </nav>
-        <div class="meta-badge">SYSTEM_DATA_REPORT</div>
+        <div class="meta-badge">PROJECT DOCS</div>
         <h1 class="project-title">{title}</h1>
         <div class="project-meta-strip">
           <div class="meta-item">
@@ -46,7 +52,9 @@ const {
           </div>
           <div class="meta-item">
             <span class="label">CATEGORY</span>
-            <span class="value">{category}</span>
+            <span class="value">
+              {Array.isArray(category) ? category.join(", ") : category}
+            </span>
           </div>
           <div class="meta-item">
             <span class="label">STATUS</span>
@@ -63,7 +71,10 @@ const {
         <div class="sidebar-box glass">
           <h3>ARCHIVE_INFO</h3>
           <ul>
-            <li><span>ORIGIN:</span> {origin || "GROUND_CONTROL"}</li>
+            <li>
+              <span>TESTING TYPE:</span>
+              {testing_type || "GROUND_CONTROL"}
+            </li>
             <li><span>CLEARANCE:</span> {clearance || "LEVEL_01"}</li>
             <li><span>ENCRYPTION:</span> {encryption || "NONE"}</li>
           </ul>
@@ -73,9 +84,9 @@ const {
           <h3>TELEMETRY</h3>
           <div class="stat-row">
             <div class="stat-bar">
-              <div class="fill" style={`width: ${integrity || 0}%;`}></div>
+              <div class="fill" style={`width: ${trl || 0}%;`}></div>
             </div>
-            <span class="stat-label">DATA_INTEGRITY {integrity || 0}%</span>
+            <span class="stat-label">TRL {trl || 0}%</span>
           </div>
         </div>
       </aside>
@@ -86,3 +97,36 @@ const {
     </div>
   </article>
 </Layout>
+
+<style is:global>
+  /* GFM Table Styling */
+  .markdown-content table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .markdown-content th,
+  .markdown-content td {
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+  }
+  .markdown-content th {
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  /* GFM Task List Styling */
+  .markdown-content ul li input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #00ffaa;
+  }
+
+  /* Math Centering */
+  .katex-display {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+</style>
