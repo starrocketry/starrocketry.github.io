@@ -5,5 +5,12 @@
     "logo": "/sponsor-logo/logo.png",
     "website": "https://reva.edu.in",
     "about": "Established in 2012, REVA University is a forerunner in delivering technology-based education. Recognised as one of the Top 50 private universities in India, REVA University with exemplary infrastructure, strives to benchmark new milestones in modern education."
+  },
+  {
+    "name": "AICTE IDEA Lab",
+    "tier": "staging",
+    "logo": "/sponsor-logo/idea-lab.png",
+    "website": "https://reva.edu.in",
+    "about": "The IDEA Lab at REVA University is a state-of-the-art facility dedicated to fostering creativity, enhancing problem-solving abilities, and cultivating an entrepreneurial mindset among students, researchers, and faculty—driving innovation, design excellence and entrepreneurial growth. Equipped with advanced tools for digital fabrication, electronics development and 3D printing"
   }
 ]

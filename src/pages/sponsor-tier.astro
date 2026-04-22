@@ -8,6 +8,14 @@ import "../styles/sponsor-tier.css";
 
 const tiers = [
   {
+    id: "staging",
+    name: "STAGING*",
+    currency: "-",
+    price: "Components",
+    impact: "Build rockets for testing",
+    color: "#ffffff",
+  },
+  {
     id: "static_fire",
     name: "STATIC FIRE",
     currency: "INR",
@@ -46,6 +54,7 @@ const tiers = [
 const benefits = [
   {
     label: "Logo on Website & Newsletters",
+    staging: "✦",
     static_fire: "✦",
     max_q: "✦",
     apogee: "✦",
@@ -53,6 +62,7 @@ const benefits = [
   },
   {
     label: "Logo on CanSat",
+    staging: "✦",
     static_fire: "✦",
     max_q: "✦",
     apogee: "✦",
@@ -60,6 +70,7 @@ const benefits = [
   },
   {
     label: "Logo on Rocket Airframe",
+    staging: "small*",
     static_fire: "Small",
     max_q: "Medium",
     apogee: "Large",
@@ -67,6 +78,7 @@ const benefits = [
   },
   {
     label: "Logo on Team Apparel",
+    staging: "Small*",
     static_fire: "Small",
     max_q: "Medium",
     apogee: "Large",
@@ -74,6 +86,7 @@ const benefits = [
   },
   {
     label: "Name on Papers",
+    staging: "",
     static_fire: "",
     max_q: "✦",
     apogee: "✦",
@@ -81,6 +94,7 @@ const benefits = [
   },
   {
     label: "Name on Papers and Uploaded Reports",
+    staging: "",
     static_fire: "",
     max_q: "",
     apogee: "",
@@ -88,20 +102,23 @@ const benefits = [
   },
   {
     label: "Social Media Shout-outs",
+    staging: "Initially*",
     static_fire: "Monthly",
     max_q: "Weekly",
     apogee: "All posts",
     escape_velocity: "All Posts",
   },
   {
-    label: "Linkedin or other socials post mention",
+    label: "Linkedin post mention",
+    staging: "",
     static_fire: "",
     max_q: "",
     apogee: "✦",
     escape_velocity: "✦",
   },
   {
-    label: "Individual Social Media Thank Yous",
+    label: "Individual Social Media Thank You",
+    staging: "",
     static_fire: "Quarterly",
     max_q: "Monthly",
     apogee: "Bi-Weekly",
@@ -109,6 +126,7 @@ const benefits = [
   },
   {
     label: "Use Company Components",
+    staging: "✦",
     static_fire: "",
     max_q: "✦",
     apogee: "✦",
@@ -116,6 +134,7 @@ const benefits = [
   },
   {
     label: "Launch Day Access",
+    staging: "",
     static_fire: "",
     max_q: "",
     apogee: "",
@@ -259,6 +278,7 @@ const displayRemaining = formatDisplay(remaining);
             }
           </tbody>
         </table>
+        <p>* depends on pricing of the equipments and components provided</p>
       </div>
     </section>
 
