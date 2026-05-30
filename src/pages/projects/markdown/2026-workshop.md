@@ -45,12 +45,6 @@ _Table 1. List of teams participated in the sounding rocket workshop 2026_
 
 _The Rockets developed by the teams are shown after the workshop contents_
 
-Softwares Used: OpenRocket, OpenMotor, SimScale, VSCode, PlatformIO,
-
-> This Workshop was taught using a MacBook Air with the M2 processor running macOS 26 Tahoe.
-> The following softwares and actions can be done using a Windows as well as a Unix based OS with
-> atleast an Intel Core i3 with 4Gb RAM (Core i5 or similar AMD processor with 8Gb RAM are recommended)
-
 ## Acronyms
 
 SRM: Solid Rocket Motor
@@ -60,6 +54,12 @@ ORK: OpenRocket
 BATES: Ballistic Test And Evaluation System
 
 OS: Operating System
+
+Softwares Used: OpenRocket, OpenMotor, SimScale, VSCode, PlatformIO,
+
+> This Workshop was taught using a MacBook Air with the M2 processor running macOS 26 Tahoe.
+> The following softwares and actions can be done using a Windows as well as a Unix based OS with
+> atleast an Intel Core i3 with 4Gb RAM (Core i5 or similar AMD processor with 8Gb RAM are recommended)
 
 ## Airframe
 
