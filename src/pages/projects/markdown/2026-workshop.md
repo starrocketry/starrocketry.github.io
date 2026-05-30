@@ -32,7 +32,7 @@ Uses M5 Allen Bolts and clamps Consists of the following components.
 
 | Team Number | Team Name      | Team Members                                                      | Launch Success      |
 | ----------- | -------------- | ----------------------------------------------------------------- | ------------------- |
-| 01          | Nova Minds     | Kadam Atharv Rabindra, Manish Megharaj, Harsha S.P., Nichal Reddy | Anamoly             |
+| 01          | Nova Minds     | Kadam Atharv Rabindra, Manish Megharaj, Harsha S.P., Nichal Reddy | Successful Launch   |
 | 02          | Budget Nasa    |                                                                   | TBL(To Be Launched) |
 | 03          | Dark Magic     |                                                                   | TBL(To Be Launched) |
 | 04          | RCB            |                                                                   | TBL(To Be Launched) |
