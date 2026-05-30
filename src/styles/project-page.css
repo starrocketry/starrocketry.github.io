@@ -113,16 +113,18 @@ a {
 }
 
 .sidebar-box {
-  padding: 20px;
+  padding: 25px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(255, 255, 255, 0.01);
 }
 
+/* Made Main Headers Bigger and Bold */
 .sidebar-box h3 {
   font-family: monospace;
-  font-size: 0.75rem;
-  color: #444;
-  margin-bottom: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
   letter-spacing: 3px;
 }
 
@@ -132,41 +134,38 @@ a {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
+/* Keeps labels normal weight */
 .sidebar-box li {
   font-family: monospace;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: normal;
 }
 
 .sidebar-box span {
   color: #444;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
-/* Telemetry progress tracker elements */
+/* Restores data value fields to default weight context */
+.sidebar-box .info-value {
+  color: #fff;
+  font-weight: normal;
+}
+
+/* Telemetry data elements simplified */
 .stat-row {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.stat-bar {
-  width: 100%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.1);
-  position: relative;
-}
-
-.stat-bar .fill {
-  height: 100%;
-  background: #fff;
+  display: block;
 }
 
 .stat-label {
   font-family: monospace;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: #ccc;
 }
 
 /* --- Markdown Typography --- */
@@ -175,14 +174,6 @@ a {
   color: #ccc;
   font-size: 1.1rem;
   width: 100%;
-}
-
-.markdown-content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 2rem auto;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .markdown-content h2 {
@@ -207,6 +198,60 @@ a {
   margin-bottom: 10px;
 }
 
+/* --- Markdown Images & Media Elements (FIXED DIMENSIONS) --- */
+.markdown-content img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+
+  /* Hard mathematical ceiling fixes vertical layout stretching */
+  height: auto !important;
+  max-height: 450px !important;
+  aspect-ratio: 16 / 9 !important;
+
+  object-fit: contain !important; /* Shows whole image without cropping */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.02
+  ); /* Letterboxes empty sides for portrait shapes */
+  margin: 2.5rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Markdown Blockquotes ( > syntax ) --- */
+.markdown-content blockquote {
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  background: rgba(197, 148, 240, 0.08);
+  border-left: 4px solid #c594f0 !important;
+  position: relative;
+}
+
+/* Force the "Note:" label to match the theme */
+.markdown-content blockquote::before {
+  display: block;
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #c594f0 !important;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+  font-style: normal;
+}
+
+/* TARGET ALL TEXT INSIDE THE BLOCKQUOTE TO MAKE IT SMALLER AND PURPLE-TINTED */
+.markdown-content blockquote,
+.markdown-content blockquote p,
+.markdown-content blockquote li {
+  font-size: 0.95rem !important;
+  font-style: italic;
+  color: #dcbdf7 !important;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
 /* --- Responsive Adjustments --- */
 @media (max-width: 650px) {
   .tactical-sidebar {
@@ -217,19 +262,4 @@ a {
     gap: 20px;
     flex-wrap: wrap;
   }
-}
-/* --- Markdown Images & Media Elements --- */
-/* --- Markdown Images & Media Elements --- */
-.markdown-content img {
-  width: 100%;
-  max-width: 800px;
-  /* Forces the 16:9 landscape frame */
-  aspect-ratio: 16 / 9;
-  /* Shows the WHOLE image without cropping */
-  object-fit: contain;
-  /* Adds a subtle background color to the "bars" so they match your tactical theme */
-  background: rgba(255, 255, 255, 0.02);
-  display: block;
-  margin: 2.5rem auto;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }

@@ -28,25 +28,28 @@ trl: N/A
 
 # Workshop Teams
 
-| Team Number | Team Name      | Team Members                                                      | Launch Success      |
+_Table 1. List of teams participated in the sounding rocket workshop 2026_
+| Team Number | Team Name | Team Members | Launch Success |
 | ----------- | -------------- | ----------------------------------------------------------------- | ------------------- |
-| 01          | Nova Minds     | Kadam Atharv Rabindra, Manish Megharaj, Harsha S.P., Nichal Reddy | Success             |
-| 02          | Budget Nasa    | Dhanush, Neha,                                                    | TBL(To Be Launched) |
-| 03          | Dark Magic     |                                                                   | TBL(To Be Launched) |
-| 04          | RCB            | Charu Latha K, Rithika B, Divya Rani, Hema                        | TBL(To Be Launched) |
-| 05          | Lets get high  |                                                                   | TBL(To Be Launched) |
-| 06          | Circ inifini   |                                                                   | TBL(To Be Launched) |
-| 07          | bazoooka!      |                                                                   | TBL(To Be Launched) |
-| 08          | Osama          | Dev                                                               | TBL(To Be Launched) |
-| 09          | India Flag     |                                                                   | TBL(To Be Launched) |
-| 10          | Thrust Masters |                                                                   | TBL(To Be Launched) |
-| 11          | Night Fury     | Deepika Gowda, Dhruthi R, Nikita Mayya                            | TBL(To Be Launched) |
+| 01 | Nova Minds | Kadam Atharv Rabindra, Manish Megharaj, Harsha S.P., Nichal Reddy | Success |
+| 02 | Budget Nasa | Dhanush, Neha, | TBL(To Be Launched) |
+| 03 | Dark Magic | | TBL(To Be Launched) |
+| 04 | RCB | Charu Latha K, Rithika B, Divya Rani, Hema | TBL(To Be Launched) |
+| 05 | Lets get high | | TBL(To Be Launched) |
+| 06 | Circ inifini | | TBL(To Be Launched) |
+| 07 | bazoooka! | | TBL(To Be Launched) |
+| 08 | Osama | Dev | TBL(To Be Launched) |
+| 09 | India Flag | | TBL(To Be Launched) |
+| 10 | Thrust Masters | Likith, Mamtha, Karthik, Naveena | TBL(To Be Launched) |
+| 11 | Night Fury | Deepika Gowda, Dhruthi R, Nikita Mayya | TBL(To Be Launched) |
 
 _The Rockets developed by the teams are shown after the workshop contents_
 
-> Softwares Used: OpenRocket, OpenMotor, SimScale, VSCode, PlatformIO,
+Softwares Used: OpenRocket, OpenMotor, SimScale, VSCode, PlatformIO,
 
-> This Workshop was taught using a MacBook Air with the M2 processor running macOS 26 Tahoe. The following softwares and actions can be done using a Windows as well as a Unix based OS with atleast and Intel Core i3 with 4Gb RAM (Core i5 or similar AMD processor with 8Gb RAM are recommended)
+> This Workshop was taught using a MacBook Air with the M2 processor running macOS 26 Tahoe.
+> The following softwares and actions can be done using a Windows as well as a Unix based OS with
+> atleast an Intel Core i3 with 4Gb RAM (Core i5 or similar AMD processor with 8Gb RAM are recommended)
 
 ## Acronyms
 
@@ -99,7 +102,10 @@ _Fig. 2: grain geometry of H-Class Solid Rocket Motor_
 
 ## Electronics
 
-#### Contact
+<br>
+<br>
+<br>
 
-- Co-Team Lead: Dhruv Kakade
-- Email: [ugcet2300660@reva.edu.in](mailto:ugcet2300660@reva.edu.in)
+---
+
+> For any errors, mistakes or any issues contact: **Dhruv Kakade** (Co-Team Lead), [ugcet2300660@reva.edu.in](mailto:ugcet2300660@reva.edu.in)

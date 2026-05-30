@@ -73,20 +73,23 @@ const {
           <ul class="info-list">
             <li>
               <span>TESTING TYPE:</span>
-              {testing_type || "GROUND_CONTROL"}
+              <span class="info-value">{testing_type || "GROUND_CONTROL"}</span>
             </li>
-            <li><span>CLEARANCE:</span> {clearance || "LEVEL_01"}</li>
-            <li><span>ENCRYPTION:</span> {encryption || "NONE"}</li>
+            <li>
+              <span>CLEARANCE:</span>
+              <span class="info-value">{clearance || "LEVEL_01"}</span>
+            </li>
+            <li>
+              <span>ENCRYPTION:</span>
+              <span class="info-value">{encryption || "NONE"}</span>
+            </li>
           </ul>
         </div>
 
         <div class="sidebar-box glass">
           <h3>TELEMETRY</h3>
           <div class="stat-row">
-            <div class="stat-bar">
-              <div class="fill" style={`width: ${trl || 0}%;`}></div>
-            </div>
-            <span class="stat-label">TRL {trl || "NA"}%</span>
+            <span class="stat-label">TRL {trl ? `${trl}%` : "N/A%"}</span>
           </div>
         </div>
       </aside>
