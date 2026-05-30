@@ -7,7 +7,7 @@ status: "Almost Completed"
 testing_type: "Ground Testing"
 clearance: "LEVEL_03"
 encryption: "VORTEX_4"
-trl: NA
+trl: N/A
 ---
 
 ` Version: SR-<year_YY.version.major_change.minor_change>`
@@ -42,7 +42,7 @@ trl: NA
 | 10          | Thrust Masters |                                                                   | TBL(To Be Launched) |
 | 11          | Night Fury     | Deepika Gowda, Dhruthi R, Nikita Mayya                            | TBL(To Be Launched) |
 
-_The Rockets developed by the teams are given after the workshop contents_
+_The Rockets developed by the teams are shown after the workshop contents_
 
 > Softwares Used: OpenRocket, OpenMotor, SimScale, VSCode, PlatformIO,
 
@@ -51,8 +51,11 @@ _The Rockets developed by the teams are given after the workshop contents_
 ## Acronyms
 
 SRM: Solid Rocket Motor
+
 ORK: OpenRocket
+
 BATES: Ballistic Test And Evaluation System
+
 OS: Operating System
 
 ## Airframe

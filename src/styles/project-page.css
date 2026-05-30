@@ -2,19 +2,21 @@
   background: #000;
   color: #fff;
   min-height: 100vh;
+  width: 100%;
 }
 
 a {
   color: #c594f0;
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section (Centered Content Axis) --- */
 .project-hero {
   position: relative;
   height: 60vh;
   display: flex;
   align-items: flex-end;
-  padding: 60px 5%;
+  justify-content: center; /* Centers horizontal container alignment */
+  padding: 60px 24px;
   overflow: hidden;
 }
 
@@ -41,7 +43,7 @@ a {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px; /* Aligns with centered main layout width boundary */
   margin: 0 auto;
 }
 
@@ -65,8 +67,8 @@ a {
 }
 
 .project-title {
-  font-size: clamp(2rem, 8vw, 4.5rem);
-  letter-spacing: 15px;
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  letter-spacing: 10px;
   text-transform: uppercase;
   font-weight: 200;
   margin-bottom: 30px;
@@ -92,45 +94,50 @@ a {
   letter-spacing: 2px;
 }
 
-/* --- Content Layout --- */
+/* --- Single Column Centered Wrapper --- */
 .project-body-wrapper {
-  max-width: 1200px;
+  max-width: 800px; /* Constrains reading track width to center the view */
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 60px;
-  padding: 80px 5%;
-}
-
-/* --- Sidebar --- */
-.tactical-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
+  padding: 60px 24px;
+}
+
+/* --- Tactical Parameters (Top Horizontal Layout) --- */
+.tactical-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Places info and telemetry side by side */
+  gap: 20px;
+  width: 100%;
 }
 
 .sidebar-box {
-  padding: 25px;
+  padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.01);
 }
 
 .sidebar-box h3 {
   font-family: monospace;
   font-size: 0.75rem;
   color: #444;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   letter-spacing: 3px;
 }
 
-.sidebar-box ul {
+.sidebar-box ul.info-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .sidebar-box li {
   font-family: monospace;
   font-size: 0.8rem;
-  margin-bottom: 12px;
 }
 
 .sidebar-box span {
@@ -138,18 +145,51 @@ a {
   margin-right: 10px;
 }
 
+/* Telemetry progress tracker elements */
+.stat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.stat-bar .fill {
+  height: 100%;
+  background: #fff;
+}
+
+.stat-label {
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
 /* --- Markdown Typography --- */
 .markdown-content {
   line-height: 1.8;
   color: #ccc;
   font-size: 1.1rem;
+  width: 100%;
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .markdown-content h2 {
   color: #fff;
   font-size: 1.8rem;
   letter-spacing: 4px;
-  margin: 50px 0 20px;
+  margin: 40px 0 20px;
   border-left: 3px solid #fff;
   padding-left: 20px;
 }
@@ -167,20 +207,29 @@ a {
   margin-bottom: 10px;
 }
 
-@media (max-width: 900px) {
-  .project-body-wrapper {
-    grid-template-columns: 1fr;
-  }
+/* --- Responsive Adjustments --- */
+@media (max-width: 650px) {
   .tactical-sidebar {
-    order: 2;
+    grid-template-columns: 1fr; /* Stacks parameters vertically on small displays */
   }
 
-  /* Releases the footer from grid horizontal constraints */
-  .mission-footer {
-    width: 100% !important;
-    margin: 60px 0 0 0 !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-radius: 0 !important;
+  .project-meta-strip {
+    gap: 20px;
+    flex-wrap: wrap;
   }
+}
+/* --- Markdown Images & Media Elements --- */
+/* --- Markdown Images & Media Elements --- */
+.markdown-content img {
+  width: 100%;
+  max-width: 800px;
+  /* Forces the 16:9 landscape frame */
+  aspect-ratio: 16 / 9;
+  /* Shows the WHOLE image without cropping */
+  object-fit: contain;
+  /* Adds a subtle background color to the "bars" so they match your tactical theme */
+  background: rgba(255, 255, 255, 0.02);
+  display: block;
+  margin: 2.5rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }

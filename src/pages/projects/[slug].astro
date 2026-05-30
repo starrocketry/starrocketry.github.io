@@ -70,7 +70,7 @@ const {
       <aside class="tactical-sidebar">
         <div class="sidebar-box glass">
           <h3>ARCHIVE_INFO</h3>
-          <ul>
+          <ul class="info-list">
             <li>
               <span>TESTING TYPE:</span>
               {testing_type || "GROUND_CONTROL"}
@@ -86,7 +86,7 @@ const {
             <div class="stat-bar">
               <div class="fill" style={`width: ${trl || 0}%;`}></div>
             </div>
-            <span class="stat-label">TRL {trl || 0}%</span>
+            <span class="stat-label">TRL {trl || "NA"}%</span>
           </div>
         </div>
       </aside>
@@ -101,7 +101,10 @@ const {
 <style is:global>
   /* GFM Table Styling */
   .markdown-content table {
+    display: block;
     width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     margin: 2rem 0;
     border-collapse: collapse;
     background: rgba(255, 255, 255, 0.03);
@@ -109,6 +112,7 @@ const {
   }
   .markdown-content th,
   .markdown-content td {
+    min-width: 120px;
     padding: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
