@@ -19,9 +19,9 @@ trl: 9
 
 ---
 
-# Manufacturing & Assembly
+# Manufacturing and Assembly
 
-Uses M5 Allen Bolts and clamps Consists of the following components.
+Uses M5 Allen Bolts, t-nuts and clamps. The test stand consists of the following components.
 
 | Component      | Specification | Quantity |
 | -------------- | ------------- | -------- |
@@ -31,33 +31,21 @@ Uses M5 Allen Bolts and clamps Consists of the following components.
 
 # Testing & Data
 
-- Setup description
-- Instrumentation ( thrust sensors)
-- Safety measures
+## Setup
+
+##Instrumentation
+
+##Safety measures
 
 ## Results
-
-- Thrust-time curve
-- Specific impulse (Isp)
-- Burn duration
-- Efficiency metrics
 
 ---
 
 # Gallery
 
-- CAD renders
-- Manufacturing photos
-- Test stand images
-- Launch footage (if applicable)
-
 ---
 
 # Documentation
-
-- Research papers referenced
-- Standards followed (ASTM, ISRO guidelines, etc.)
-- Lab notes and logs
 
 ---
 
@@ -70,10 +58,6 @@ Uses M5 Allen Bolts and clamps Consists of the following components.
 ---
 
 # Future Work
-
-- Planned improvements
-- Scaling to larger motors
-- Applications in UAVs, sounding rockets, or hybrid systems
 
 ---
 

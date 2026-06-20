@@ -92,7 +92,17 @@ Heading back to OpenMotor select the BATES option from the drop down then click 
 button on the bottom of the left pane. Then enter the values of the motor as given in the Fig. 2.
 
 ![OpenMotor Grain geometry value](../../../../public/projects/workshop-26/om-grain.png)
-_Fig. 2: grain geometry of H-Class Solid Rocket Motor_
+_Fig. 2: Grain geometry of H-Class SRM_
+
+Now below the grain details you have the nozzle tab click on that for the nozzle we will be using epoxy clay with a center drilled hole with 7mm diameter and and a throat length of 15mm. The value of efficiency is found by comparing the values of static tests conducted on a test stand and matching those values with open motor values by changing the efficiency value of the SRM. The following values were entered in OpenMotor for the nozzle section and the cross section is shown in Fig. 3. After entering the values click on apply.
+
+![Nozzle geometry used in the SRM](../../../../public/projects/workshop-26/om-nozzle-geo.png)
+_Fig.3: Nozzle geometry used in the SRM_
+
+Head to Config below the nozzle tab and set the maximum pressure to
+
+![Congiguration of the SRM](../../../../public/projects/workshop-26/om-config.png)
+_Fig. 4: Configuration of the SRM_
 
 ## Design and Simulation Of The Model Rocket
 
