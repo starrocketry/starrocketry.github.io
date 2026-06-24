@@ -28,7 +28,7 @@ const {
 <Layout title={`${title} | Technical Report`}>
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+    href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css"
     crossorigin="anonymous"
   />
 
@@ -41,14 +41,14 @@ const {
 
       <div class="hero-content">
         <nav class="breadcrumb">
-          <a href="/projects">/ &lt; Return To Projects</a>
+          <a href="/projects">&lt; Return To Projects</a>
         </nav>
         <div class="meta-badge">PROJECT DOCS</div>
         <h1 class="project-title">{title}</h1>
         <div class="project-meta-strip">
           <div class="meta-item">
             <span class="label">FILE ID</span>
-            <span class="value">{id || "PRJ-UNK"}</span>
+            <span class="value">{id || "SR00X-00.0.00"}</span>
           </div>
           <div class="meta-item">
             <span class="label">CATEGORY</span>
@@ -59,7 +59,7 @@ const {
           <div class="meta-item">
             <span class="label">STATUS</span>
             <span class={`value status-${status?.toLowerCase()}`}>
-              {status || "OPERATIONAL"}
+              {status || "TBA"}
             </span>
           </div>
         </div>
@@ -73,7 +73,9 @@ const {
           <ul class="info-list">
             <li>
               <span>TESTING TYPE:</span>
-              <span class="info-value">{testing_type || "To Be Tested"}</span>
+              <span class="info-value"
+                >{testing_type || "No Tests Conducted"}</span
+              >
             </li>
             <li>
               <span>PROPULSION SYSTEM:</span>

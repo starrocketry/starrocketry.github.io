@@ -1,13 +1,9 @@
 ---
 title: "READ ME"
 id: "SR000-26.0.01"
-category: ["Propulsion"]
+category: ["Disclaimer"]
 image: "/about/motor.jpg"
-status: "Almost Completed"
-testing_type: "Ground Testing"
-clearance: "LEVEL_03"
-encryption: "VORTEX_4"
-trl: N/A
+status: "Completed"
 ---
 
 ` Version: SR-<year_YY.version.major_change.minor_change>`
