@@ -2,16 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
+import "../../styles/project-page.css";
 
 export async function getStaticPaths() {
-  // Use Vite's native glob import instead of Astro.glob
-  // 'eager: true' loads the content immediately so we can access frontmatter
   const posts = import.meta.glob("./markdown/*.md", { eager: true });
 
   return Object.values(posts).map((post: any) => {
-    // Extract filename for the slug: ./markdown/j-class.md -> j-class
     const slug = post.file.split("/").pop()?.replace(".md", "");
-
     return {
       params: { slug },
       props: { post },
@@ -21,105 +18,113 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = post;
-const { title, date, category, author } = post.frontmatter;
+const { title, date, author, tags } = post.frontmatter;
 ---
 
 <Layout title={`${title} | STAR Archive`}>
   <Navbar />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css"
+    crossorigin="anonymous"
+  />
 
-  <main class="reading-container">
-    <article class="prose-mission">
-      <header class="doc-meta">
-        <div class="breadcrumb">
-          <a href="/archive">ARCHIVE</a> / <span class="current"
-            >{category || "LOGS"}</span
-          >
-        </div>
-        <h1 class="glitch-text">{title}</h1>
-        <div class="author-bar">
-          <span>OPERATOR: {author || "UNKNOWN"}</span>
-          <span class="spacer">|</span>
-          <span>TIMESTAMP: {date || "N/A"}</span>
-        </div>
-      </header>
+  <article class="project-page" style="padding-top: 120px;">
+    <header class="project-hero">
+      <div class="hero-bg">
+        <img src="/star-text.svg" alt="" />
+        <div class="hero-overlay"></div>
+      </div>
 
-      <div class="markdown-content">
+      <div class="hero-content">
+        <nav class="breadcrumb">
+          <a href="/archive">&lt; Return To Archive</a>
+        </nav>
+        <div class="meta-badge">ARCHIVE LOG</div>
+        <h1 class="project-title">{title}</h1>
+        <div class="project-meta-strip">
+          <div class="meta-item">
+            <span class="label">OPERATOR</span>
+            <span class="value">{author || "UNKNOWN"}</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">TIMESTAMP</span>
+            <span class="value">{date || "N/A"}</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="project-body-wrapper">
+      <aside class="tactical-sidebar">
+        <div class="sidebar-box glass">
+          <h3>ARCHIVE INFO</h3>
+          <ul class="info-list">
+            <li>
+              <span>TAGS:</span>
+              <span class="info-value">
+                {
+                  tags && Array.isArray(tags)
+                    ? tags.join(", ")
+                    : tags || "No Tags"
+                }
+              </span>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="markdown-content">
         <Content />
-      </div>
 
-      <div class="doc-footer">
-        <a href="/archive" class="back-btn">← RETURN TO FILES</a>
-      </div>
-    </article>
-  </main>
-
+        <div class="doc-footer" style="margin-top: 60px;">
+          <a href="/archive" class="back-btn">← RETURN TO FILES</a>
+        </div>
+      </section>
+    </div>
+  </article>
   <Footer />
 </Layout>
 
-<style>
-  .reading-container {
-    background: #000;
-    min-height: 100vh;
-    padding: 160px 20px 100px;
-    color: #ccc;
+<style is:global>
+  /* GFM Table Styling */
+  .markdown-content table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 2rem 0;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .markdown-content th,
+  .markdown-content td {
+    min-width: 120px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+  }
+  .markdown-content th {
+    background: rgba(255, 255, 255, 0.07);
   }
 
-  .prose-mission {
-    max-width: 800px;
-    margin: 0 auto;
+  /* GFM Task List Styling */
+  .markdown-content ul li input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #00ffaa;
   }
 
-  .breadcrumb {
-    font-family: monospace;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+  /* Math Centering */
+  .katex-display {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
-  .breadcrumb a {
-    color: #666;
-    text-decoration: none;
-  }
-
-  .current {
-    color: #c594f0;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: #fff;
-    letter-spacing: -1px;
-    margin-bottom: 20px;
-    font-family: "Space Grotesk", sans-serif;
-  }
-
-  .author-bar {
-    font-family: monospace;
-    font-size: 0.7rem;
-    color: #444;
-    border-bottom: 1px solid #111;
-    padding-bottom: 30px;
-    margin-bottom: 50px;
-    display: flex;
-    gap: 10px;
-  }
-
-  .markdown-content :global(h2) {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-top: 40px;
-    border-left: 3px solid #c594f0;
-    padding-left: 15px;
-  }
-
-  .markdown-content :global(p) {
-    line-height: 1.8;
-    margin-bottom: 20px;
-  }
-
+  /* Navigation Back Button styling */
   .back-btn {
     display: inline-block;
-    margin-top: 60px;
     color: #fff;
     text-decoration: none;
     font-family: monospace;
@@ -128,10 +133,9 @@ const { title, date, category, author } = post.frontmatter;
     padding: 10px 20px;
     transition: 0.3s;
   }
-
   .back-btn:hover {
-    background: #c594f0;
+    background: #00ffaa;
     color: #000;
-    border-color: #c594f0;
+    border-color: #00ffaa;
   }
 </style>

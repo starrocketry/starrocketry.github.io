@@ -1,7 +1,7 @@
 ---
 title: "Motor Test"
 date: "2026.03.04"
-author: "STAR_COMMAND"
+author: "Dhruv Kakade"
 tags: ["PROPULSION", "MANUFACTURING"]
 ---
 
