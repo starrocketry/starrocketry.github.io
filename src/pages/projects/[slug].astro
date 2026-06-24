@@ -41,13 +41,13 @@ const {
 
       <div class="hero-content">
         <nav class="breadcrumb">
-          <a href="/projects">/PROJECTS</a>
+          <a href="/projects">/ &lt; Return To Projects</a>
         </nav>
         <div class="meta-badge">PROJECT DOCS</div>
         <h1 class="project-title">{title}</h1>
         <div class="project-meta-strip">
           <div class="meta-item">
-            <span class="label">FILE_ID</span>
+            <span class="label">FILE ID</span>
             <span class="value">{id || "PRJ-UNK"}</span>
           </div>
           <div class="meta-item">
@@ -73,15 +73,17 @@ const {
           <ul class="info-list">
             <li>
               <span>TESTING TYPE:</span>
-              <span class="info-value">{testing_type || "GROUND_CONTROL"}</span>
+              <span class="info-value">{testing_type || "To Be Tested"}</span>
             </li>
             <li>
               <span>PROPULSION SYSTEM:</span>
-              <span class="info-value">{propulsion_system || "LEVEL_01"}</span>
+              <span class="info-value">
+                {propulsion_system || "No Propulsion System"}
+              </span>
             </li>
             <li>
               <span>PAYLOAD:</span>
-              <span class="info-value">{payload || "NONE"}</span>
+              <span class="info-value">{payload || "No Payload"}</span>
             </li>
           </ul>
         </div>
