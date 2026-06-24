@@ -87,6 +87,13 @@ const { title, date, author, tags } = post.frontmatter;
 </Layout>
 
 <style is:global>
+  /* Regular Content Text Justification */
+  .markdown-content p {
+    text-align: justify;
+    text-justify: inter-word; /* Enhances formatting across modern browsers */
+    line-height: 1.7; /* Optional: keeps justified blocks readable */
+  }
+
   /* GFM Table Styling */
   .markdown-content table {
     display: block;
@@ -103,7 +110,7 @@ const { title, date, author, tags } = post.frontmatter;
     min-width: 120px;
     padding: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: justify;
+    text-align: left; /* Restored table text to standard clean alignment */
   }
   .markdown-content th {
     background: rgba(255, 255, 255, 0.07);
