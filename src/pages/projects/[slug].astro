@@ -20,8 +20,8 @@ const {
   image,
   trl,
   testing_type,
-  clearance,
-  encryption,
+  propulsion_system,
+  payload,
 } = project.frontmatter;
 ---
 
@@ -76,12 +76,12 @@ const {
               <span class="info-value">{testing_type || "GROUND_CONTROL"}</span>
             </li>
             <li>
-              <span>CLEARANCE:</span>
-              <span class="info-value">{clearance || "LEVEL_01"}</span>
+              <span>PROPULSION SYSTEM:</span>
+              <span class="info-value">{propulsion_system || "LEVEL_01"}</span>
             </li>
             <li>
-              <span>ENCRYPTION:</span>
-              <span class="info-value">{encryption || "NONE"}</span>
+              <span>PAYLOAD:</span>
+              <span class="info-value">{payload || "NONE"}</span>
             </li>
           </ul>
         </div>
