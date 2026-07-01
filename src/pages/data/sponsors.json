@@ -12,5 +12,12 @@
     "logo": "/sponsor-logo/idea-lab.png",
     "website": "https://reva.edu.in",
     "about": "The IDEA Lab at REVA University is a state-of-the-art facility dedicated to fostering creativity, enhancing problem-solving abilities, and cultivating an entrepreneurial mindset among students, researchers, and faculty—driving innovation, design excellence and entrepreneurial growth. Equipped with advanced tools for digital fabrication, electronics development and 3D printing"
+  },
+  {
+    "name": "Ansys by Synopsys",
+    "tier": "staging",
+    "logo": "/sponsor-logo/ansys-logo.svg",
+    "website": "https://www.ansys.com/",
+    "about": "Ansys provides the industry-standard engineering simulation software that powers our design, testing, and optimization phases. By utilizing its advanced Finite Element Analysis (FEA) and Computational Fluid Dynamics (CFD) capabilities, we can virtually simulate complex structural mechanics, aerodynamic forces, and thermal behaviors. This predictive digital precision allows us to rigorously validate and optimize our rocket and satellite designs, eliminating structural failures and reducing development cycles before a single physical component is ever manufactured."
   }
 ]
