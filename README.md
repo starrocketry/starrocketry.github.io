@@ -1,5 +1,4 @@
 
-# Scheduled for deletion if the University doesnt give a workspace and no funds to develop rockets
 # Astro Starter Kit: Minimal
 
 ```sh
