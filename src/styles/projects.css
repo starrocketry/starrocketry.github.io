@@ -138,3 +138,13 @@ a {
     top: 100%;
   }
 }
+
+/* Forces Markdown videos to maintain a strict 16:9 aspect ratio */
+video {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  object-fit: contain; /* Prevents the video content from stretching or squishing */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Optional: matches card border style */
+  background-color: #000; /* Fills fallback spaces if any */
+}

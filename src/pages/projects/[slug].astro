@@ -4,8 +4,10 @@ import "../../styles/project-page.css";
 
 export async function getStaticPaths() {
   const projectFiles = import.meta.glob("./markdown/*.md", { eager: true });
-  return Object.values(projectFiles).map((project: any) => {
-    const slug = project.file.split("/").pop()?.replace(".md", "");
+  
+  return Object.entries(projectFiles).map(([filePath, project]: [string, any]) => {
+    // Extract file name safely from the path (e.g., "./markdown/static-test-stand.md" -> "static-test-stand")
+    const slug = filePath.split("/").pop()?.replace(".md", "");
     return { params: { slug }, props: { project } };
   });
 }
@@ -111,6 +113,18 @@ const {
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.7;
+  }
+
+  /* Video 16:9 AR Lock & "No Crop" Scaling */
+  .markdown-content video {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    /* 'contain' ensures the full frame is visible, scaling to fit inside the 16:9 box without cropping. */
+    object-fit: contain; 
+    background-color: #000;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 1.5rem 0;
   }
 
   /* GFM Table Styling */
