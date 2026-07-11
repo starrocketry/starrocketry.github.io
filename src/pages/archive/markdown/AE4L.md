@@ -29,7 +29,8 @@ AE4L stands for Aerospace Engineering For Life containing aerospace learning mat
   - [Orbital Mechanics](./ae4l/core/orbital_mechanics)
   - [Rocket Propulsion](./ae4l/core/rocket_propulsion)
   - [Space Mission Analysis and Design](./ae4l/core/spacecraft_system)
-  - [Mechanical Engineering Design](docs/core/mech_design)
+  - [Mechanical Engineering Design](./ae4l/core/mech_design)
+  - [GATE Aerospace Engineering](./ae4l/core/gate)
 - General Engineering Subjects:
   - Mathematics
     - [Precalculus](./ae4l/non-core/mathematics/precalculus)
