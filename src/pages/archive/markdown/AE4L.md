@@ -12,7 +12,7 @@ AE4L stands for Aerospace Engineering For Life containing aerospace learning mat
 # Table of Contents
 
 - Core Subjects:
-  - [Fluid Mechanics](/ae4l/core/fluid_mechanics)
+  - [Fluid Mechanics](../ae4l/core/fluid_mechanics)
   - [Gas Dynamics](/ae4l/core/gas_dynamics)
   - [Aerodynamics](/ae4l/core/aerodynamics)
   - [CFD](/ae4l/core/cfd)
