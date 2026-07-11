@@ -5,7 +5,7 @@ author: "Dhruv Kakade"
 tags: ["PROPULSION", "MANUFACTURING"]
 ---
 
-# Content will be avaliable starting April!
+# Calculations will be avaliable soon!
 
 make sure to follow us on our socials for updates.
 wanna support us please consider helping us out [here](https://starrocketry.github.io/sponsor-tier/)

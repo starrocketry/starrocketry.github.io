@@ -5,10 +5,14 @@ import Footer from "../../components/Footer.astro";
 import "../../styles/project-page.css";
 
 export async function getStaticPaths() {
-  const posts = import.meta.glob("./markdown/*.md", { eager: true });
+  // Use a recursive glob (**) to scan deep subfolders under the markdown directory
+  const posts = import.meta.glob("./markdown/**/*.md", { eager: true });
 
-  return Object.values(posts).map((post: any) => {
-    const slug = post.file.split("/").pop()?.replace(".md", "");
+  return Object.entries(posts).map(([filePath, post]: [string, any]) => {
+    // Converts absolute path strings like "./markdown/ae4l/core/fluid_mechanics.md"
+    // into clean URL segment paths: "ae4l/core/fluid_mechanics"
+    const slug = filePath.replace(/^\.\/markdown\//, "").replace(/\.md$/, "");
+
     return {
       params: { slug },
       props: { post },
@@ -90,8 +94,19 @@ const { title, date, author, tags } = post.frontmatter;
   /* Regular Content Text Justification */
   .markdown-content p {
     text-align: justify;
-    text-justify: inter-word; /* Enhances formatting across modern browsers */
-    line-height: 1.7; /* Optional: keeps justified blocks readable */
+    text-justify: inter-word;
+    line-height: 1.7;
+  }
+
+  /* Video 16:9 AR Lock & "No Crop" Containment */
+  .markdown-content video {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background-color: #000;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 1.5rem 0;
   }
 
   /* GFM Table Styling */
@@ -110,7 +125,7 @@ const { title, date, author, tags } = post.frontmatter;
     min-width: 120px;
     padding: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: left; /* Restored table text to standard clean alignment */
+    text-align: left;
   }
   .markdown-content th {
     background: rgba(255, 255, 255, 0.07);
