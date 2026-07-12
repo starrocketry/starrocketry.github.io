@@ -20,7 +20,7 @@ Numerical: No -ve marking
 
 # License, Copyright, Mistakes and Contributions
 
-Student © 2026 by Dhruv Kakade is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/
+© 2026 by Dhruv Kakade is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/
 
 - Content used here have been given a reference at the end. Formulas have been taken from standard books used in universities across india. I don’t get any commission or anything by spreading the name of the book. All work done here is for educational purposes only and to help the academic community.
 - You can also contribute by sending a PR.
