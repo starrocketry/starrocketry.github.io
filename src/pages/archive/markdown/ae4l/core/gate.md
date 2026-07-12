@@ -1,6 +1,6 @@
 ---
-title: "AE4L"
-date: "20260304"
+title: "GATE AEROSPACE ENGINEERING"
+date: "20260712"
 author: "Dhruv Kakade, Prof. Keshava Murthy M."
 tags: ["Aerospace"]
 ---
