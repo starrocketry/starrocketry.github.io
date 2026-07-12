@@ -104,25 +104,29 @@ Will be avaliable as a pdf soon
 
 ### Conversions
 
-1 atm
+$1 atm = 1.01bar = 1.01 \times 10^5 N/m^2$
 
-1 bar
+$1 bar = 10^5 Pa = 10^5 N/m^2$
 
-1 feet
+$1 feet = 0.3048m$
 
-1 slug
+$1 slug = 14.59kg$
 
-1lb
+$1lb = 0.453kg $
 
-1 mile
+$1 mile = 1.609km$
 
-1K
+$1K = 1.8\degree R$
 
-1 kgf
+$59 \degree R = 288K $
 
-1N = 0.101 kgf
+$ 0\degree F = 459.67 \degree R$
 
-1hp = 746W
+$1 kgf = 9.81N $
+
+$1N = 0.102 kgf$
+
+$1hp = 746W$
 
 ### Constants
 
