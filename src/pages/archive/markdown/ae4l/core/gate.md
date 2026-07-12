@@ -26,7 +26,7 @@ Student © 2026 by Dhruv Kakade is licensed under CC BY 4.0. To view a copy of t
 - You can also contribute by sending a PR.
 - The images are made using Figma.
 
-## !Reference Books (Foreign - concepts, Indian - problems; else if your jobless like me do everything)
+## Reference Books \*
 
 - Gas dynamics
   - Fundamentals of Gas Dynamics by Robert D. Zucker, Oscar Biblarz
@@ -91,7 +91,9 @@ Student © 2026 by Dhruv Kakade is licensed under CC BY 4.0. To view a copy of t
   - Orbital Mechanics by John E. Prussing, Bruce A. Conway
   - Analytical Mechanics of Space Systems by Hanspeter Schaub, John L. Junkins
 
-MIT OCW / NPTEL - Assignments and Problem Sets
+> MIT OCW / NPTEL - Assignments and Problem Sets
+>
+> - The main books in focus are discussed below (soon). All the books mentioned need not be used.
 
 # List of Formulas
 
