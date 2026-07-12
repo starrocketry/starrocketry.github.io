@@ -49,7 +49,7 @@ Numerical: No -ve marking
 
 - Strength of materials
   - Strength of Materials by R.K. Rajput
-  - Mechanics of Materials by Gere
+  - Mechanics of Materials by James M. Gere
   - Strength Of Materials Parts I and II by Timoshenko S.
   - Strength of Materials by S. Ramamrutham
 
