@@ -26,40 +26,40 @@ Student © 2026 by Dhruv Kakade is licensed under CC BY 4.0. To view a copy of t
   - Gas Dynamics by Ethirajan Rathakrishnan
   - Fundamentals of Aerodynamics by John Anderson
   - Fundamentals Of Compressible Flow by SM Yahya
-- ~~Fluid mechanics~~
-  - [x] Fluid Mechanics by Frank M. White
-  - [x] Fluid Mechanics by RK Bansal (for basics and more solved problems)
-- ~~Core Aerodynamics~~
-  - [x] Fundamentals of Aerodynamics by John Anderson
-  - [x] Aerodynamics for Engineering students by E. L. Houghton, N. B. Carruthers
-- ~~Strength of materials~~
-  - [x] Strength of Materials by S. Ramamrutham
-  - [x] Mechanics of Materials by Gere and Timoshenko
-- ~~Vibrations~~
-  - [x] Mechanical Vibrations by S.S Rao
-  - [x] Mechanical Vibrations by V.P Singh
-- ~~Structures~~
-  - [x] Aircraft Structures for Engineering Students By T.H.G. Megson
-  - [x] Mechanics of Aircraft Structures by C. T. Sun
-- ~~Aircraft Propulsion~~
-  - [x] Gas Turbine Theory by Cohen, H., Rogers
-  - [x] Gas Turbines by V. Ganesan
-  - [x] Aircraft Propulsion and Gas Turbine Engines by Ahmed F. El-Sayed
-- ~~Rocket Propulsion~~
-  - [x] Rocket Propulsion Elements by George P. Sutton
-  - [x] Rocket Propulsion by K Ramamurthi
-- ~~Heat transfer basics~~
-  - [x] Heat and Mass Transfer by R.K. Rajput
-  - [x] Heat and Mass Transfer by JP holman
-- ~~Engineering Mathematics~~
-  - [x] Advanced Engineering Mathematics by H K Dass
-  - [x] Advanced Engineering Mathematics by Erwin Kreyszig
-- ~~Flight Mechanics~~
-  - [x] Introduction to Flight by John Anderson
-  - [x] Aerodynamics by Clancy
-- ~~Space Mechanics~~
-  - [x] 11th class gravitational chapter (NCERT BOOK)
-  - [x] Orbital Mechanics for Engineering Students by Howard D. Curtis
+- Fluid mechanics
+  - Fluid Mechanics by Frank M. White
+  - Fluid Mechanics by RK Bansal (for basics and more solved problems)
+- Core Aerodynamics
+  - Fundamentals of Aerodynamics by John Anderson
+  - Aerodynamics for Engineering students by E. L. Houghton, N. B. Carruthers
+- Strength of materials
+  - Strength of Materials by S. Ramamrutham
+  - Mechanics of Materials by Gere and Timoshenko
+- Vibrations
+  - Mechanical Vibrations by S.S Rao
+  - Mechanical Vibrations by V.P Singh
+- Structures
+  - Aircraft Structures for Engineering Students By T.H.G. Megson
+  - Mechanics of Aircraft Structures by C. T. Sun
+- Aircraft Propulsion
+  - Gas Turbine Theory by Cohen, H., Rogers
+  - Gas Turbines by V. Ganesan
+  - Aircraft Propulsion and Gas Turbine Engines by Ahmed F. El-Sayed
+- Rocket Propulsion
+  - Rocket Propulsion Elements by George P. Sutton
+  - Rocket Propulsion by K Ramamurthi
+- Heat transfer basics
+  - Heat and Mass Transfer by R.K. Rajput
+  - Heat and Mass Transfer by JP holman
+- Engineering Mathematics
+  - Advanced Engineering Mathematics by H K Dass
+  - Advanced Engineering Mathematics by Erwin Kreyszig
+- Flight Mechanics
+  - Introduction to Flight by John Anderson
+  - Aerodynamics by Clancy
+- Space Mechanics
+  - 11th class gravitational chapter (NCERT BOOK)
+  - Orbital Mechanics for Engineering Students by Howard D. Curtis
 
 NPTEL - Assignments
 
