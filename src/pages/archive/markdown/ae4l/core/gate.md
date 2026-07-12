@@ -1,3 +1,10 @@
+---
+title: "AE4L"
+date: "20260304"
+author: "Dhruv Kakade, Prof. Keshava Murthy M."
+tags: ["Aerospace"]
+---
+
 ## Check about the exam and the pattern
 
 MCQ: -ve marking
@@ -22,61 +29,69 @@ Student © 2026 by Dhruv Kakade is licensed under CC BY 4.0. To view a copy of t
 ## !Reference Books (Foreign - concepts, Indian - problems; else if your jobless like me do everything)
 
 - Gas dynamics
-  - Gas Dynamics by Ethirajan Rathakrishnan
+  - Fundamentals of Gas Dynamics by Robert D. Zucker, Oscar Biblarz
   - Fundamentals of Aerodynamics by John Anderson
   - Fundamentals Of Compressible Flow by SM Yahya
+  - Aerodynamics for Engineering students by E. L. Houghton, N. B. Carruthers
+  - Gas Dynamics by Ethirajan Rathakrishnan
+
 - Fluid mechanics
+  - Fluid Mechanics: Fundamentals and Applications by Yunus A. Cengel, John M. Cimbala
   - Fluid Mechanics by Frank M. White
   - Fluid Mechanics by RK Bansal (for basics and more solved problems)
-- Core Aerodynamics
-  - Fundamentals of Aerodynamics by John Anderson
-  - Aerodynamics for Engineering students by E. L. Houghton, N. B. Carruthers
+
 - Strength of materials
+  - Strength of Materials by R.K. Rajput
+  - Mechanics of Materials by Gere
+  - Strength Of Materials Parts I and II by Timoshenko S.
   - Strength of Materials by S. Ramamrutham
-  - Mechanics of Materials by Gere and Timoshenko
+
 - Vibrations
   - Mechanical Vibrations by S.S Rao
+  - Dynamics of Structures by Jagmohan L. Humar
   - Mechanical Vibrations by V.P Singh
+
 - Structures
   - Aircraft Structures for Engineering Students By T.H.G. Megson
+  - Analysis and Design of Flight Vehicle Structures by E. F Bruhn
   - Mechanics of Aircraft Structures by C. T. Sun
+  - Analysis of Aircraft Structures: An Introduction by Bruce k. Donaldson
+
 - Aircraft Propulsion
   - Gas Turbine Theory by Cohen, H., Rogers
   - Gas Turbines by V. Ganesan
   - Aircraft Propulsion and Gas Turbine Engines by Ahmed F. El-Sayed
+  - Aircraft Propulsion by Saeed Farokhi
+
 - Rocket Propulsion
   - Rocket Propulsion Elements by George P. Sutton
+  - Propellants and Explosives by Naminosuke Kubota
   - Rocket Propulsion by K Ramamurthi
+
 - Heat transfer basics
   - Heat and Mass Transfer by R.K. Rajput
   - Heat and Mass Transfer by JP holman
+
 - Engineering Mathematics
-  - Advanced Engineering Mathematics by H K Dass
   - Advanced Engineering Mathematics by Erwin Kreyszig
+  - Advanced Engineering Mathematics by H. K. Dass
+  - Higher Engineering Mathematics by B. S. Grewal
+
 - Flight Mechanics
+  - Aircraft Performance and Design by John Anderson
+  - Flight Stability and Automatic Control by R. C. Nelson
+  - Airplane Performance, Stability and Control by Courtland D. Perkins, Robert E. Hage
   - Introduction to Flight by John Anderson
   - Aerodynamics by Clancy
+
 - Space Mechanics
-  - 11th class gravitational chapter (NCERT BOOK)
   - Orbital Mechanics for Engineering Students by Howard D. Curtis
+  - Fundamentals of Astrodynamics by Donald D. Mueller, Jerry White, Roger R. Bate
+  - Spaceflight Dynamics by William E. Wiesel
+  - Orbital Mechanics by John E. Prussing, Bruce A. Conway
+  - Analytical Mechanics of Space Systems by Hanspeter Schaub, John L. Junkins
 
-NPTEL - Assignments
-
-## Softwares/Languages to learn
-
-- MATLAB
-- ANSYS
-- PYTHON
-- SIMSCALE
-- C++
-- SIMULINK
-- OPEN FOAM
-- DATA STRUCTURES AND ALGORITHMS
-- MACHINE LEARNING
-- DATA SCIENCE
-- DATA ANALYTICS
-- Open Rocket
-- RASAero
+MIT OCW / NPTEL - Assignments and Problem Sets
 
 # List of Formulas
 
@@ -128,6 +143,8 @@ $\rho_\text{sea level} = 1.23 \text{ kg m}^{-3}$
 
 $T_\text{sea level} = 15 \deg C = 288K$
 
+---
+
 # Mathematics
 
 ## Algebra
@@ -146,6 +163,8 @@ $T_\text{sea level} = 15 \deg C = 288K$
 
 ## Probability and Statistics
 
+---
+
 # Aerodynamics
 
 ## Incompressible Flow
@@ -154,13 +173,17 @@ $T_\text{sea level} = 15 \deg C = 288K$
 
 ## Wind Tunnel
 
+---
+
 # Propulsion
 
 ## Basics
 
-## Aircraft Propulsion
+## Aircraft Propulsion Turbomachinery
 
 ## Rocket Propulsion
+
+---
 
 # Flight Mechanics
 
@@ -168,11 +191,27 @@ $T_\text{sea level} = 15 \deg C = 288K$
 
 ## Stability and Control
 
+---
+
 # Space Mechanics
+
+---
 
 # Aircraft Structures
 
+## Strength of Materials
+
+## Aircraft Structure
+
+## Vibrations
+
+## Theory of Elasticity
+
+---
+
 # Aptitude
+
+---
 
 # References
 
