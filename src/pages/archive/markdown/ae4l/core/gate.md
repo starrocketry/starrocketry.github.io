@@ -14,7 +14,7 @@ MSQ: No -ve marking
 Numerical: No -ve marking
 
 > Learn these 1st: Geometry, Units and Dimensions, 11th and 12th Physics and Maths, Thermodynamics, Engineering Mechanics, Fluid Mechanics, Strength of Materials; then the below.
-> _Offline version can be downloaded here as a pdf (A4 or US letter) or ebook_
+> _Offline version can be downloaded here as a pdf (A4 or US letter) or ebook_ (soon)
 
 # How To Use This Guide
 
