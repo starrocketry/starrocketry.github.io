@@ -31,6 +31,7 @@ Student © 2026 by Dhruv Kakade is licensed under CC BY 4.0. To view a copy of t
 - Gas dynamics
   - Fundamentals of Gas Dynamics by Robert D. Zucker, Oscar Biblarz
   - Fundamentals of Aerodynamics by John Anderson
+  - Modern Compressible Flow: With Historical Perspective by John Anderson
   - Fundamentals Of Compressible Flow by SM Yahya
   - Aerodynamics for Engineering students by E. L. Houghton, N. B. Carruthers
   - Gas Dynamics by Ethirajan Rathakrishnan
