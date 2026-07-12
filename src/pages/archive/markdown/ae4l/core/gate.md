@@ -79,11 +79,13 @@ NPTEL - Assignments
 - Open Rocket
 - RASAero
 
-List of Formulas
+# List of Formulas
 
-# Unit Conversions and Constants
+Will be avaliable as a pdf soon
 
-## Conversions
+## Unit Conversions and Constants
+
+### Conversions
 
 1 atm
 
@@ -105,7 +107,7 @@ List of Formulas
 
 1hp = 746W
 
-## Constants
+### Constants
 
 $\gamma_\text{air}$ = 1.4
 
