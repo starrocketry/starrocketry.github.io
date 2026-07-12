@@ -5,7 +5,9 @@ author: "Dhruv Kakade, Prof. Keshava Murthy M."
 tags: ["Aerospace"]
 ---
 
-## Check about the exam and the pattern
+# About The Exam
+
+You can check the [2026 GATE](https://gate2026.iitg.ac.in) website for the syllabus exam pattern and other information there as things are likely going to be the same for the following year as well.
 
 MCQ: -ve marking
 
