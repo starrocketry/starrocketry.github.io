@@ -93,7 +93,7 @@ Student © 2026 by Dhruv Kakade is licensed under CC BY 4.0. To view a copy of t
 
 > MIT OCW / NPTEL - Assignments and Problem Sets
 >
-> - The main books in focus are discussed below (soon). All the books mentioned need not be used.
+> The main books in focus are discussed below (soon). All the books mentioned need not be used.
 
 # List of Formulas
 
