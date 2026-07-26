@@ -3,10 +3,11 @@
 \usepackage[a4paper]{geometry}
 \usepackage[]{fontenc}
 \usepackage{multicol}
-\usepackage{}
+\usepackage{amsmath}
+\usepackage{gensymb}
 
 \title{AE4L GATE}
-\author{Dhruv Kakade}
+\author{Kakade, D.}
 \date{v26.0.0.1}
 
 \begin{document}
@@ -14,6 +15,13 @@
   \maketitle
 
 \end{titlepage}
+
+% \pagestyle{empty}
+% \vspace*{\fill}
+% \begin{center}
+%   \textit{Page intentionally left blank}
+% \end{center}
+% \vspace*{\fill}
 
 \clearpage
 \tableofcontents
@@ -31,24 +39,34 @@
 
 \chapter{Unit Conversions and Constants}
 
-\include{./chapters/unit.tex}
+\include{./chapters/units.tex}
 
 \chapter{Maths}
 
+\include{./chapters/math.tex}
+
 \chapter{Aerodynamics}
 
-\chapter{Gas Turbines}
+\include{./chapters/aerodynamics.tex}
+
+\chapter{Gas Turbine}
+
+\include{./chapters/gas_turbine}
 
 \chapter{Rocket Propulsion}
 
+\include{./chapters/rocket_propulsion.tex}
+
 \chapter{Flight Mechanics}
+
+\include{./chapters/flight_mechanics.tex}
 
 \chapter{Orbital Mechanics}
 
-\chapter{Strength of Materials}
+\include{./chapters/orbital_mechanics.tex}
 
 \chapter{Aircraft Structures}
 
-\chapter{Mechanical Vibration and Aero-elasticity}
+\include{./chapters/aircraft_strcutures.tex}
 
 \end{document}

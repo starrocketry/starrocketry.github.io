@@ -38,12 +38,12 @@
 \contentsline {section}{\numberline {2.6}Aircraft Propulsion}{15}{}%
 \contentsline {section}{\numberline {2.7}Rocket Propulsion}{15}{}%
 \contentsline {chapter}{\numberline {3}Unit Conversions and Constants}{17}{}%
+\contentsline {section}{\numberline {3.1}Unit Conversions}{18}{}%
+\contentsline {section}{\numberline {3.2}Constants}{18}{}%
 \contentsline {chapter}{\numberline {4}Maths}{19}{}%
 \contentsline {chapter}{\numberline {5}Aerodynamics}{21}{}%
-\contentsline {chapter}{\numberline {6}Gas Turbines}{23}{}%
+\contentsline {chapter}{\numberline {6}Gas Turbine}{23}{}%
 \contentsline {chapter}{\numberline {7}Rocket Propulsion}{25}{}%
 \contentsline {chapter}{\numberline {8}Flight Mechanics}{27}{}%
 \contentsline {chapter}{\numberline {9}Orbital Mechanics}{29}{}%
-\contentsline {chapter}{\numberline {10}Strength of Materials}{31}{}%
-\contentsline {chapter}{\numberline {11}Aircraft Structures}{33}{}%
-\contentsline {chapter}{\numberline {12}Mechanical Vibration and Aero-elasticity}{35}{}%
+\contentsline {chapter}{\numberline {10}Aircraft Structures}{31}{}%

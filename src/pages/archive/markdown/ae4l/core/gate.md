@@ -7,7 +7,7 @@ tags: ["Aerospace"]
 
 # About The Exam
 
-You can check the [2026 GATE](https://gate2026.iitg.ac.in) website for the syllabus exam pattern and other information there as things are likely going to be the same for the following year as well.
+You can check the [2027 GATE](https://gate2027.iitm.ac.in) website for the syllabus exam pattern and other information there as things are likely going to be the same for the following year as well.
 
 Conducting Institute (2026): IIT Guwahati
 
@@ -20,7 +20,7 @@ MSQ: No -ve marking
 Numerical: No -ve marking
 
 > Learn these 1st: Geometry, Units and Dimensions, 11th and 12th Physics and Maths, Thermodynamics, Engineering Mechanics, Fluid Mechanics, Strength of Materials; then the below.
-> _Offline version can be downloaded here as a pdf (A4 or US letter) or ebook_ (soon)
+> _Offline version can be downloaded here as a pdf (A4) or ebook_ (soon)
 
 # How To Use This Guide
 
@@ -106,7 +106,7 @@ Numerical: No -ve marking
 
 # List of Formulas
 
-You can download the complete book [here for free](./../../../LaTeX/gate/main.pdf). The book is still being written and will be completed within a few months.
+You can download the complete book [here for free](../ae4l/LaTeX/main.pdf). The book is still being written and will be completed within a few months.
 
 ## Unit Conversions and Constants
 
