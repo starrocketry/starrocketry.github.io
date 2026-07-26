@@ -106,7 +106,7 @@ Numerical: No -ve marking
 
 # List of Formulas
 
-You can download the complete book [here for free](...../LateX/main.pdf). The book is still being written and will be completed within a few months.
+You can download the complete book [here for free](./../../../LaTeX/gate/main.pdf). The book is still being written and will be completed within a few months.
 
 ## Unit Conversions and Constants
 
