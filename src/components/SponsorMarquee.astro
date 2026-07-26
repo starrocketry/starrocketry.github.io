@@ -4,19 +4,19 @@ import "../styles/marquee.css";
 const sponsorData = [
   {
     name: "REVA University",
-    logo: "/sponsor-logo/logo.png",
+    logo: "./sponsor-logo/logo.png",
     website: "https://reva.edu.in/",
     tier: "static_fire",
   },
   {
     name: "AICTE IDEA Lab",
-    logo: "/sponsor-logo/idea-lab.png",
+    logo: "./sponsor-logo/idea-lab.png",
     website: "https://www.reva.edu.in/aicte-idea-lab",
     tier: "staging",
   },
   {
     name: "Ansys by Synopsys",
-    logo: "/sponsor-logo/ansys-logo.svg",
+    logo: "./sponsor-logo/ansys-logo.svg",
     website: "https://www.ansys.com/",
     tier: "staging",
   },
@@ -30,7 +30,7 @@ const TIER_MAP: Record<string, { label: string; color: string }> = {
   staging: { label: "STAGING", color: "#888888" },
 };
 
-// Repeat array 3x to ensure wide PC monitors (4K / 1440p) are completely filled
+// Repeat array 3x for wide monitors
 const marqueeArray = [...sponsorData, ...sponsorData, ...sponsorData];
 ---
 
@@ -51,7 +51,7 @@ const marqueeArray = [...sponsorData, ...sponsorData, ...sponsorData];
               >
                 <div class="sponsor-brand">
                   <img
-                    src={s.logo}
+                    src={import.meta.env.BASE_URL + s.logo.replace(/^\.\//, "")}
                     alt={s.name}
                     class="sponsor-logo"
                     loading="eager"
