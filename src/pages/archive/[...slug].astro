@@ -90,16 +90,16 @@ const { title, date, author, tags } = post.frontmatter;
   <Footer />
 </Layout>
 
-<style is:global>
+<style>
   /* Regular Content Text Justification */
-  .markdown-content p {
+  :global(.markdown-content p) {
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.7;
   }
 
   /* Video 16:9 AR Lock & "No Crop" Containment */
-  .markdown-content video {
+  :global(.markdown-content video) {
     width: 100% !important;
     height: auto !important;
     aspect-ratio: 16 / 9;
@@ -110,7 +110,7 @@ const { title, date, author, tags } = post.frontmatter;
   }
 
   /* GFM Table Styling */
-  .markdown-content table {
+  :global(.markdown-content table) {
     display: block;
     width: 100%;
     overflow-x: auto;
@@ -120,32 +120,34 @@ const { title, date, author, tags } = post.frontmatter;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
-  .markdown-content th,
-  .markdown-content td {
+
+  :global(.markdown-content th),
+  :global(.markdown-content td) {
     min-width: 120px;
     padding: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
   }
-  .markdown-content th {
+
+  :global(.markdown-content th) {
     background: rgba(255, 255, 255, 0.07);
   }
 
   /* GFM Task List Styling */
-  .markdown-content ul li input[type="checkbox"] {
+  :global(.markdown-content ul li input[type="checkbox"]) {
     margin-right: 10px;
     accent-color: #00ffaa;
   }
 
   /* Math Centering */
-  .katex-display {
+  :global(.katex-display) {
     margin: 1.5rem 0;
     overflow-x: auto;
     overflow-y: hidden;
   }
 
   /* Navigation Back Button styling */
-  .back-btn {
+  :global(.back-btn) {
     display: inline-block;
     color: #fff;
     text-decoration: none;
@@ -155,7 +157,8 @@ const { title, date, author, tags } = post.frontmatter;
     padding: 10px 20px;
     transition: 0.3s;
   }
-  .back-btn:hover {
+
+  :global(.back-btn:hover) {
     background: #00ffaa;
     color: #000;
     border-color: #00ffaa;

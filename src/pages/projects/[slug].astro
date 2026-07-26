@@ -4,12 +4,14 @@ import "../../styles/project-page.css";
 
 export async function getStaticPaths() {
   const projectFiles = import.meta.glob("./markdown/*.md", { eager: true });
-  
-  return Object.entries(projectFiles).map(([filePath, project]: [string, any]) => {
-    // Extract file name safely from the path (e.g., "./markdown/static-test-stand.md" -> "static-test-stand")
-    const slug = filePath.split("/").pop()?.replace(".md", "");
-    return { params: { slug }, props: { project } };
-  });
+
+  return Object.entries(projectFiles).map(
+    ([filePath, project]: [string, any]) => {
+      // Extract file name safely from the path (e.g., "./markdown/static-test-stand.md" -> "static-test-stand")
+      const slug = filePath.split("/").pop()?.replace(".md", "");
+      return { params: { slug }, props: { project } };
+    },
+  );
 }
 
 const { project } = Astro.props;
@@ -107,28 +109,27 @@ const {
   </article>
 </Layout>
 
-<style is:global>
+<style>
   /* Regular Content Text Justification */
-  .markdown-content p {
+  :global(.markdown-content p) {
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.7;
   }
 
   /* Video 16:9 AR Lock & "No Crop" Scaling */
-  .markdown-content video {
+  :global(.markdown-content video) {
     width: 100% !important;
     height: auto !important;
     aspect-ratio: 16 / 9;
-    /* 'contain' ensures the full frame is visible, scaling to fit inside the 16:9 box without cropping. */
-    object-fit: contain; 
+    object-fit: contain;
     background-color: #000;
     border: 1px solid rgba(255, 255, 255, 0.05);
     margin: 1.5rem 0;
   }
 
   /* GFM Table Styling */
-  .markdown-content table {
+  :global(.markdown-content table) {
     display: block;
     width: 100%;
     overflow-x: auto;
@@ -138,25 +139,27 @@ const {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
-  .markdown-content th,
-  .markdown-content td {
+
+  :global(.markdown-content th),
+  :global(.markdown-content td) {
     min-width: 120px;
     padding: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: left;
   }
-  .markdown-content th {
+
+  :global(.markdown-content th) {
     background: rgba(255, 255, 255, 0.07);
   }
 
   /* GFM Task List Styling */
-  .markdown-content ul li input[type="checkbox"] {
+  :global(.markdown-content ul li input[type="checkbox"]) {
     margin-right: 10px;
     accent-color: #00ffaa;
   }
 
   /* Math Centering */
-  .katex-display {
+  :global(.katex-display) {
     margin: 1.5rem 0;
     overflow-x: auto;
     overflow-y: hidden;
