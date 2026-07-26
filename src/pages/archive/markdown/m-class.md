@@ -2,6 +2,7 @@
 title: "M Class Motor test "
 date: "2026.03.04"
 author: "Dhruv K"
+category: "Propulsion"
 tags: ["Propulsion"]
 ---
 

@@ -2,6 +2,7 @@
 title: "J-Class Motor Test"
 date: "2026.03.04"
 author: "Dhruv Kakade"
+category: "Propulsion"
 tags: ["Propulsion"]
 ---
 

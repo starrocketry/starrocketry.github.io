@@ -2,6 +2,7 @@
 title: "AE4L"
 date: "20260304"
 author: "Dhruv Kakade"
+category: "Aerospace"
 tags: ["Aerospace"]
 ---
 

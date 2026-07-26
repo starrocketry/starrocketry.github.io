@@ -2,7 +2,7 @@
 title: "Sounding Rocketry Workshop 2026"
 date: "2026.03.04"
 author: "Dhruv Kakade"
-category: CAD
+category: "Workshop"
 tags: ["Workshop"]
 ---
 
