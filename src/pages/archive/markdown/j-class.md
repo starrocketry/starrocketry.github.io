@@ -1,11 +1,13 @@
 ---
-title: "Motor Test"
+title: "J-Class Motor Test"
 date: "2026.03.04"
 author: "Dhruv Kakade"
-tags: ["PROPULSION", "MANUFACTURING"]
+tags: ["Propulsion"]
 ---
 
-# Calculations will be avaliable soon!
+# Calculations will be available soon!
 
-make sure to follow us on our socials for updates.
-wanna support us please consider helping us out [here](https://starrocketry.github.io/sponsor-tier/)
+The current page is being published on Taylor \& Francis details shall be released when published.
+Make sure to follow us on our socials for updates.
+Wanna support us please consider helping us out [here](https://starrocketry.github.io/sponsor-tier/).
+See our other projects [here](https://starrocketry.github.io/projects/)

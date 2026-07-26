@@ -1,0 +1,18 @@
+---
+title: "Launch Pad MK-I"
+date: "2026.03.04"
+author: "Dhruv Kakade"
+tags: ["Launch"]
+---
+
+# READ ME
+
+Read [the Read Me file](https://starrocketry.github.io/projects/readme) before proceeding further.
+
+---
+
+## To be open Sourced after IN-SPACe Model Rocketry Competition 2026.
+
+---
+
+> For any errors, mistakes or any issues contact: **Dhruv Kakade** (Co-Team Lead), [ugcet2300660@reva.edu.in](mailto:ugcet2300660@reva.edu.in)
