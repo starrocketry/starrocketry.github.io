@@ -12,7 +12,7 @@ export default defineConfig({
   },
   vite: {
     build: {
-      cssMinify: "esbuild", // Replaces LightningCSS with Esbuild
+      cssMinify: false, // Replaces LightningCSS with Esbuild
     },
   },
   integrations: [],
