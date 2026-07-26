@@ -5,10 +5,15 @@ import rehypeKatex from "rehype-katex";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://starrocketry.github.io", // Updated site URL
+  site: "https://starrocketry.github.io",
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
+  },
+  vite: {
+    build: {
+      cssMinify: "esbuild", // Replaces LightningCSS with Esbuild
+    },
   },
   integrations: [],
 });

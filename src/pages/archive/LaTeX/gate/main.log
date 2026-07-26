@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  26 JUL 2026 16:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  26 JUL 2026 16:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -121,8 +121,7 @@ Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count298
-)
-No file main.aux.
+) (./main.aux (./chapters/syllabus.aux) (./chapters/books.aux) (./chapters/unit.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -139,6 +138,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -186,26 +186,28 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 
-]
-No file main.toc.
+] (./main.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 2.
+ [3])
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
-[3] [4
-
-]
-No file main.lot.
+ [4] (./main.lot)
 \tf@lot=\write4
 \openout4 = `main.lot'.
 
-[5] [6
+ [5
 
-]
-No file main.lof.
+] [6
+
+] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
-[7] [8
+ [7] [8
 
 
 ]
@@ -224,70 +226,7 @@ Chapter 2.
 ]
 \openout2 = `./chapters/books.aux'.
 
- (./chapters/books.tex
-
-./chapters/books.tex:3: LaTeX Error: Environment enlist undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3 \begin{enlist}
-                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./chapters/books.tex:4: LaTeX Error: Lonely \item--perhaps a missing list environment.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 \item F
-           undamentals of Gas Dynamics by Robert D. Zucker, Oscar Biblarz
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./chapters/books.tex:5: LaTeX Error: Lonely \item--perhaps a missing list environment.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.5 \item F
-           undamentals of Aerodynamics by John Anderson
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./chapters/books.tex:6: LaTeX Error: Lonely \item--perhaps a missing list environment.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.6 \item M
-           odern Compressible Flow: With Historical Perspective by John Ande...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./chapters/books.tex:11: LaTeX Error: \begin{document} ended by \end{enlist}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11 \end{enlist}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-) [14
+ (./chapters/books.tex) [14
 
 ]
 Chapter 3.
@@ -346,15 +285,15 @@ L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1531 strings out of 467525
- 24873 string characters out of 5418982
- 442756 words of memory out of 5000000
- 30471 multiletter control sequences out of 15000+600000
+ 1553 strings out of 467525
+ 25237 string characters out of 5418982
+ 445756 words of memory out of 5000000
+ 30479 multiletter control sequences out of 15000+600000
  633887 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,6n,65p,446b,199s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (33 pages, 117218 bytes).
+Output written on main.pdf (33 pages, 123120 bytes).
 PDF statistics:
  145 PDF objects out of 1000 (max. 8388607)
  95 compressed objects within 1 object stream

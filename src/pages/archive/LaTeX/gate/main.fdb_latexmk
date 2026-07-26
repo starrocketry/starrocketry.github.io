@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1785062097.21303 "/Users/dhruvkakade/Documents/Dev/starrocketry.github.io/src/pages/archive/LaTeX/gate/main.tex" "main.pdf" "main" 1785062097.89258 2
+["pdflatex"] 1785062505.28756 "/Users/dhruvkakade/Documents/Dev/starrocketry.github.io/src/pages/archive/LaTeX/gate/main.tex" "main.pdf" "main" 1785062505.98664 0
   "/Users/dhruvkakade/Documents/Dev/starrocketry.github.io/src/pages/archive/LaTeX/gate/main.tex" 1785059695.29898 792 8ef5adf54ed574a54c86fa88245c9ad8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -36,17 +36,17 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1780665322 5573038 b99aad5e4898a9034e953632f940512b ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1774209607 3636776 dc5fa9b6b1453b9d196cd42edf876004 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "chapters/books.aux" 1785062097.76169 559 bb5dfd9a86a4fb47d1a404251963f1dd "pdflatex"
-  "chapters/books.tex" 1785062096.19148 3033 de5237fa343e6da720560b166b0ab040 ""
-  "chapters/syllabus.aux" 1785062097.74892 3771 2e2ae5d9c3a12f8280f4b70940f73607 "pdflatex"
+  "chapters/books.aux" 1785062505.85996 665 3803ce4739db38a35f93273ff718bbcd "pdflatex"
+  "chapters/books.tex" 1785062504.35477 2766 30327505414fa39535cb14fbbc9b4fc9 ""
+  "chapters/syllabus.aux" 1785062505.84386 3771 2e2ae5d9c3a12f8280f4b70940f73607 "pdflatex"
   "chapters/syllabus.tex" 1785059036.11917 3797 8ee515552564de0392545f8972848289 ""
-  "chapters/unit.aux" 1785062097.76479 455 067611c95b217b8227ef5bcc1af38137 "pdflatex"
+  "chapters/unit.aux" 1785062505.86315 455 2f5891fdbcfd6fe86167838eeb20fbd3 "pdflatex"
   "chapters/unit.tex" 0 -1 0 ""
-  "main.aux" 1785062097.82721 2336 9c92a6d1395efffad27f23561fc40cea "pdflatex"
-  "main.lof" 1785062097.82998 240 e05ce8f6d55998047d9d56bf4dd44d25 "pdflatex"
-  "main.lot" 1785062097.82995 240 e05ce8f6d55998047d9d56bf4dd44d25 "pdflatex"
+  "main.aux" 1785062505.92483 2336 9c92a6d1395efffad27f23561fc40cea "pdflatex"
+  "main.lof" 1785062505.9277 240 e05ce8f6d55998047d9d56bf4dd44d25 "pdflatex"
+  "main.lot" 1785062505.92765 240 e05ce8f6d55998047d9d56bf4dd44d25 "pdflatex"
   "main.tex" 1785059695.29898 792 8ef5adf54ed574a54c86fa88245c9ad8 ""
-  "main.toc" 1785062097.82991 2950 d24d2ac5270d49b2d98ec4301a6c7da9 "pdflatex"
+  "main.toc" 1785062505.92758 3015 6f0ea00cf12ad45c140540bacec76189 "pdflatex"
   (generated)
   "chapters/books.aux"
   "chapters/syllabus.aux"
@@ -58,6 +58,3 @@
   "main.pdf"
   "main.toc"
   (rewritten before read)
-  "chapters/books.aux"
-  "chapters/syllabus.aux"
-  "chapters/unit.aux"
