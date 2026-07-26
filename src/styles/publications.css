@@ -128,8 +128,7 @@ h1 {
   gap: 30px;
 }
 
-.doi-link,
-.cite-btn {
+.doi-link {
   background: none;
   border: none;
   color: #888;
@@ -144,8 +143,7 @@ h1 {
   gap: 8px;
 }
 
-.doi-link:hover,
-.cite-btn:hover {
+.doi-link:hover {
   color: #fff;
 }
 
