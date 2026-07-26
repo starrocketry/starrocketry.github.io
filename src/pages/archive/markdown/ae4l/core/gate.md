@@ -9,8 +9,6 @@ tags: ["Aerospace"]
 
 You can check the [2027 GATE](https://gate2027.iitm.ac.in) website for the syllabus exam pattern and other information there as things are likely going to be the same for the following year as well.
 
-Conducting Institute (2026): IIT Guwahati
-
 Conducting Institute (2027): IIT Madras
 
 MCQ: -ve marking
