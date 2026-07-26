@@ -98,13 +98,15 @@ Numerical: No -ve marking
   - Orbital Mechanics by John E. Prussing, Bruce A. Conway
   - Analytical Mechanics of Space Systems by Hanspeter Schaub, John L. Junkins
 
+- Previous Year Questions
+- GK Publisher
+
 > MIT OCW / NPTEL - Assignments and Problem Sets
->
 > The main books in focus are discussed below (soon). All the books mentioned need not be used.
 
 # List of Formulas
 
-Will be avaliable as a pdf soon
+You can download the complete book [here for free](...../LateX/main.pdf). The book is still being written and will be completed within a few months.
 
 ## Unit Conversions and Constants
 
