@@ -106,7 +106,7 @@ Numerical: No -ve marking
 
 # List of Formulas
 
-You can download the complete book [here for free](../ae4l/LaTeX/main.pdf). The book is still being written and will be completed within a few months.
+You can download the complete book [here for free](https://raw.githubusercontent.com/starrocketry/starrocketry.github.io/1027d2fa750dd373b3dd8eca694e58ff24011ca4/src/pages/LaTeX/gate/main.pdf). The book is still being written and will be completed within a few months.
 
 ## Unit Conversions and Constants
 
