@@ -2,7 +2,7 @@
 title: "READ ME"
 id: "SR000-26.0.01"
 category: ["Disclaimer"]
-image: "/about/motor.jpg"
+image: "/star-text.svg"
 status: "Completed"
 ---
 
