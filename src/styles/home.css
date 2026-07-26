@@ -98,8 +98,8 @@
 }
 
 /* --- Hierarchy Marquee Container --- */
-/* This ensures the Marquee component hits the screen edges */
-:global(#mission-content > .marquee-wrapper) {
+/* Standard CSS selector without :global */
+#mission-content > .marquee-wrapper {
   width: 100vw;
   margin: 40px 0 80px 0;
   display: flex;
@@ -131,8 +131,9 @@
   z-index: 100;
 }
 
-:global(.footer-reveal-wrapper > footer),
-:global(.footer-reveal-wrapper > .footer-container) {
+/* Standard CSS selectors without :global */
+.footer-reveal-wrapper > footer,
+.footer-reveal-wrapper > .footer-container {
   width: 90% !important;
   max-width: 1400px !important;
   min-width: unset !important;
@@ -154,7 +155,8 @@
     letter-spacing: 4px;
   }
 
-  :global(.footer-reveal-wrapper > footer) {
+  /* Standard CSS selector without :global */
+  .footer-reveal-wrapper > footer {
     width: 95% !important;
   }
 }
