@@ -1,17 +1,15 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import { satteri } from "@astrojs/markdown-satteri"; // 1. Import Sätteri
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
+// https://astro.build/config
 export default defineConfig({
   site: "https://astronaut.github.io",
   markdown: {
-    // 2. Set the processor to Sätteri with your plugins mapped to its AST hooks
-    processor: satteri({
-      mdastPlugins: [remarkMath],
-      hastPlugins: [rehypeKatex],
-    }),
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
   },
+  // If you are using the @astrojs/mdx integration, add them there too:
   integrations: [],
 });
