@@ -1,22 +1,23 @@
 ---
 import "../styles/marquee.css";
 
-const sponsorData = [
+// 1. Updated asset paths to bypass adblock URL filters
+const partnerData = [
   {
     name: "REVA University",
-    logo: "./sponsor-logo/logo.png",
+    logo: "./brand-logo/logo.png",
     website: "https://reva.edu.in/",
     tier: "static_fire",
   },
   {
     name: "AICTE IDEA Lab",
-    logo: "./sponsor-logo/idea-lab.png",
+    logo: "./brand-logo/idea-lab.png",
     website: "https://www.reva.edu.in/aicte-idea-lab",
     tier: "staging",
   },
   {
     name: "Ansys by Synopsys",
-    logo: "./sponsor-logo/ansys-logo.svg",
+    logo: "./brand-logo/ansys-logo.svg",
     website: "https://www.ansys.com/",
     tier: "staging",
   },
@@ -30,40 +31,40 @@ const TIER_MAP: Record<string, { label: string; color: string }> = {
   staging: { label: "STAGING", color: "#888888" },
 };
 
-// Repeat array 3x for wide monitors
-const marqueeArray = [...sponsorData, ...sponsorData, ...sponsorData];
+// Repeat array 3x for continuous loop
+const marqueeArray = [...partnerData, ...partnerData, ...partnerData];
 ---
 
-<div class="marquee-wrapper">
+<div class="brand-flow-wrapper">
   {
-    sponsorData.length > 0 && (
-      <div class="marquee-container">
-        <div class="marquee-content infinite-scroll">
-          {marqueeArray.map((s) => (
+    partnerData.length > 0 && (
+      <div class="brand-flow-container">
+        <div class="brand-flow-track infinite-scroll">
+          {marqueeArray.map((p) => (
             <a
-              href={s.website}
+              href={p.website}
               target="_blank"
               rel="noopener noreferrer"
-              class="sponsor-link"
+              class="partner-item-link"
             >
               <div
-                class={`sponsor-tag glass ${s.tier === "escape_velocity" ? "rank-escape" : ""}`}
+                class={`partner-card glass ${p.tier === "escape_velocity" ? "rank-escape" : ""}`}
               >
-                <div class="sponsor-brand">
+                <div class="partner-brand">
                   <img
-                    src={import.meta.env.BASE_URL + s.logo.replace(/^\.\//, "")}
-                    alt={s.name}
-                    class="sponsor-logo"
+                    src={import.meta.env.BASE_URL + p.logo.replace(/^\.\//, "")}
+                    alt={p.name}
+                    class="partner-mark"
                     loading="eager"
                   />
-                  <div class="sponsor-info">
+                  <div class="partner-meta">
                     <span
                       class="rank-label"
-                      style={`color: ${TIER_MAP[s.tier]?.color || "#888888"}`}
+                      style={`color: ${TIER_MAP[p.tier]?.color || "#888888"}`}
                     >
-                      {TIER_MAP[s.tier]?.label || "PARTNER"}
+                      {TIER_MAP[p.tier]?.label || "PARTNER"}
                     </span>
-                    <span class="sponsor-name">{s.name}</span>
+                    <span class="partner-name">{p.name}</span>
                   </div>
                 </div>
               </div>
