@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import RocketScroll from "../components/RocketScroll.astro";
 import SponsorMarquee from "../components/SponsorMarquee.astro";
 import Sponsors from "../components/Sponsors.astro";
-// Footer removed from imports because it belongs in Layout.astro
+
 import "../styles/home.css";
 ---
 
@@ -20,20 +20,27 @@ import "../styles/home.css";
   <main id="mission-main">
     <RocketScroll />
 
-    <section class="marquee-section" style="min-height: 200px; width: 100%;">
-      <div class="section-tag">SPONSORS</div>
-      <SponsorMarquee />
-    </section>
+    <div id="mission-content" style="opacity: 1; visibility: visible;">
+      <section
+        class="marquee-section"
+        style="width: 100%; position: relative; z-index: 60;"
+      >
+        <div class="section-tag">SPONSORS</div>
+        <SponsorMarquee />
+      </section>
 
-    <div class="command-center">
-      <Sponsors />
+      <div class="command-center">
+        <Sponsors />
+      </div>
+
+      <div class="footer-reveal-wrapper">
+        <Footer />
+      </div>
     </div>
   </main>
-  <Footer />
 </Layout>
 
 <script is:inline>
-  // Use 'DOMContentLoaded' to ensure the Marquee and CSS are ready before script logic runs
   document.addEventListener("DOMContentLoaded", () => {
     const nav = document.getElementById("mission-ui");
 

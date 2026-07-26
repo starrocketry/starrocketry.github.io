@@ -1,7 +1,6 @@
 ---
 import "../styles/marquee.css";
 
-// Internal Data for production stability
 const sponsorData = [
   {
     name: "REVA University",
@@ -21,18 +20,17 @@ const sponsorData = [
     website: "https://www.ansys.com/",
     tier: "staging",
   },
-  // Add other sponsors here
 ];
 
-const TIER_MAP = {
+const TIER_MAP: Record<string, { label: string; color: string }> = {
   escape_velocity: { label: "ESCAPE VELOCITY", color: "#c594f0" },
-  apogee: { label: "APOGEE", color: "#888" },
-  max_q: { label: "MAX-Q", color: "#888" },
-  static_fire: { label: "STATIC FIRE", color: "#888" },
-  staging: { label: "STAGING", color: "#888" },
+  apogee: { label: "APOGEE", color: "#888888" },
+  max_q: { label: "MAX-Q", color: "#888888" },
+  static_fire: { label: "STATIC FIRE", color: "#888888" },
+  staging: { label: "STAGING", color: "#888888" },
 };
 
-// TRIPLE BUFFER: We repeat the list 3 times to ensure no gaps on any screen size.
+// Repeat array 3x to ensure wide PC monitors (4K / 1440p) are completely filled
 const marqueeArray = [...sponsorData, ...sponsorData, ...sponsorData];
 ---
 
@@ -42,7 +40,12 @@ const marqueeArray = [...sponsorData, ...sponsorData, ...sponsorData];
       <div class="marquee-container">
         <div class="marquee-content infinite-scroll">
           {marqueeArray.map((s) => (
-            <a href={s.website} target="_blank" class="sponsor-link">
+            <a
+              href={s.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="sponsor-link"
+            >
               <div
                 class={`sponsor-tag glass ${s.tier === "escape_velocity" ? "rank-escape" : ""}`}
               >
@@ -56,7 +59,7 @@ const marqueeArray = [...sponsorData, ...sponsorData, ...sponsorData];
                   <div class="sponsor-info">
                     <span
                       class="rank-label"
-                      style={`color: ${TIER_MAP[s.tier]?.color || "#888"}`}
+                      style={`color: ${TIER_MAP[s.tier]?.color || "#888888"}`}
                     >
                       {TIER_MAP[s.tier]?.label || "PARTNER"}
                     </span>
@@ -71,110 +74,3 @@ const marqueeArray = [...sponsorData, ...sponsorData, ...sponsorData];
     )
   }
 </div>
-
-<style>
-  /* --- Infinite Animation Logic --- */
-  @keyframes scroll-infinite {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-33.3333%);
-    }
-  }
-
-  /* --- Layout & Structure --- */
-  :global(.marquee-wrapper) {
-    width: 100% !important;
-    overflow: hidden !important;
-    padding: 50px 0;
-  }
-
-  :global(.marquee-container) {
-    display: flex !important;
-    width: 100%;
-    overflow: hidden;
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 15%,
-      black 85%,
-      transparent
-    );
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 15%,
-      black 85%,
-      transparent
-    );
-  }
-
-  :global(.infinite-scroll) {
-    display: flex !important;
-    width: max-content !important;
-    gap: 30px;
-    will-change: transform;
-    animation: scroll-infinite 50s linear infinite !important;
-  }
-
-  /* --- Cards & Links --- */
-  :global(a.sponsor-link) {
-    display: block !important;
-    text-decoration: none !important;
-    flex-shrink: 0 !important;
-    min-width: 320px !important;
-    transition: transform 0.3s ease;
-  }
-
-  :global(.sponsor-link:hover) {
-    transform: translateY(-5px);
-  }
-
-  :global(.sponsor-tag) {
-    display: flex !important;
-    align-items: center;
-    padding: 24px 35px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-  }
-
-  :global(.sponsor-brand) {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  :global(.sponsor-info) {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  :global(.sponsor-logo) {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    filter: grayscale(1) brightness(2);
-    opacity: 0.8;
-  }
-
-  /* --- Purple "Escape Velocity" Accent --- */
-  :global(.rank-escape) {
-    border: 1px solid rgba(197, 148, 240, 0.4) !important;
-    background: rgba(197, 148, 240, 0.04) !important;
-    box-shadow: inset 0 0 15px rgba(197, 148, 240, 0.05);
-  }
-
-  :global(.rank-escape .sponsor-name) {
-    color: #fff !important;
-    text-shadow: 0 0 8px rgba(197, 148, 240, 0.4);
-  }
-
-  /* --- Hover States --- */
-  :global(.marquee-container:hover .infinite-scroll) {
-    animation-play-state: paused !important;
-  }
-</style>

@@ -1,19 +1,39 @@
 \documentclass{book}
 
-\usepackage[a4paper]{geometry}
+\usepackage[a4paper, top=20mm, bottom=20mm]{geometry}
 \usepackage[]{fontenc}
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{gensymb}
+\usepackage{fancyhdr}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{booktabs}
 
-\title{AE4L GATE}
-\author{Kakade, D.}
-\date{v26.0.0.1}
+% To have Bibliography heading changed to References
+\renewcommand{\bibname}{References}
+
+% Header and Footer style
+\pagestyle{fancy}
+\fancyfoot[L]{STAR Rocketry}
+\fancyfoot[C]{Page \thepage}
+
+\renewcommand{\footrulewidth}{0.4pt}
+
+\title{AE4L GATE Self Study Guide}
+\author{
+  Kakade, D. \\[10cm]
+  \small\textbf{STAR Rocketry}\\
+  \small\url{https://starrocketry.com}\\
+}
+
+\date{\vspace{1cm}\small Version: v26.0.0.1}
 
 \begin{document}
+
 \begin{titlepage}
   \maketitle
-
 \end{titlepage}
 
 % \pagestyle{empty}
@@ -68,5 +88,10 @@
 \chapter{Aircraft Structures}
 
 \include{./chapters/aircraft_strcutures.tex}
+
+\clearpage
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
 
 \end{document}

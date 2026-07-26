@@ -4,14 +4,15 @@
   z-index: 50; /* Higher than background but lower than navbar */
   background: #000000;
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic height fix for mobile address bars */
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  padding: 140px 0 0 0;
+  padding: 100px 0 0 0;
   overflow-x: hidden;
-  pointer-events: none; /* Controlled by script */
+  pointer-events: none; /* Controlled by script / inline style */
 }
 
 /* --- Reveal Logic --- */
@@ -22,9 +23,16 @@
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Force interaction when visible via the script's inline opacity */
+/* Force interaction when visible via inline opacity */
 #mission-ui[style*="opacity: 1"],
 #mission-content[style*="opacity: 1"] {
+  pointer-events: auto !important;
+}
+
+/* Enable pointer events on child content sections when content is active */
+#mission-content[style*="opacity: 1"] .marquee-section,
+#mission-content[style*="opacity: 1"] .command-center,
+#mission-content[style*="opacity: 1"] .footer-reveal-wrapper {
   pointer-events: auto !important;
 }
 
@@ -34,7 +42,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 0; /* Shrink container so it doesn't block the rocket */
+  height: 0; /* Shrink container so it doesn't block background layer */
   z-index: 100000;
   overflow: visible;
   pointer-events: none;
@@ -47,9 +55,9 @@
 .section-tag {
   align-self: center;
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem); /* Professional, technical size */
+  font-size: clamp(0.9rem, 2.5vw, 1.5rem);
   font-weight: 500;
-  letter-spacing: 10px; /* Wide tracking for a premium feel */
+  letter-spacing: clamp(4px, 1.2vw, 10px);
   text-transform: uppercase;
   text-align: center;
   padding: 0 20px;
@@ -71,8 +79,8 @@
   animation: metallic-flow 6s linear infinite;
 
   /* Space to clear the RocketScroll stars */
-  margin-top: 180px;
-  margin-bottom: 50px;
+  margin-top: 100px;
+  margin-bottom: 30px;
   position: relative;
   z-index: 60;
   opacity: 0.9;
@@ -87,24 +95,15 @@
   }
 }
 
-/* --- Mobile Fix --- */
-@media (max-width: 768px) {
-  .section-tag {
-    font-size: 0.9rem;
-    letter-spacing: 6px;
-    margin-top: 120px;
-    margin-bottom: 30px;
-  }
-}
-
-/* --- Hierarchy Marquee Container --- */
-/* Standard CSS selector without :global */
-#mission-content > .marquee-wrapper {
-  width: 100vw;
-  margin: 40px 0 80px 0;
+/* --- Hierarchy Marquee Section --- */
+.marquee-section {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  z-index: 60;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  align-items: center;
 }
 
 /* --- Grid Modules (Mission Logs / Fuel / Sponsors) --- */
@@ -117,6 +116,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 0 20px;
+  box-sizing: border-box;
 }
 
 /* --- Footer Normalization --- */
@@ -129,9 +129,9 @@
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   position: relative;
   z-index: 100;
+  box-sizing: border-box;
 }
 
-/* Standard CSS selectors without :global */
 .footer-reveal-wrapper > footer,
 .footer-reveal-wrapper > .footer-container {
   width: 90% !important;
@@ -139,10 +139,17 @@
   min-width: unset !important;
 }
 
-/* --- Mobile Optimizations --- */
+/* Force specific interactivity for footers */
+.mission-footer {
+  position: relative;
+  z-index: 101 !important;
+  pointer-events: auto !important;
+}
+
+/* --- Consolidated Mobile Optimizations (max-width: 768px) --- */
 @media (max-width: 768px) {
   #mission-content {
-    padding-top: 100px;
+    padding-top: 80px;
   }
 
   #mission-ui {
@@ -150,20 +157,23 @@
   }
 
   .section-tag {
-    font-size: 0.55rem;
-    margin-bottom: 25px;
+    font-size: 0.75rem;
     letter-spacing: 4px;
+    margin-top: 60px;
+    margin-bottom: 20px;
   }
 
-  /* Standard CSS selector without :global */
-  .footer-reveal-wrapper > footer {
+  .command-center {
+    padding: 0 16px;
+    margin-bottom: 40px;
+  }
+
+  .footer-reveal-wrapper {
+    padding: 40px 0;
+  }
+
+  .footer-reveal-wrapper > footer,
+  .footer-reveal-wrapper > .footer-container {
     width: 95% !important;
   }
-}
-
-/* Force specific interactivity for footers if they overlap */
-.mission-footer {
-  position: relative;
-  z-index: 101 !important;
-  pointer-events: auto !important;
 }
