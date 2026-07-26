@@ -100,7 +100,7 @@ Numerical: No -ve marking
 - GK Publisher
 
 > MIT OCW / NPTEL - Assignments and Problem Sets
-> The main books in focus are discussed below (soon). All the books mentioned need not be used.
+> \*The main books in focus are discussed below (soon). All the books mentioned need not be used.
 
 # List of Formulas
 
