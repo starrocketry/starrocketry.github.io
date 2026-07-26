@@ -44,8 +44,6 @@
 }
 
 /* --- Section Branding --- */
-/* --- Section Branding (Big & Gradient) --- */
-/* --- Section Branding (Refined & Flowing) --- */
 .section-tag {
   align-self: center;
   font-family: "Space Grotesk", sans-serif;
@@ -101,7 +99,7 @@
 
 /* --- Hierarchy Marquee Container --- */
 /* This ensures the Marquee component hits the screen edges */
-#mission-content > :global(.marquee-wrapper) {
+:global(#mission-content > .marquee-wrapper) {
   width: 100vw;
   margin: 40px 0 80px 0;
   display: flex;
@@ -133,8 +131,8 @@
   z-index: 100;
 }
 
-.footer-reveal-wrapper > :global(footer),
-.footer-reveal-wrapper > :global(.footer-container) {
+:global(.footer-reveal-wrapper > footer),
+:global(.footer-reveal-wrapper > .footer-container) {
   width: 90% !important;
   max-width: 1400px !important;
   min-width: unset !important;
@@ -156,7 +154,7 @@
     letter-spacing: 4px;
   }
 
-  .footer-reveal-wrapper > :global(footer) {
+  :global(.footer-reveal-wrapper > footer) {
     width: 95% !important;
   }
 }
