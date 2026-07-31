@@ -12,6 +12,28 @@ AE4L stands for Aerospace Engineering For Life containing aerospace learning mat
 
 # Table of Contents
 
+- General Engineering Subjects:
+  - Mathematics
+    - [Precalculus](./ae4l/non-core/mathematics/precalculus)
+    - [Calculus I](./ae4l/non-core/mathematics/calculus-one)
+    - [Calculus II](./ae4l/non-core/mathematics/calculus-two)
+    - [Calculus III](./ae4l/non-core/mathematics/calculus-three)
+    - [Linear Algebra](./ae4l/non-core/mathematics/linear-algebra)
+    - [Probability & Statistics](./ae4l/non-core/mathematics/probability_statistics)
+    - [Ordinary Differential Equations](./ae4l/non-core/mathematics/ode)
+    - [Partial Differential Equations](./ae4l/non-core/mathematics/pde)
+    - [Differential Geometry](./ae4l/non-core/mathematics/differential_geometry)
+    - [Numerical Methods](./ae4l/non-core/mathematics/numerical_methods)
+  - Engineering Mechanics:
+    - [Statics](./ae4l/non-core/mechanics/statics)
+    - [Dynamics](./ae4l/non-core/mechanics/dynamics)
+  - [Physics](./ae4l/non-core/physics)
+  - [Introduction to Electrical Engineering](./ae4l/non-core/electrical)
+- General Skills:
+  - [LaTeX](./ae4l/skills/latex)
+  - [Excel](./ae4l/skills/excel)
+  - [Coding](./ae4l/skills/coding)
+
 - Core Subjects:
   - [Fluid Mechanics](./ae4l/core/fluid_mechanics)
   - [Gas Dynamics](./ae4l/core/gas_dynamics)
@@ -32,49 +54,35 @@ AE4L stands for Aerospace Engineering For Life containing aerospace learning mat
   - [Space Mission Analysis and Design](./ae4l/core/spacecraft_system)
   - [Mechanical Engineering Design](./ae4l/core/mech_design)
   - [GATE Aerospace Engineering](./ae4l/core/gate)
-- General Engineering Subjects:
-  - Mathematics
-    - [Precalculus](./ae4l/non-core/mathematics/precalculus)
-    - [Calculus I](./ae4l/non-core/mathematics/calculus-one)
-    - [Calculus II](./ae4l/non-core/mathematics/calculus-two)
-    - [Calculus III](./ae4l/non-core/mathematics/calculus-three)
-    - [Linear Algebra](./ae4l/non-core/mathematics/linear-algebra)
-    - [Probability & Statistics](./ae4l/non-core/mathematics/probability_statistics)
-    - [Ordinary Differential Equations](./ae4l/non-core/mathematics/ode)
-    - [Partial Differential Equations](./ae4l/non-core/mathematics/pde)
-    - [Differential Geometry](./ae4l/non-core/mathematics/differential_geometry)
-    - [Numerical Methods](./ae4l/non-core/mathematics/numerical_methods)
-  - Engineering Mechanics:
-    - [Statics](./ae4l/non-core/mechanics/statics)
-    - [Dynamics](./ae4l/non-core/mechanics/dynamics)
-  - [Physics](./ae4l/non-core/physics)
-  - [Introduction to Electrical Engineering](./ae4l/non-core/electrical)
-- General Skills:
-  - [LaTeX](./ae4l/skills/latex)
-  - [Excel (Still Draft)](./ae4l/skills/excel)
-  - [Coding](./ae4l/skills/coding)
+
 - Projects:
   - [CanSat](./ae4l/projects/cansat)
   - [CubeSat](./ae4l/projects/cubesat)
   - [Rocketry](./ae4l/projects/rocketry)
   - [Rover](./ae4l/projects/rover)
   - [UAV](./ae4l/projects/uav)
-  - [Helicopter Design (Still Draft)](./ae4l/projects/helicopter)
-  - [Lighter Than Air Projects (Still Draft)](./ae4l/projects/lta)
-  - [Control Projects (Still Draft)](./ae4l/projects/control)
+  - [Helicopter Design (Soon)](./ae4l/projects/helicopter)
+  - [Lighter Than Air Projects (Soon)](./ae4l/projects/lta)
+  - [Control Projects (Soon)](./ae4l/projects/control)
+
 - Hard Skills:
   - Electronics:
     - [Soldering](./ae4l/hardskills/soldering)
     - [Multimeters](./ae4l/hardskills/multimeter)
-    - [PCB Design and Fabrication (Still Draft)]()
-    - [Arduino (Still Draft)]()
+    - [PCB Design and Fabrication (Son)]()
+    - [Arduino (Soon)]()
   - Digital Fabrication:
     - [Laser Cutting (Soon)]()
     - [CNC (Soon)]()
     - [3D Printing (Soon)]()
     - [Hotwire Cut (Soon)]()
+
 - [Software](./ae4l/software)
+
 - [Podcasts](./ae4l/podcasts)
+
 - [Competitions](./ae4l/competitions)
+
 - [Communities (Still Draft)](./ae4l/communities)
+
 - [Documentary Films (Still Draft)](./ae4l/documentary)
