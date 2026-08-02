@@ -5,107 +5,135 @@ import Footer from "../components/Footer.astro";
 
 import "../styles/personnel.css";
 
-const team = [
+const teamSections = [
   {
-    name: "Abhay Nandan U",
-    role: "Team Lead",
-    photo: "/profile-picture/abhay-nandan.png",
-    github: "https://github.com/",
-    linkedin: "https://linkedin.com/in/abhay-nandan-28269b299",
-    orcid: "https://orcid.org/0009-0009-9636-5402",
-    discord: "abhaynandan",
-  },
-  {
-    name: "Dhruv K",
-    role: "Co-Team Lead",
-    photo: "/profile-picture/dhruv-kakade.png",
-    github: "https://github.com/dvke5",
-    linkedin: "https://linkedin.com/in/dvke5",
-    orcid: "https://orcid.org/0009-0006-3550-6644",
-    discord: "deltakiro",
-  },
-  {
-    name: "Akshay M",
-    role: "Systems Lead",
-    photo: "/profile-picture/akshay.png",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com/in/akshaym2005",
-    orcid: "https://orcid.org/0009-0009-5946-4444",
-    discord: "-",
-  },
-  {
-    name: "Chethan S",
-    role: "Design Lead",
-    photo: "/profile-picture/chethan.jpg",
-    github: "https://github.com/ChethanSkr/",
-    linkedin: "https://www.linkedin.com/in/chethan-s-189ba5296",
-    orcid: "https://orcid.org/my-orcid?orcid=",
-    discord: "-",
-  },
-  {
-    name: "Kadam Atharv Ravindra",
-    role: "Propulsion Lead",
-    photo: "/profile-picture/atharv.png",
-    github: "https://github.com/atharv-kadam-08",
-    linkedin: "https://www.linkedin.com/in/atharv-kadam-5aa1a2261",
-    orcid: "https://orcid.org/0009-0002-3563-8795",
-    discord: "-",
-  },
-  {
-    name: "Avik Rajeev Babu",
-    role: "Research and Development Lead",
-    photo: "/profile-picture/avik-babu.png",
-    github: "https://github.com",
-    linkedin: "https://www.linkedin.com/in/avik-rajeev-babu-277342291",
-    orcid: "https://orcid.org/",
-    discord: "-",
-  },
+    sectionTitle: "LEADERSHIP",
+    members: [
+      {
+        name: "Abhay Nandan U",
+        role: "Team Lead",
 
-  {
-    name: "Manish",
-    role: "Avionics Lead",
-    photo: "/profile-picture/manish.png",
-    github: "https://github.com/AeroLord2006",
-    linkedin: "https://www.linkedin.com/in/manish-t-megharaj-54674b32b",
-    orcid: "https://orcid.org/my-orcid?orcid=0009-0001-9327-7513",
-    discord: "-",
-  },
+        photo: "/profile-picture/abhay-nandan.png",
+        github: "https://github.com/",
+        linkedin: "https://linkedin.com/in/abhay-nandan-28269b299",
+        orcid: "https://orcid.org/0009-0009-9636-5402",
+        discord: "abhaynandan",
+      },
+      {
+        name: "Dhruv K",
+        role: "Co-Team Lead",
 
-  {
-    name: "Rohan B. Pawar",
-    role: "Manufacturing Lead",
-    photo: "/profile-picture/rohan-bp.jpg",
-    github: "https://github.com/brohanpawar2008",
-    linkedin: "https://www.linkedin.com/in/b-rohan-pawar-5901a537b",
-    orcid: "https://orcid.org/0009-0004-4909-7445",
-    discord: "-",
+        photo: "/profile-picture/dhruv-kakade.png",
+        github: "https://github.com/dvke5",
+        linkedin: "https://linkedin.com/in/dvke5",
+        orcid: "https://orcid.org/0009-0006-3550-6644",
+        discord: "deltakiro",
+      },
+    ],
   },
   {
-    name: "Prof. Shanawaz Patil",
-    role: "Faculty Advisor",
-    photo: "/profile-picture/shanawaz-patil.png",
-    github: "https://github.com/",
-    linkedin: "https://www.linkedin.com/in/dr-shanawaz-patil-b5b31218a/",
-    orcid: "https://orcid.org/0000-0001-5334-9415",
-    discord: "-",
+    sectionTitle: "SUBSYSTEM LEADS",
+    members: [
+      {
+        name: "Kadam Atharv Ravindra",
+        role: "Propulsion Lead",
+
+        photo: "/profile-picture/atharv.png",
+        github: "https://github.com/atharv-kadam-08",
+        linkedin: "https://www.linkedin.com/in/atharv-kadam-5aa1a2261",
+        orcid: "https://orcid.org/0009-0002-3563-8795",
+        discord: "-",
+      },
+      {
+        name: "Manish",
+        role: "Avionics Lead",
+
+        photo: "/profile-picture/manish.png",
+        github: "https://github.com/AeroLord2006",
+        linkedin: "https://www.linkedin.com/in/manish-t-megharaj-54674b32b",
+        orcid: "https://orcid.org/my-orcid?orcid=0009-0001-9327-7513",
+        discord: "-",
+      },
+      {
+        name: "Rohan B. Pawar",
+        role: "Manufacturing Lead",
+
+        photo: "/profile-picture/rohan-bp.jpg",
+        github: "https://github.com/brohanpawar2008",
+        linkedin: "https://www.linkedin.com/in/b-rohan-pawar-5901a537b",
+        orcid: "https://orcid.org/0009-0004-4909-7445",
+        discord: "-",
+      },
+      {
+        name: "Avik Rajeev Babu",
+        role: "Research and Development Lead",
+
+        photo: "/profile-picture/avik-babu.png",
+        github: "https://github.com",
+        linkedin: "https://www.linkedin.com/in/avik-rajeev-babu-277342291",
+        orcid: "https://orcid.org/",
+        discord: "-",
+      },
+      {
+        name: "Akshay M",
+        role: "Systems Lead",
+
+        photo: "/profile-picture/akshay.png",
+        github: "https://github.com",
+        linkedin: "https://linkedin.com/in/akshaym2005",
+        orcid: "https://orcid.org/0009-0009-5946-4444",
+        discord: "-",
+      },
+      {
+        name: "Chethan S",
+        role: "Design Lead",
+
+        photo: "/profile-picture/chethan.jpg",
+        github: "https://github.com/ChethanSkr/",
+        linkedin: "https://www.linkedin.com/in/chethan-s-189ba5296",
+        orcid: "https://orcid.org/my-orcid?orcid=",
+        discord: "-",
+      },
+    ],
   },
   {
-    name: "Prof. Sudhagara Rajan S",
-    role: "Mentor",
-    photo: "/profile-picture/gojo.jpg",
-    github: "https://github.com/",
-    linkedin: "https://www.linkedin.com/",
-    orcid: "https://orcid.org/",
-    discord: "-",
+    sectionTitle: "MEMBERS",
+    members: [],
   },
   {
-    name: "Prof. Shivaji Lamani",
-    role: "Co-ordinator",
-    photo: "/profile-picture/gojo.jpg",
-    github: "https://github.com/",
-    linkedin: "https://www.linkedin.com//",
-    orcid: "https://orcid.org/",
-    discord: "-",
+    sectionTitle: "FACULTY & MENTORS",
+    members: [
+      // {
+      //   name: "Prof. Shanawaz Patil",
+      //   role: "Faculty Advisor",
+      //   year: "Faculty",
+      //   photo: "/profile-picture/shanawaz-patil.png",
+      //   github: "https://github.com/",
+      //   linkedin: "https://www.linkedin.com/in/dr-shanawaz-patil-b5b31218a/",
+      //   orcid: "https://orcid.org/0000-0001-5334-9415",
+      //   discord: "-",
+      // },
+      // {
+      //   name: "Prof. Sudhagara Rajan S",
+      //   role: "Mentor",
+      //   year: "Faculty",
+      //   photo: "/profile-picture/gojo.jpg",
+      //   github: "https://github.com/",
+      //   linkedin: "https://www.linkedin.com/",
+      //   orcid: "https://orcid.org/",
+      //   discord: "-",
+      // },
+      // {
+      //   name: "Prof. Shivaji Lamani",
+      //   role: "Co-ordinator",
+      //   year: "Faculty",
+      //   photo: "/profile-picture/gojo.jpg",
+      //   github: "https://github.com/",
+      //   linkedin: "https://www.linkedin.com//",
+      //   orcid: "https://orcid.org/",
+      //   discord: "-",
+      // },
+    ],
   },
 ];
 ---
@@ -118,40 +146,68 @@ const team = [
       <h1>OUR TEAM</h1>
     </header>
 
-    <div class="team-grid">
-      {
-        team.map((member) => (
-          <div class="member-card glass">
-            <div class="photo-wrapper">
-              <img src={member.photo} alt={member.name} />
-            </div>
-
-            <div class="info">
-              <h3>{member.name}</h3>
-              <p class="role">{member.role}</p>
-            </div>
-
-            <div class="divider" />
-
-            <div class="socials">
-              <a href={member.github} target="_blank" class="social-link">
-                GITHUB
-              </a>
-              <a href={member.linkedin} target="_blank" class="social-link">
-                LINKEDIN
-              </a>
-              <a href={member.orcid} target="_blank" class="social-link">
-                ORCiD
-              </a>
-              <div class="discord-tag">
-                <span class="label">DISCORD:</span>
-                <span class="id">{member.discord}</span>
+    {
+      teamSections.map(
+        (section) =>
+          section.members.length > 0 && (
+            <section class="section-wrapper">
+              <div class="section-header">
+                <span class="badge">{section.sectionTitle}</span>
+                <div class="section-divider" />
               </div>
-            </div>
-          </div>
-        ))
-      }
-    </div>
+
+              <div
+                class={`team-grid ${
+                  section.members.length === 1 ? "single-member" : ""
+                }`}
+              >
+                {section.members.map((member) => (
+                  <div class="member-card glass">
+                    <div class="photo-wrapper">
+                      <img src={member.photo} alt={member.name} />
+                    </div>
+
+                    <div class="info">
+                      <h3>{member.name}</h3>
+                      <p class="role">{member.role}</p>
+                    </div>
+
+                    <div class="divider" />
+
+                    <div class="socials">
+                      <a
+                        href={member.github}
+                        target="_blank"
+                        class="social-link"
+                      >
+                        GITHUB
+                      </a>
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        class="social-link"
+                      >
+                        LINKEDIN
+                      </a>
+                      <a
+                        href={member.orcid}
+                        target="_blank"
+                        class="social-link"
+                      >
+                        ORCiD
+                      </a>
+                      <div class="discord-tag">
+                        <span class="label">DISCORD:</span>
+                        <span class="id">{member.discord}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ),
+      )
+    }
   </main>
   <Footer />
 </Layout>

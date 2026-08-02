@@ -1,7 +1,7 @@
 ---
 title: "GATE AEROSPACE ENGINEERING"
 date: "20260712"
-author: "Dhruv Kakade, Prof. Keshava Murthy M."
+author: "Dhruv Kakade, Keshava Murthy M."
 tags: ["Aerospace"]
 ---
 
