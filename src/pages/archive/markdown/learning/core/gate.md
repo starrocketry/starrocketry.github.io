@@ -158,7 +158,7 @@ $T_\text{sea level} = 15 \deg C = 288K$
 
 ---
 
-# Mathematics
+<!-- # Mathematics
 
 ## Algebra
 
@@ -224,7 +224,7 @@ $T_\text{sea level} = 15 \deg C = 288K$
 
 # Aptitude
 
----
+--- -->
 
 # References
 
