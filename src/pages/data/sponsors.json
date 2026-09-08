@@ -19,5 +19,26 @@
     "logo": "/brand-logo/ansys-logo.svg",
     "website": "https://www.ansys.com/",
     "about": "Ansys provides the industry-standard engineering simulation software that powers our design, testing, and optimization phases. By utilizing its advanced Finite Element Analysis (FEA) and Computational Fluid Dynamics (CFD) capabilities, we can virtually simulate complex structural mechanics, aerodynamic forces, and thermal behaviors."
+  },
+  {
+    "name": "Onshape",
+    "tier": "staging",
+    "logo": "/brand-logo/onshape-logo.svg",
+    "website": "https://www.onshape.com/",
+    "about": ""
+  },
+  {
+    "name": "AeroQuest",
+    "tier": "staging",
+    "logo": "/brand-logo/aeroquest-logo.png",
+    "website": "https://www.aeroquest.co",
+    "about": ""
+  },
+  {
+    "name": "Flight Mode",
+    "tier": "staging",
+    "logo": "/brand-logo/flightmode-logo.png",
+    "website": "https://www.flightmode.co.in",
+    "about": ""
   }
 ]
