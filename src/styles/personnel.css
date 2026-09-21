@@ -154,3 +154,12 @@
 .email-tag .id {
   color: #888;
 }
+
+.email-tag .id a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.email-tag .id a:visited {
+  color: inherit;
+}
