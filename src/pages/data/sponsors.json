@@ -1,10 +1,10 @@
 [
   {
     "name": "REVA University",
-    "tier": "static_fire",
+    "tier": "staging",
     "logo": "/brand-logo/logo.png",
     "website": "https://reva.edu.in",
-    "about": "Established in 2012, RECT is a forerunner in delivering technology-based education. Recognized as one of the Top 50 private universities in India, RECT with exemplary infrastructure, strives to benchmark new milestones in modern education."
+    "about": "Established in 2012, REVA is a forerunner in delivering technology-based education. Recognized as one of the Top 50 private universities in India, RECT with exemplary infrastructure, strives to benchmark new milestones in modern education."
   },
 
   {
