@@ -7,46 +7,50 @@ category: "Leader"
 tags: ["Leadership"]
 ---
 
-# Team Lead
+# Leadership
+
+## Team Lead
 
 Abhay Nandan U: December, 2024 - September, 2026 <br />
 Dhruv Kakade: September, 2026 - Present
 
-# Co-Team Lead
+## Co-Team Lead
 
 Dhruv Kakade: December, 2024 - September, 2026 <br />
 Rohan B: September, 2026 - Present
 
-# Subsystems Lead
+## Subsystems Lead
 
 Rohan B: March, 2026 - September, 2026 <br />
 Manish T: September, 2026 - Present
 
-# Propulsion Lead
+# Subsystems
+
+## Propulsion Lead
 
 Afrah Shaik: September, 2026 - Present
 
-# Design Lead
+## Design Lead
 
 Dhanush G: September, 2026 - Present
 
-# Analysis Lead
+## Analysis Lead
 
 Vishwanath G: September, 2026 - Present
 
-# Avionics Lead
+## Avionics Lead
 
 Kadam Atharv: September, 2026 - Present
 
-# Controls Lead
+## Controls Lead
 
 Rahul Shankar Hiremath: September, 2026 - Present
 
-# Payload Lead
+## Payload Lead
 
 Srinandana KS: September, 2026 - Present
 
-# Manufacturing Lead
+## Manufacturing Lead
 
 Bhavani Shankar T: September, 2026 - Present
 
