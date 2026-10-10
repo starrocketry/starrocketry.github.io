@@ -163,3 +163,23 @@
 .email-tag .id a:visited {
   color: inherit;
 }
+
+#previous-teamleads {
+  a:link {
+    color: #ebd6ff;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: #ebd6ff;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+}
