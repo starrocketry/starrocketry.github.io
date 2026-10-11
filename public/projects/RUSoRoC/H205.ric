@@ -1,0 +1,46 @@
+data:
+  config:
+    ambPressure: 101325.0
+    burnoutThrustThres: 0.1
+    burnoutWebThres: 2.54e-05
+    flowSeparationWarnPercent: 0.05
+    mapDim: 750
+    maxMachNumber: 0.7
+    maxMassFlux: 1406.469761
+    maxPressure: 10000000.0
+    minPortThroat: 2.0
+    sepPressureRatio: 0.4
+    timestep: 0.03
+  grains:
+  - properties:
+      coreDiameter: 0.008
+      diameter: 0.033299999999999996
+      inhibitedEnds: Neither
+      length: 0.18
+    type: BATES
+  nozzle:
+    convAngle: 0.0
+    divAngle: 0.0
+    efficiency: 0.7
+    erosionCoeff: 0.0
+    exit: 0.008
+    slagCoeff: 0.0
+    throat: 0.008
+    throatLength: 0.015
+  propellant:
+    density: 1800.0
+    name: Nakka - KNSU
+    tabs:
+    - a: 0.000101
+      k: 1.133
+      m: 41.98
+      maxPressure: 10342500.000000002
+      minPressure: 0.0
+      n: 0.319
+      t: 1720.0
+type: !!python/object/apply:uilib.fileIO.fileTypes
+- 3
+version: !!python/tuple
+- 0
+- 6
+- 2
