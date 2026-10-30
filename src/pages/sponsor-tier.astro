@@ -9,7 +9,7 @@ import "../styles/sponsor-tier.css";
 const tiers = [
   {
     id: "staging",
-    name: "STAGING*",
+    name: "STAGING",
     currency: "-",
     price: "Components / Software",
     impact: "Build rockets for testing",
@@ -61,7 +61,7 @@ const benefits = [
     escape_velocity: "✦",
   },
   {
-    label: "Logo on CanSat",
+    label: "Logo on Payload",
     staging: "✦",
     static_fire: "✦",
     max_q: "✦",
@@ -70,24 +70,16 @@ const benefits = [
   },
   {
     label: "Logo on Rocket Airframe",
-    staging: "small*",
-    static_fire: "Small",
-    max_q: "Medium",
-    apogee: "Large",
-    escape_velocity: "Large",
+    staging: "✦",
+    static_fire: "✦",
+    max_q: "✦",
+    apogee: "✦",
+    escape_velocity: "✦",
   },
   {
     label: "Logo on Team Apparel",
-    staging: "Small*",
-    static_fire: "Small",
-    max_q: "Medium",
-    apogee: "Large",
-    escape_velocity: "Large",
-  },
-  {
-    label: "Name on Papers",
-    staging: "",
-    static_fire: "",
+    staging: "✦",
+    static_fire: "✦",
     max_q: "✦",
     apogee: "✦",
     escape_velocity: "✦",
@@ -102,38 +94,70 @@ const benefits = [
   },
   {
     label: "Social Media Shout-outs",
-    staging: "Initially*",
-    static_fire: "Monthly",
-    max_q: "Weekly",
-    apogee: "All posts",
-    escape_velocity: "All Posts",
+    staging: "✦",
+    static_fire: "✦",
+    max_q: "✦",
+    apogee: "On All Posts",
+    escape_velocity: "On All Posts",
   },
   {
     label: "Linkedin post mention",
-    staging: "",
-    static_fire: "",
-    max_q: "",
+    staging: "✦",
+    static_fire: "✦",
+    max_q: "✦",
     apogee: "✦",
     escape_velocity: "✦",
   },
   {
     label: "Individual Social Media Thank You",
-    staging: "",
-    static_fire: "Quarterly",
-    max_q: "Monthly",
-    apogee: "Bi-Weekly",
-    escape_velocity: "Personalized",
+    staging: "✦",
+    static_fire: "✦",
+    max_q: "✦",
+    apogee: "✦",
+    escape_velocity: "✦",
   },
   {
-    label: "Use Company Components",
+    label: "Access To Member Resume Book",
     staging: "✦",
+    static_fire: "✦",
+    max_q: "✦",
+    apogee: "✦",
+    escape_velocity: "✦",
+  },
+  {
+    label: "Name on Papers",
+    staging: "",
     static_fire: "",
     max_q: "✦",
     apogee: "✦",
     escape_velocity: "✦",
   },
   {
-    label: "Launch Day Access",
+    label: " On Demand Access To Rocket Launches and Motor Test Footage ",
+    staging: "",
+    static_fire: "",
+    max_q: "✦",
+    apogee: "✦",
+    escape_velocity: "✦",
+  },
+  {
+    label: "Test Company Products",
+    staging: "",
+    static_fire: "",
+    max_q: "✦",
+    apogee: "✦",
+    escape_velocity: "✦",
+  },
+  {
+    label: "Access To Test Launch(India)",
+    staging: "",
+    static_fire: "",
+    max_q: "",
+    apogee: "",
+    escape_velocity: "✦",
+  },
+  {
+    label: "Co-Branding Of Next Project and Custom Statement On Website",
     staging: "",
     static_fire: "",
     max_q: "",
@@ -190,7 +214,9 @@ const displayRemaining = formatDisplay(remaining);
         <div class="telemetry-header">
           <div class="telemetry-title">
             <div class="pulse-dot"></div>
-            <span class="mission-label">STATUS: International Rocket Engineering Competition (IREC) 2027</span>
+            <span class="mission-label"
+              >STATUS: International Rocket Engineering Competition (IREC) 2027</span
+            >
           </div>
           <div class="telemetry-procured">
             <span class="amount">{displayCurrent}</span>
@@ -279,13 +305,10 @@ const displayRemaining = formatDisplay(remaining);
             }
           </tbody>
         </table>
-        <p>* depends on pricing of the equipments and components provided.</p>
-        <p>
-          Have a look at the brochure to know more about the team <a
-            href="http://"
-            target="_blank"
-            rel="noopener noreferrer">here</a
-          >.
+        <p class="sponsorship-packet-button">
+          <a href="http://" target="_blank" rel="noopener noreferrer">
+            Download Sponsorship-Packet
+          </a>
         </p>
       </div>
     </section>
