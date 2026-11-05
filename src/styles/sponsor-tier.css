@@ -507,3 +507,48 @@
     min-height: auto;
   }
 }
+
+/* --- Sponsorship Packet CTA Button --- */
+.packet-download-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.packet-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: rgba(197, 148, 240, 0.05);
+  border: 1px solid #c594f0;
+  border-radius: 8px;
+  color: #c594f0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 0 15px rgba(197, 148, 240, 0.1);
+}
+
+.packet-btn .download-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.packet-btn:hover {
+  background: #c594f0;
+  color: #000000;
+  box-shadow: 0 0 25px rgba(197, 148, 240, 0.4);
+  transform: translateY(-2px);
+}
+
+.packet-btn:hover .download-icon {
+  transform: translateY(2px);
+}
