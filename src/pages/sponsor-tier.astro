@@ -297,86 +297,86 @@ const displayRemaining = formatDisplay(remaining);
           </tbody>
         </table>
         <div class="packet-download-container">
-          < href="/path-to-your-sponsorship-packet.pdf" target="_blank"
-          rel="noopener noreferrer" class="packet-btn" >
-          <svg
-            class="download-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
           <a
             href="sponsorship-packet.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            ><span>DOWNLOAD SPONSORSHIP PACKET</span></a
+            class="packet-btn"
           >
+            <svg
+              class="download-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>DOWNLOAD SPONSORSHIP PACKET</span>
+          </a>
         </div>
       </div>
     </section>
-  </main>
 
-  <section class="fleet-section">
-    <h2 class="form-title">CURRENT SPONSORS</h2>
-    {
-      tiers
-        .slice()
-        .reverse()
-        .map((tier) => {
-          const tierSponsors = getSponsorsByTier(tier.id);
-          return tierSponsors.length > 0 ? (
-            <div class={`tier-group ${tier.id}`}>
-              <h3 class="tier-group-title" style={`color: ${tier.color}`}>
-                {tier.name}{" "}
-                <span>
-                  {" "}
-                  // {tierSponsors.length.toString().padStart(2, "0")}{" "}
-                </span>
-              </h3>
-              <div class="sponsor-grid">
-                {tierSponsors.map((s) => (
-                  <a
-                    href={s.website}
-                    target="_blank"
-                    class="sponsor-hex-card glass"
-                  >
-                    <div class="logo-wrapper">
-                      <img src={s.logo} alt={s.name} />
-                    </div>
-                    <div class="sponsor-meta">
-                      <span class="hex-name">{s.name}</span>
-                      <p class="hex-about">{s.about}</p>
-                    </div>
-                    <div class="card-status">
-                      <span class="status-dot" /> ACTIVE PARTNER
-                    </div>
-                  </a>
-                ))}
+    <section class="fleet-section">
+      <h2 class="form-title">CURRENT SPONSORS</h2>
+      {
+        tiers
+          .slice()
+          .reverse()
+          .map((tier) => {
+            const tierSponsors = getSponsorsByTier(tier.id);
+            return tierSponsors.length > 0 ? (
+              <div class={`tier-group ${tier.id}`}>
+                <h3 class="tier-group-title" style={`color: ${tier.color}`}>
+                  {tier.name}{" "}
+                  <span>
+                    {" "}
+                    // {tierSponsors.length.toString().padStart(2, "0")}{" "}
+                  </span>
+                </h3>
+                <div class="sponsor-grid">
+                  {tierSponsors.map((s) => (
+                    <a
+                      href={s.website}
+                      target="_blank"
+                      class="sponsor-hex-card glass"
+                    >
+                      <div class="logo-wrapper">
+                        <img src={s.logo} alt={s.name} />
+                      </div>
+                      <div class="sponsor-meta">
+                        <span class="hex-name">{s.name}</span>
+                        <p class="hex-about">{s.about}</p>
+                      </div>
+                      <div class="card-status">
+                        <span class="status-dot" /> ACTIVE PARTNER
+                      </div>
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
-          ) : null;
-        })
-    }
-  </section>
+            ) : null;
+          })
+      }
+    </section>
 
-  <section id="enlist-section" class="form-section">
-    <h2 class="form-title">ENLIST NOW</h2>
-    <div class="notion-form-container">
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSeStB9tSYa7Ri9xJXWLgvxBp75K2nmMmjsq5HnKNaS_aP0TuQ/viewform?usp=headerchan"
-        width="100%"
-        height="600"
-        frameborder="0"
-        allowfullscreen></iframe>
-    </div>
-  </section>
+    <section id="enlist-section" class="form-section">
+      <h2 class="form-title">ENLIST NOW</h2>
+      <div class="notion-form-container">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSeStB9tSYa7Ri9xJXWLgvxBp75K2nmMmjsq5HnKNaS_aP0TuQ/viewform?usp=headerchan"
+          width="100%"
+          height="600"
+          frameborder="0"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+  <Footer />
 </Layout>
-<Footer />
